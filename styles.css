@@ -1,0 +1,51 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul, li {
+	list-style: none;
+}
+
+p, a {
+	font-size: 16pt;
+	line-height: 1.5em;
+	font-family: 'Forum', serif;
+	color: #1E1E20;
+	text-decoration: none;
+	padding: 0 1em;
+	transition:.1s;
+}
+
+a:visited {
+	color: #475150;
+}
+
+a:hover {
+	color: #DC3522;
+	background-color: #e9e9e9;
+}
+
+.layout, .nav, .news {
+	display: flex;
+}
+.layout {
+	padding: 2em;
+	justify-content: space-between;
+}
+.nav {
+	order: 1;
+	width: 300px;
+}
+.news {
+	order: 0;
+}
+.delete {
+	cursor: pointer;
+}
+nav p {
+	font-size: 10pt;
+}
+
+
