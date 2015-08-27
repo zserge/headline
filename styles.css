@@ -14,7 +14,6 @@ p, a {
 	font-family: 'Forum', serif;
 	color: #1E1E20;
 	text-decoration: none;
-	padding: 0 1em;
 	transition:.1s;
 }
 
@@ -31,7 +30,7 @@ a:hover {
 	display: flex;
 }
 .layout {
-	padding: 2em;
+	padding: 2em 2em 2em 3em;
 	justify-content: space-between;
 }
 .nav {
@@ -48,4 +47,9 @@ nav p {
 	font-size: 10pt;
 }
 
-
+@media (max-width: 600px) {
+	.layout {
+		flex-direction: column;
+		padding: 1em;
+	}
+}
