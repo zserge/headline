@@ -1,3 +1,6 @@
+var MAX_NEWS_ON_PAGE = 1000
+var MAX_NEWS_PER_FEED = 500
+
 function map(c, f) {
 	return Array.prototype.slice.call(c, 0).map(f);
 }
@@ -51,6 +54,7 @@ function merge(a, b) {
 			a.unshift(b[i]);
 		}
 	}
+	a = a.slice(0, MAX_NEWS_PER_FEED)
 	return a;
 }
 
@@ -149,7 +153,9 @@ var App = {
 				var list = [];
 				c.feeds.forEach(function(feed) {
 					feed.news.forEach(function(n) {
-						list.push(n);
+						if (list.length < MAX_NEWS_ON_PAGE) {
+							list.push(n);
+						}
 					});
 				});
 				return list.sort(function(a, b) {
