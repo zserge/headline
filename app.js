@@ -65,9 +65,11 @@ function feed(url, storage) {
 		news: JSON.parse(storage['news:' + url] || '[]'),
 		sync: function() {
 			f.news.forEach(function(n) { n.age++; });
+			// FIXME: we destroy cache, otherwise crossorigin.me seems to break it
+			var param = 'param' + new Date().getTime() + '=1';
+			var url = f.url + (f.url.split('?')[1] ? '&':'?') + param;
 			m.request({
-				// FIXME: we destroy cache, otherwise crossorigin.me seems to break it
-				url: f.url + '?&' + new Date().getTime(),
+				url: url,
 				deserialize: rss,
 			}).then(function(items) {
 				f.news = merge(f.news, items);
