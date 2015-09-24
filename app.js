@@ -1,6 +1,8 @@
 var MAX_NEWS_ON_PAGE = 1000
 var MAX_NEWS_PER_FEED = 500
 
+var CORS_PROXY = 'http://cors.dokku.trikita.co/';
+
 function map(c, f) {
 	return Array.prototype.slice.call(c, 0).map(f);
 }
@@ -62,21 +64,18 @@ function feed(url, storage) {
 	var f = {
 		id: url,
 		url: url,
-		news: JSON.parse(storage['news:' + url] || '[]'),
+		news: JSON.parse(storage.getItem('news:' + url) || '[]'),
 		sync: function() {
 			f.news.forEach(function(n) { n.age++; });
-			// FIXME: we destroy cache, otherwise crossorigin.me seems to break it
-			var param = 'param' + new Date().getTime() + '=1';
-			var url = f.url + (f.url.split('?')[1] ? '&':'?') + param;
 			m.request({
-				url: url,
+				url: f.url,
 				deserialize: rss,
 			}).then(function(items) {
 				f.news = merge(f.news, items);
-				storage['news:' + url] = JSON.stringify(f.news);
+				storage.setItem('news:' + url, JSON.stringify(f.news));
 			}, function(err) {
-				if (f.url.indexOf('http://crossorigin.me/') != 0) {
-					f.url = 'http://crossorigin.me/' + url;
+				if (f.url.indexOf(CORS_PROXY) != 0) {
+					f.url = CORS_PROXY + url;
 					f.sync();
 				}
 			});
@@ -126,7 +125,7 @@ var App = {
 	controller: function() {
 		var feeds = [
 			'https://news.ycombinator.com/rss',
-			'http://zserge.com/blog/rss.xml',
+			'http://zserge.com/rss.xml',
 			'https://www.reddit.com/r/programming.rss',
 			'https://www.reddit.com/r/worldnews.rss',
 		];
@@ -175,9 +174,9 @@ var App = {
 			});
 		}
 
-		// Sync now and every 15 minutes
+		// Sync now and every 5 minutes
 		setTimeout(sync, 100);
-		c.tid = setInterval(sync, 15 * 1000);
+		c.tid = setInterval(sync, 5 * 60 * 1000);
 		return c;
 	},
 	view: function(c) {
