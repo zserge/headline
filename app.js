@@ -7,12 +7,18 @@ function map(c, f) {
 	return Array.prototype.slice.call(c, 0).map(f);
 }
 
+function tag(item, name) {
+	var tags = item.getElementsByTagName(name);
+	return (tags && tags.length > 0) ? tags[0].textContent : undefined;
+}
+
 function rss20(rss) {
 	return map(rss.documentElement.getElementsByTagName('item'), function(item) {
 		return {
-			link: item.getElementsByTagName('link')[0].textContent,
-			title: item.getElementsByTagName('title')[0].textContent,
-			text: item.getElementsByTagName('description')[0].textContent,
+			link: tag(item, 'link'),
+			title: tag(item, 'title'),
+			text: tag(item, 'description'),
+			timestamp: new Date(tag(item, 'pubDate')),
 			age: 0,
 		};
 	});
@@ -26,8 +32,9 @@ function atom(rss) {
 					return link.getAttribute('href');
 				}
 			}),
-			title: item.getElementsByTagName('title')[0].textContent,
-			text: item.getElementsByTagName('content')[0].textContent,
+			title: tag(item, 'title'),
+			text: tag(item, 'content'),
+			timestamp: new Date(tag(item, 'updated')),
 			age: 0,
 		};
 	});
@@ -160,10 +167,13 @@ var App = {
 					});
 				});
 				return list.sort(function(a, b) {
-					if (a.age == b.age) {
-						return a.title.localeCompare(b.title);
+					if (a.timestamp < b.timestamp) {
+						return 1;
+					} else if (a.timestamp > b.timestamp) {
+						return -1;
+					} else {
+						return 0;
 					}
-					return a.age - b.age;
 				});
 			},
 		};
