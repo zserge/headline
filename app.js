@@ -135,6 +135,11 @@ var App = {
 			'http://zserge.com/rss.xml',
 			'https://www.reddit.com/r/programming.rss',
 			'https://www.reddit.com/r/worldnews.rss',
+			'https://www.reddit.com/r/lua.rss',
+			'https://www.reddit.com/r/golang.rss',
+			'https://www.reddit.com/r/china.rss',
+			'https://www.reddit.com/r/shanghai.rss',
+			'https://www.reddit.com/r/ukraina.rss',
 		];
 		if (localStorage.getItem('feeds')) {
 			feeds = JSON.parse(localStorage.getItem('feeds'));
@@ -167,7 +172,11 @@ var App = {
 					});
 				});
 				return list.sort(function(a, b) {
-					if (a.timestamp < b.timestamp) {
+					if (a.age < b.age) {
+						return -1;
+					} else if (a.age > b.age) {
+						return 1;
+					} else if (a.timestamp < b.timestamp) {
 						return 1;
 					} else if (a.timestamp > b.timestamp) {
 						return -1;
