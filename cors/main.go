@@ -77,10 +77,13 @@ func proxyHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	addr := flag.String("addr", ":8080", "Address to listen on")
+	verbose := flag.Bool("v", false, "Verbose output")
 	flag.Parse()
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		u := r.URL.Query().Get("u")
-		log.Println(u)
+		if *verbose {
+			log.Println(u)
+		}
 		if u == "" {
 			http.Error(w, "url is missing", http.StatusBadRequest)
 			return

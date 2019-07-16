@@ -1,7 +1,7 @@
 var MAX_NEWS_ON_PAGE = 1000
 var MAX_NEWS_PER_FEED = 500
 
-var CORS_PROXY = 'http://cors.dokku.trikita.co/';
+var CORS_PROXY = 'https://cors.zserge.com/';
 
 function map(c, f) {
 	return Array.prototype.slice.call(c, 0).map(f);

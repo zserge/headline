@@ -1,16 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<title>Headline</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="apple-touch-icon-precomposed" href="favicon.128.png">
-		<link href='http://fonts.googleapis.com/css?family=Forum&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="styles.css">
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+		<style>
+			* { font-family: 'PT Serif', serif; }
+			ul, li { list-style: none; }
+			a {
+				line-height: 1.75em;
+				color: #000;
+				text-decoration: none;
+			}
+			a:visited { color: #666; }
+			a:hover { text-decoration: underline; }
+		</style>
 	</head>
 	<body>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mithril/0.2.0/mithril.min.js"></script>
-		<script src="app.js"></script>
+		<ul class="news"></ul>
+		<script>
+			const MAX_NEWS_ON_PAGE = 1000;
+			const MAX_NEWS_PER_FEED = 500;
+			const CORS_PROXY = 'https://cors.zserge.com/?u=';
+
+			let feeds = [
+				{
+					url: 'https://www.reddit.com/r/programming.rss',
+					entries: [],
+				},
+				{
+					url: 'https://www.reddit.com/r/golang.rss',
+					entries: [],
+				},
+				{
+					url: 'https://www.reddit.com/r/lua.rss',
+					entries: [],
+				},
+			];
+
+			async function fetchFeed(url) {
+				const text = await fetch(CORS_PROXY+encodeURIComponent(url)).then(res => res.text());
+				const xml = new DOMParser().parseFromString(text, 'text/xml');
+				const map = (c, f) => Array.prototype.slice.call(c, 0).map(f);
+				const tag = (item, name) => (item.getElementsByTagName(name)[0] || {}).textContent;
+				const plainText = (html) => {
+					const el = document.createElement('div');
+					el.innerHTML = html;
+					return el.textContent || el.innerText || '';
+				};
+				switch (xml.documentElement.nodeName) {
+					case 'rss': return map(xml.documentElement.getElementsByTagName('item'), item => ({
+						link: tag(item, 'link'),
+						title: tag(item, 'title'),
+						timestamp: new Date(tag(item, 'pubDate')),
+					}));
+					case 'feed': return map(xml.documentElement.getElementsByTagName('entry'), item => ({
+						link: map(item.getElementsByTagName('link'), (link) => {
+							const rel = link.getAttribute('rel');
+							if (!rel || rel === 'alternate') {
+								return link.getAttribute('href');
+							}
+						})[0],
+						title: tag(item, 'title'),
+						timestamp: new Date(tag(item, 'updated')),
+					}));
+				}
+			}
+
+			async function syncFeed(feed) {
+				const entries = await fetchFeed(feed.url);
+				const mergedEntries = feed.entries.
+					concat(entries.filter(e => feed.entries.findIndex(x => x.link === e.link) < 0)).
+					slice(0, MAX_NEWS_PER_FEED);
+				return {url: feed.url, entries: mergedEntries};
+			}
+
+			function render(news) {
+				const ul = document.querySelector('.news');
+				while (ul.childNodes.length > news.length) {
+					ul.removeChild(ul.firstChild);
+				}
+				while (ul.childNodes.length < news.length) {
+					const li = document.createElement('li');
+					const a = document.createElement('a');
+					li.appendChild(a);
+					ul.appendChild(li);
+				}
+				news.forEach((e, i) => {
+					const a = ul.childNodes[i].childNodes[0];
+					a.textContent = e.title;
+					a.href = e.link;
+				});
+			}
+
+			(async () => {
+				const res = await Promise.all(feeds.map(f => syncFeed(f)));
+				const news = Array.prototype.concat.apply([], res.map(f => f.entries)).sort((a, b) => {
+					return (b.age - a.age) || (b.timestamp - a.timestamp);
+				}).slice(0, MAX_NEWS_ON_PAGE);
+				render(news);
+				console.log(news);
+			})()
+		</script>
 	</body>
 </html>
 
