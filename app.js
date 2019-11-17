@@ -1,4 +1,4 @@
-import {render, x, useEffect, useState} from './o.mjs';
+import {render, x, h, useEffect, useState} from './o.mjs';
 
 const MAX_NEWS_ON_PAGE = 1000;
 const MAX_NEWS_PER_FEED = 500;
@@ -123,13 +123,16 @@ const App = () => {
     <div>
       <header style="display: flex; margin: 1rem 0;">
         <${SidebarToggleButton} onclick=${() => setSidebarShown(!sidebarShown)} />
-        <span style="margin-left: auto">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" />
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </span>
+        <div style="margin-left: auto">
+          <div className="search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" name="search" placeholder="Search..." />
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </div>
       </header>
-      <${sidebarShown ? Sidebar : NewsList} />
+      <${Sidebar} shown=${sidebarShown}/>
+      <${NewsList} shown=${!sidebarShown} />
     </div>
   `;
 };

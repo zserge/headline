@@ -15,3 +15,11 @@ a:hover {
   text-decoration: underline;
 }
 em { color: #888; }
+
+input {
+  border: none;
+  outline: none;
+}
+.search {
+
+}
