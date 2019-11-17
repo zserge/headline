@@ -1,213 +1,137 @@
-var MAX_NEWS_ON_PAGE = 1000
-var MAX_NEWS_PER_FEED = 500
+import {render, x, useEffect, useState} from './o.mjs';
 
-var CORS_PROXY = 'https://cors.zserge.com/';
+const MAX_NEWS_ON_PAGE = 1000;
+const MAX_NEWS_PER_FEED = 500;
+const CORS_PROXY = 'https://cors.zserge.com/?u=';
 
-function map(c, f) {
-	return Array.prototype.slice.call(c, 0).map(f);
+let feeds = [
+  {
+    url: 'https://news.google.com/rss',
+    entries: [],
+  },
+  {
+    url: 'https://www.reddit.com/r/programming.rss',
+    entries: [],
+  },
+  {
+    url: 'https://www.reddit.com/r/golang.rss',
+    entries: [],
+  },
+  {
+    url: 'https://www.reddit.com/r/lua.rss',
+    entries: [],
+  },
+];
+
+async function fetchFeed(url) {
+  const text = await fetch(CORS_PROXY + encodeURIComponent(url)).then(res =>
+    res.text(),
+  );
+  const xml = new DOMParser().parseFromString(text, 'text/xml');
+  const map = (c, f) => Array.prototype.slice.call(c, 0).map(f);
+  const tag = (item, name) =>
+    (item.getElementsByTagName(name)[0] || {}).textContent;
+  const plainText = html => {
+    const el = document.createElement('div');
+    el.innerHTML = html;
+    return el.textContent || el.innerText || '';
+  };
+  switch (xml.documentElement.nodeName) {
+    case 'rss':
+      return map(xml.documentElement.getElementsByTagName('item'), item => ({
+        link: tag(item, 'link'),
+        title: tag(item, 'title'),
+        timestamp: new Date(tag(item, 'pubDate')),
+      }));
+    case 'feed':
+      return map(xml.documentElement.getElementsByTagName('entry'), item => ({
+        link: map(item.getElementsByTagName('link'), link => {
+          const rel = link.getAttribute('rel');
+          if (!rel || rel === 'alternate') {
+            return link.getAttribute('href');
+          }
+        })[0],
+        title: tag(item, 'title'),
+        timestamp: new Date(tag(item, 'updated')),
+      }));
+  }
 }
 
-function tag(item, name) {
-	var tags = item.getElementsByTagName(name);
-	return (tags && tags.length > 0) ? tags[0].textContent : undefined;
+async function syncFeed(feed) {
+  const entries = await fetchFeed(feed.url);
+  const mergedEntries = feed.entries
+    .concat(
+      entries.filter(e => feed.entries.findIndex(x => x.link === e.link) < 0),
+    )
+    .slice(0, MAX_NEWS_PER_FEED);
+  return {url: feed.url, entries: mergedEntries};
 }
 
-function rss20(rss) {
-	return map(rss.documentElement.getElementsByTagName('item'), function(item) {
-		return {
-			link: tag(item, 'link'),
-			title: tag(item, 'title'),
-			text: tag(item, 'description'),
-			timestamp: new Date(tag(item, 'pubDate')),
-			age: 0,
-		};
-	});
+async function syncAllFeeds() {
+  const res = await Promise.all(feeds.map(f => syncFeed(f)));
+  const news = Array.prototype.concat
+    .apply([], res.map(f => f.entries))
+    .sort((a, b) => {
+      return b.age - a.age || b.timestamp - a.timestamp;
+    });
+  return news;
 }
 
-function atom(rss) {
-	return map(rss.documentElement.getElementsByTagName('entry'), function(item) {
-		return {
-			links: map(item.getElementsByTagName('link'), function(link) {
-				if (link.getAttribute('rel') === 'alternate') {
-					return link.getAttribute('href');
-				}
-			}),
-			title: tag(item, 'title'),
-			text: tag(item, 'content'),
-			timestamp: new Date(tag(item, 'updated')),
-			age: 0,
-		};
-	});
-}
-
-function rss(s) {
-	var root = new DOMParser().parseFromString(s, 'text/xml');
-	var rootNode = root.documentElement.nodeName;
-	if (rootNode == 'rss') {
-		return rss20(root);
-	} else if (rootNode == 'feed') {
-		return atom(root);
-	}
-}
-
-function merge(a, b) {
-	for (var i = b.length-1; i >= 0; i--) {
-		var ok = true;
-		for (var j = 0; j < a.length; j++) {
-			if (a[j].link === b[i].link) {
-				ok = false;
-				break;
-			}
-		}
-		if (ok) {
-			a.unshift(b[i]);
-		}
-	}
-	a = a.slice(0, MAX_NEWS_PER_FEED)
-	return a;
-}
-
-function feed(url, storage) {
-	var f = {
-		id: url,
-		url: url,
-		news: JSON.parse(storage.getItem('news:' + url) || '[]'),
-		sync: function() {
-			f.news.forEach(function(n) { n.age++; });
-			m.request({
-				url: f.url,
-				deserialize: rss,
-			}).then(function(items) {
-				f.news = merge(f.news, items);
-				storage.setItem('news:' + url, JSON.stringify(f.news));
-			}, function(err) {
-				if (f.url.indexOf(CORS_PROXY) != 0) {
-					f.url = CORS_PROXY + url;
-					f.sync();
-				}
-			});
-			return f;
-		},
-	};
-	return f;
-}
-
-var Nav = {
-	controller: function(parent) {
-		return {
-			ondelete: function(id) {
-				if (!confirm('Delete feed ' + id + '?')) {
-					return;
-				}
-				parent.remove(id);
-			}
-		}
-	},
-	view: function(c, parent) {
-		return m('nav.nav',
-			m('ul',
-				parent.feeds.map(function(feed) {
-					return m('li',
-						m('p', feed.id,
-							m('span.delete', {
-								onclick: c.ondelete.bind(c, feed.id),
-							}, m.trust('&nbsp;[x]'))));
-				})));
-	}
+const NewsList = () => {
+  const [news, setNews] = useState([]);
+  const simplifyLink = link => {
+    const parts = link.replace(/^.*:\/\/(www\.)?/, '').split('/');
+    return parts[0];
+  };
+  useEffect(async () => {
+    const news = await syncAllFeeds();
+    setNews(news.slice(0, MAX_NEWS_ON_PAGE));
+  });
+  return x`
+  <div class="news">
+    ${news.map(
+      n => x`
+        <p>
+          <a href=${n.link}>
+            ${n.title + ' '}
+            <em>(${simplifyLink(n.link)})</em>
+          </a>
+        </p>
+      `,
+    )}
+  </div>
+  `;
 };
 
-var News = {
-	view: function(c, news) {
-		return m('section.news',
-		 news.length == 0 ?  m('p', 'No news here') :
-			m('ul',
-				news.map(function(n) {
-					return m('li',
-						m('a[href='+n.link+']', n.title));
-				})));
-	}
+const SidebarToggleButton = ({onclick}) => x`
+  <div onclick=${onclick}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="12" y1="6" x2="21" y2="6"></line><line x1="9" y1="18" x2="21" y2="18"></line></svg>
+  </div>
+`;
+
+const Sidebar = () => {
+  return x`
+    <div>
+    ${feeds.map(f => x`<p><a href=${'#' + f.url}>${f.url}</a></p>`)}
+    </div>
+  `;
 };
 
-var App = {
-	controller: function() {
-		var feeds = [
-			'https://news.ycombinator.com/rss',
-			'http://zserge.com/rss.xml',
-			'https://www.reddit.com/r/programming.rss',
-			'https://www.reddit.com/r/worldnews.rss',
-			'https://www.reddit.com/r/lua.rss',
-			'https://www.reddit.com/r/golang.rss',
-			'https://www.reddit.com/r/china.rss',
-			'https://www.reddit.com/r/shanghai.rss',
-			'https://www.reddit.com/r/ukraina.rss',
-		];
-		if (localStorage.getItem('feeds')) {
-			feeds = JSON.parse(localStorage.getItem('feeds'));
-		}
-		if (m.route.param('url')) {
-			if (feeds.indexOf(m.route.param('url')) == -1) {
-				feeds.push(m.route.param('url'));
-			}
-		}
-		localStorage.setItem('feeds', JSON.stringify(feeds));
-
-		var c = {
-			onunload: function() {
-				clearTimeout(c.tid);
-			},
-			remove: function(id) {
-				c.feeds = c.feeds.filter(function(f) { return f.id != id;});
-				localStorage.setItem('feeds', JSON.stringify(c.feeds.map(function(f) {
-					return f.id;
-				})));
-			},
-			feeds: feeds.map(function(url) { return feed(url, localStorage);}),
-			newsfeed: function() {
-				var list = [];
-				c.feeds.forEach(function(feed) {
-					feed.news.forEach(function(n) {
-						if (list.length < MAX_NEWS_ON_PAGE) {
-							list.push(n);
-						}
-					});
-				});
-				return list.sort(function(a, b) {
-					if (a.age < b.age) {
-						return -1;
-					} else if (a.age > b.age) {
-						return 1;
-					} else if (a.timestamp < b.timestamp) {
-						return 1;
-					} else if (a.timestamp > b.timestamp) {
-						return -1;
-					} else {
-						return 0;
-					}
-				});
-			},
-		};
-
-		function sync() {
-			c.feeds.forEach(function(feed) {
-				feed.sync();
-			});
-		}
-
-		// Sync now and every 5 minutes
-		setTimeout(sync, 100);
-		c.tid = setInterval(sync, 5 * 60 * 1000);
-		return c;
-	},
-	view: function(c) {
-		return m('.layout',
-			m.component(Nav, c),
-			m.component(News, c.newsfeed()));
-	}
+const App = () => {
+  const [sidebarShown, setSidebarShown] = useState(false);
+  return x`
+    <div>
+      <header style="display: flex; margin: 1rem 0;">
+        <${SidebarToggleButton} onclick=${() => setSidebarShown(!sidebarShown)} />
+        <span style="margin-left: auto">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </span>
+      </header>
+      <${sidebarShown ? Sidebar : NewsList} />
+    </div>
+  `;
 };
 
-window.onload = function() {
-	m.route.mode = 'hash';
-	m.route(document.body, '/', {
-		'/:url...': App,
-	});
-}
+window.onload = () => render(x`<${App} />`, document.body);
