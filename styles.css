@@ -21,10 +21,10 @@ em { color: #ccc; }
 
 header {
   display: flex;
-  min-height: 3rem;
+  min-height: 1.5rem;
   align-items: center;
   font-size: 24px;
-  margin: 1rem 0;
+  margin-top: 1rem;
 }
 .nav-right { margin-left: auto; }
 
