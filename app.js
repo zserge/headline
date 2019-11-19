@@ -25,8 +25,13 @@ const DEFAULT_FEEDS = [
 
 let feeds = DEFAULT_FEEDS;
 try {
-  let f = JSON.parse(localStorage.getItem('feeds-v1'));
-  feeds = f;
+  let savedFeeds = JSON.parse(localStorage.getItem('feeds-v1'));
+  savedFeeds.forEach(feed => {
+    feed.entries.forEach(e => {
+      e.timestamp = new Date(e.timestamp);
+    });
+  });
+  feeds = savedFeeds;
 } catch (ignore) {}
 
 const saveFeeds = () => localStorage.setItem('feeds-v1', JSON.stringify(feeds));
@@ -99,7 +104,7 @@ const useFeeds = () => {
     let n = []
       .concat(...feeds.filter(f => !url || f.url == url).map(f => f.entries))
       .sort((a, b) => {
-        return b.age - a.age || b.timestamp - a.timestamp;
+        return b.timestamp - a.timestamp;
       });
     return n;
   };
@@ -120,13 +125,26 @@ const NewsList = ({shown, urlFilter}) => {
   };
   return x`
     <div className=${'news' + (shown ? '' : ' hidden')}>
-      ${filterNews(urlFilter, query).map(
+      ${filterNews(urlFilter, query).reduce((list, n) => {
+        let day = (list.length ? list[list.length - 1].timestamp.toDateString() : '');
+        if (n.timestamp.toDateString() !== day) {
+          list.push({timestamp: n.timestamp});
+        }
+        list.push(n);
+        return list;
+      }, []).map(
         n => x`
           <p>
-            <a href=${n.link}>
-              ${n.title + ' '}
-              <em>(${simplifyLink(n.link)})</em>
-            </a>
+            ${
+              (!n.link)
+                ? x`<h3 className="day-break">${n.timestamp.toLocaleDateString(undefined, {
+                  month: 'long', day: '2-digit',
+                })}</h3>`
+                : x`<a href=${n.link}>
+                    ${n.title + ' '}
+                    <em>(${simplifyLink(n.link)})</em>
+                  </a>`
+            }
           </p>
         `,
       )}
@@ -136,6 +154,7 @@ const NewsList = ({shown, urlFilter}) => {
 
 const Menu = ({shown, setURLFilter}) => {
   const {feeds, addFeed, removeFeed} = useFeeds();
+  const [feedName, setFeedName] = useState('');
   const simplifyLink = link => {
     const s = link.replace(/^.*:\/\/(www\.)?/, '');
     const maxLength = 32;
@@ -165,10 +184,19 @@ const Menu = ({shown, setURLFilter}) => {
       )}
       <br/>
         <li>
-          <input type="text" placeholder="RSS feed"/>
-          <a className="svg-icon svg-baseline">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          </a>
+          <form onsubmit=${e => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (feedName) {
+              addFeed(feedName);
+              setFeedName('');
+            }
+          }}>
+            <input type="text" placeholder="RSS feed" value=${feedName} oninput=${e => setFeedName(e.target.value)} />
+            <button type="submit" className="svg-icon svg-baseline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+          </form>
         </li>
       </ul>
     </div>
