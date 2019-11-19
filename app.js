@@ -168,6 +168,7 @@ const Menu = ({shown, setURLFilter}) => {
   return x`
     <div className=${'menu' + (shown ? '' : ' hidden')}>
       <ul>
+        <h3>RSS</h3>
         ${feeds.map(
           f => x`
           <li>
@@ -184,7 +185,7 @@ const Menu = ({shown, setURLFilter}) => {
       )}
       <br/>
         <li>
-          <form onsubmit=${e => {
+          <form style="width: 100%;" onsubmit=${e => {
             e.preventDefault();
             e.stopPropagation();
             if (feedName) {
