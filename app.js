@@ -99,8 +99,7 @@ const useFeeds = () => {
     refresh();
   };
   // Get merged, sorted and filtered news items
-  const filterNews = (url, query) => {
-    // TODO: filter by query
+  const filterNews = (url) => {
     let n = []
       .concat(...feeds.filter(f => !url || f.url == url).map(f => f.entries))
       .sort((a, b) => {
@@ -125,7 +124,7 @@ const NewsList = ({shown, urlFilter}) => {
   };
   return x`
     <div className=${'news' + (shown ? '' : ' hidden')}>
-      ${filterNews(urlFilter, query).reduce((list, n) => {
+      ${filterNews(urlFilter).reduce((list, n) => {
         let day = (list.length ? list[list.length - 1].timestamp.toDateString() : '');
         if (n.timestamp.toDateString() !== day) {
           list.push({timestamp: n.timestamp});
@@ -141,8 +140,9 @@ const NewsList = ({shown, urlFilter}) => {
                   month: 'long', day: '2-digit',
                 })}</h3>`
                 : x`<a href=${n.link}>
-                    ${n.title + ' '}
-                    <em>(${simplifyLink(n.link)})</em>
+                    <span className="title">${n.title}</span>
+                    ${' '}
+                    <em className="link">(${simplifyLink(n.link)})</em>
                   </a>`
             }
           </p>
@@ -164,7 +164,6 @@ const Menu = ({shown, setURLFilter}) => {
       return s.substring(0, maxLength / 2) + '…' + s.substring(s.length - maxLength/2);
     }
   };
-              //<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
   return x`
     <div className=${'menu' + (shown ? '' : ' hidden')}>
       <ul>
@@ -204,23 +203,15 @@ const Menu = ({shown, setURLFilter}) => {
   `;
 };
 
-const HamburgerButton = ({onclick, menuShown}) => {
+const MenuButton = ({onclick, className}) => {
   return x`
-    <div className=${'svg-icon' +
-      (menuShown ? '' : ' close')} onclick=${onclick}>
+    <div className=${'svg-icon menu-icon ' + className} onclick=${onclick}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
         fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="9" x2="21" y2="9"></line>
-        <line x1="3" y1="15" x2="12" y2="15"></line>
+        <path d="M-6,12 L0,6 L24,6 L12,18" />
+        <path d="M-6,12 L0,18 L24,18 L12,6" />
+        <path d="M3,12 L21,12" />
       </svg>
-    </div>
-  `;
-};
-
-const BackButton = ({onclick}) => {
-  return x`
-    <div className="svg-icon" onclick=${onclick}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
     </div>
   `;
 };
@@ -239,22 +230,15 @@ const App = () => {
   return x`
     <div className="app">
       <header>
-        ${
-          !sidebarShown && urlFilter
-            ? x`<${BackButton} onclick=${() => setURLFilter('')} />`
-            : x`<${HamburgerButton} onclick=${toggleSidebar} menuShown=${sidebarShown}/>`
-        }
-        <div className=${'nav-right' + (sidebarShown ? ' hidden' : '')}>
-          <div className="search svg-icon svg-baseline">
-            <input type="text" name="search" placeholder="Search..." />
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </div>
-        </div>
+        <${MenuButton}
+          className=${urlFilter ? 'back' : sidebarShown ? 'close' : 'burger'}
+          onclick=${urlFilter ? () => setURLFilter('') : toggleSidebar}
+        />
       </header>
       <${Menu} shown=${sidebarShown} setURLFilter=${filter => {
-    setURLFilter(filter);
-    setSidebarShown(false);
-  }}/>
+        setURLFilter(filter);
+        setSidebarShown(false);
+      }}/>
       <${NewsList} shown=${!sidebarShown} urlFilter=${urlFilter} />
     </div>
   `;
