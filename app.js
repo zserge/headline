@@ -123,7 +123,7 @@ const NewsList = ({shown, urlFilter}) => {
     return parts[0];
   };
   return x`
-    <div className=${'news' + (shown ? '' : ' hidden')}>
+    <div className=${'screen news' + (shown ? '' : ' hidden')}>
       ${filterNews(urlFilter).reduce((list, n) => {
         let day = (list.length ? list[list.length - 1].timestamp.toDateString() : '');
         if (n.timestamp.toDateString() !== day) {
@@ -165,13 +165,13 @@ const Menu = ({shown, setURLFilter}) => {
     }
   };
   return x`
-    <div className=${'menu' + (shown ? '' : ' hidden')}>
+    <div className=${'screen menu' + (shown ? '' : ' hidden')}>
       <ul>
-        <h3>RSS</h3>
+        <h3>Your feeds:</h3>
         ${feeds.map(
           f => x`
           <li>
-            <a onclick=${() => setURLFilter(f.url)}>${simplifyLink(f.url)}</a>
+            <a onclick=${() => setURLFilter(f.url)}><span className="title">${simplifyLink(f.url)}</span></a>
             <a className="svg-icon svg-baseline" onclick=${() => {
               if (confirm(`Remove ${f.url}?`)) {
                 removeFeed(f.url);
@@ -229,12 +229,12 @@ const App = () => {
   });
   return x`
     <div className="app">
-      <header>
+      <nav>
         <${MenuButton}
           className=${urlFilter ? 'back' : sidebarShown ? 'close' : 'burger'}
           onclick=${urlFilter ? () => setURLFilter('') : toggleSidebar}
         />
-      </header>
+      </nav>
       <${Menu} shown=${sidebarShown} setURLFilter=${filter => {
         setURLFilter(filter);
         setSidebarShown(false);

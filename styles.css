@@ -1,77 +1,61 @@
-* { margin: 0; padding: 0; }
+/* Basic variables, customize if needed */
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+  --visited-color: #666;
+  --inactive-color: #ccc;
+  --header-color: #222;
+  --font-family: 'PT Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* Minimal CSS Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 ul, li { list-style: none; }
-body, input {
-  font-family: 'PT Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
-}
-body { margin: 0 1rem; }
-a {
-  line-height: 1.75em;
-  color: #000;
-  text-decoration: none;
-}
-a:visited, a:visited em { color: #666; }
+a { text-decoration: none; }
+input, button { border: none; outline: none; background: none; }
+
+/* Typography, spacing */
+body, input { font-family: var(--font-family); }
+a { line-height: 1.75em; color: var(--text-color); cursor: pointer; }
+a:visited, a:visited em { color: var(--visited-color); }
 a:hover .title { text-decoration: underline; }
-em { color: #ccc; }
+em { color: var(--inactive-color); }
 
-header {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  margin-top: 1rem;
-}
+.app { margin: 0 1rem; }
+nav { display: flex; align-items: center; font-size: 24px; height: 48px; }
+input[type="text"] { border-bottom: 2px solid black; padding: 0 0.5rem; }
+.screen { position: absolute; left: 0; top: 0; bottom: 0; right: 0; padding: 0 1rem; }
 
-input {
-  border: none;
-  outline: none;
-  border-bottom: 2px solid black;
-  padding: 0 0.5rem;
-}
+/* News screen */
+.news { overflow-y: auto; padding-top: 48px; }
+.news .day-break { font-size: 1.25rem; font-weight: bold; margin: 2rem 0 1rem 0; color: var(--header-color); }
+.news p:nth-child(1) .day-break { margin: 1rem 0; }
+.news.hidden { height: 0; overflow: hidden; }
 
-.day-break {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin: 2rem 0 1rem 0;
-  color: #111;
-}
-
-.news {
-  height: auto;
-}
-.news.hidden {
-  height: 0;
-  overflow: hidden;
-}
+/* Menu screen */
 .menu {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
+  visibility: visible;
   z-index: 1;
-  padding-top: 2rem;
   display: flex;
   flex: 1;
-  opacity: 1;
+  padding-top: 48px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /*transition: opacity 0.2s ease-in-out 1s, top 0.2s ease-in-out 1.2s;*/
   background-color: white;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
 .menu.hidden {
-  /*height: 0;*/
-  /*overflow: hidden;*/
+  visibility: hidden;
   opacity: 0;
-  top: -100vh;
-  /*transition: opacity 0s ease-in-out 0s, top 0s ease-in-out 0s;*/
+  transition: visibility 0s 0.2s, opacity 0.2s ease-in-out;
 }
-
 .menu ul {
-  transition: 0.2s;
-  transform: translateY(0);
+  transition: 0.1s;
 }
 .menu.hidden ul {
-  transition: 0.2s;
+  opacity: 0;
   transform: translateY(100px);
 }
 .menu li {
@@ -79,53 +63,32 @@ input {
   align-items: center;
   justify-content: space-between;
 }
-.svg-icon {
-  display: inline-flex;
-  align-self: center;
-}
-.svg-icon svg {
-  height:1em;
-  width:1em;
-}
-.svg-icon.svg-baseline svg {
-  top: .125em;
-  margin-left: 0.25em;
-  position: relative;
-}
 
-button {
-  border: none;
-  outline: none;
-  background: none;
-}
+/* Make SVG icons look inline with the text */
+.svg-icon { display: inline-flex; align-self: center; }
+.svg-icon svg { height:1em; width:1em; }
+.svg-icon.svg-baseline svg { top: .125em; margin-left: 0.25em; position: relative; }
 
-.menu-icon {
-  z-index: 1000;
-}
-.menu-icon path {
-  transition: all 0.4s cubic-bezier(.645, .045, .355, 1);
-}
-
+/* Menu icon animation: 3-line hamburger, cross sign, left arrow */
+.menu-icon { z-index: 1000; margin-right: 1rem; }
+.menu-icon path { transition: all 0.4s cubic-bezier(.645, .045, .355, 1); }
 .menu-icon.burger path:nth-child(1),
 .menu-icon.burger path:nth-child(2) {
   stroke-dasharray: 18 43.45;
   stroke-dashoffset: -11.4852;
 }
-
 .menu-icon.close path:nth-child(1),
 .menu-icon.close path:nth-child(2) {
   stroke-dasharray: 16.970562 43.45;
   stroke-dashoffset: -32.4852813;
-  transform: translateX(-4.5px);
+  transform: translateX(-5px);
 }
-
 .menu-icon.back path:nth-child(1),
 .menu-icon.back path:nth-child(2) {
   stroke-dasharray: 8.4852 43.45;
   stroke-dashoffset: 0;
   transform: translateX(7px);
 }
-
 .menu-icon path:nth-child(3) {
   stroke-dasharray: 18; 
   stroke-dashoffset: 0;
