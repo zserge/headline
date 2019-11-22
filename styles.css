@@ -1,55 +1,120 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+/* Basic variables, customize if needed */
+:root {
+  --background-color: #fff;
+  --text-color: #121212;
+  --visited-color: #666666;
+  --inactive-color: #9f9f9f;
+  --header-color: #121212;
+  --font-family: 'PT Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
-ul, li {
-	list-style: none;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --text-color: #dfdfdf;
+    --visited-color: #999999;
+    --inactive-color: #616161;
+    --header-color: #dfdfdf;
+  }
 }
 
-p, a {
-	font-size: 16pt;
-	line-height: 1.5em;
-	font-family: 'Forum', serif;
-	color: #1E1E20;
-	text-decoration: none;
-	transition:.1s;
+/* Minimal CSS Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ul, li { list-style: none; }
+a { text-decoration: none; }
+input { border: none; outline: none; background: none; }
+
+/* Typography, spacing */
+body, input { font-family: var(--font-family); background-color: var(--background-color); }
+p { margin-bottom: 0.25rem; }
+a { line-height: 1.5em; color: var(--text-color); cursor: pointer; }
+a:visited, a:visited em { color: var(--visited-color); }
+a:hover .title { text-decoration: underline; }
+em { color: var(--inactive-color); }
+
+nav { display: flex; align-items: center; font-size: 24px; height: 48px; }
+input { border-bottom: 2px solid var(--inactive-color); padding: 0.25rem 0; }
+input:focus { border-bottom: 2px solid var(--text-color); }
+.screen { position: absolute; left: 0; top: 0; bottom: 0; right: 0; padding: 0 1rem; }
+
+/* News screen */
+.news { padding-top: 48px; }
+.news .day-break { font-size: 1.25rem; font-weight: bold; margin: 2rem 0 1rem 0; color: var(--header-color); }
+.news p:nth-child(1) .day-break { margin: 1rem 0; }
+.news.hidden { height: 0; overflow: hidden; }
+
+/* Menu screen */
+.menu {
+  visibility: visible;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  padding-top: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+.menu.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.2s, opacity 0.2s ease-in-out;
+}
+.menu ul {
+  transition: 0.1s;
+}
+.menu.hidden ul {
+  opacity: 0;
+  transform: scale(0.8);
+}
+.menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu form {
+  display: flex;
+}
+.menu input {
+  flex: 1;
+  font-size: 1rem;
 }
 
-a:visited {
-	color: #475150;
-}
+/* Make SVG icons look inline with the text */
+.svg-icon { display: inline-flex; align-self: center; }
+.svg-icon svg { height:1em; width:1em; }
+.svg-icon.svg-baseline svg { top: .125em; position: relative; }
+.svg-icon-left { margin-right: 1rem; }
+.svg-icon-right { margin-left: 1rem; }
 
-a:hover {
-	color: #DC3522;
-	background-color: #e9e9e9;
+/* Menu icon animation: 3-line hamburger, cross sign, left arrow */
+.menu-icon { z-index: 1000; padding: 1rem; }
+.menu-icon path { transition: all 0.4s cubic-bezier(.645, .045, .355, 1); }
+.menu-icon.burger path:nth-child(1),
+.menu-icon.burger path:nth-child(2) {
+  stroke-dasharray: 18 43.45;
+  stroke-dashoffset: -11.4852;
 }
-
-.layout, .nav, .news {
-	display: flex;
+.menu-icon.close path:nth-child(1),
+.menu-icon.close path:nth-child(2) {
+  stroke-dasharray: 16.970562 43.45;
+  stroke-dashoffset: -32.4852813;
+  transform: translateX(-5px);
 }
-.layout {
-	padding: 2em 2em 2em 3em;
-	justify-content: space-between;
+.menu-icon.back path:nth-child(1),
+.menu-icon.back path:nth-child(2) {
+  stroke-dasharray: 8.4852 43.45;
+  stroke-dashoffset: 0;
+  transform: translateX(7px);
 }
-.nav {
-	order: 1;
-	width: 300px;
+.menu-icon path:nth-child(3) {
+  stroke-dasharray: 18; 
+  stroke-dashoffset: 0;
+  opacity: 1;
 }
-.news {
-	order: 0;
-}
-.delete {
-	cursor: pointer;
-}
-nav p {
-	font-size: 10pt;
-}
-
-@media (max-width: 600px) {
-	.layout {
-		flex-direction: column;
-		padding: 1em;
-	}
+.menu-icon.close path:nth-child(3) {
+  stroke-dashoffset: -18;
+  opacity: 0;
 }
