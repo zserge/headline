@@ -90,6 +90,7 @@ const useFeeds = () => {
       feeds.push({url, entries: []});
     }
     saveFeeds();
+    sync();
     refresh();
   };
   // Remove feed
