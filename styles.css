@@ -25,7 +25,7 @@ a { text-decoration: none; }
 input { border: none; outline: none; background: none; }
 
 /* Typography, spacing */
-body, input { font-family: var(--font-family); background-color: var(--background-color); }
+body, input { font-family: var(--font-family); background-color: var(--background-color); color: var(--text-color); }
 p { margin-bottom: 0.25rem; }
 a { line-height: 1.5em; color: var(--text-color); cursor: pointer; }
 a:visited, a:visited em { color: var(--visited-color); }
