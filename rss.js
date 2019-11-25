@@ -1,7 +1,7 @@
 const MAX_NEWS_PER_FEED = 500;
 const MAX_NEWS_ON_PAGE = 1000;
 
-const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${url}`;
+const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
 
 const DEFAULT_FEEDS = [
   {
@@ -72,10 +72,8 @@ export class Feeds {
   }
 }
 
-
-
 export async function fetchFeed(url, proxy = DEFAULT_CORS_PROXY) {
-  const text = await fetch(proxy(encodeURIComponent(url))).then(res =>
+  const text = await fetch(proxy(url)).then(res =>
     res.text(),
   );
   const xml = new DOMParser().parseFromString(text, 'text/xml');
@@ -101,6 +99,7 @@ export async function fetchFeed(url, proxy = DEFAULT_CORS_PROXY) {
         timestamp: new Date(tag(item, 'updated')),
       }));
   }
+  return [];
 }
 
 export async function syncFeed(feed) {
