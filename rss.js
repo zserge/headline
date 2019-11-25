@@ -106,7 +106,7 @@ export async function syncFeed(feed) {
   const entries = await fetchFeed(feed.url);
   const mergedEntries = feed.entries
     .concat(
-      entries.filter(e => feed.entries.findIndex(x => x.link === e.link) < 0),
+      entries.filter(e => feed.entries.findIndex(x => (x.link === e.link || x.title === e.title)) < 0),
     )
     .slice(0, MAX_NEWS_PER_FEED);
   return {url: feed.url, entries: mergedEntries};
