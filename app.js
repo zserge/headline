@@ -1,124 +1,41 @@
-import {render, x, h, useEffect, useState} from './o.mjs';
+import {render, x, useEffect, useState} from './o.mjs';
+import {Feeds} from './rss.js';
 
-const MAX_NEWS_ON_PAGE = 1000;
-const MAX_NEWS_PER_FEED = 500;
-const CORS_PROXY = 'https://cors.zserge.com/?u=';
+const feeds = new Feeds();
 
-const DEFAULT_FEEDS = [
-  {
-    url: 'https://news.google.com/rss',
-    entries: [],
-  },
-  {
-    url: 'https://www.reddit.com/r/programming.rss',
-    entries: [],
-  },
-  {
-    url: 'https://www.reddit.com/r/golang.rss',
-    entries: [],
-  },
-  {
-    url: 'https://www.reddit.com/r/lua.rss',
-    entries: [],
-  },
-];
-
-let feeds = DEFAULT_FEEDS;
-try {
-  let savedFeeds = JSON.parse(localStorage.getItem('feeds-v1'));
-  savedFeeds.forEach(feed => {
-    feed.entries.forEach(e => {
-      e.timestamp = new Date(e.timestamp);
-    });
-  });
-  feeds = savedFeeds;
-} catch (ignore) {}
-
-const saveFeeds = () => localStorage.setItem('feeds-v1', JSON.stringify(feeds));
-
-async function fetchFeed(url) {
-  const text = await fetch(CORS_PROXY + encodeURIComponent(url)).then(res =>
-    res.text(),
-  );
-  const xml = new DOMParser().parseFromString(text, 'text/xml');
-  const map = (c, f) => Array.prototype.slice.call(c, 0).map(f);
-  const tag = (item, name) =>
-    (item.getElementsByTagName(name)[0] || {}).textContent;
-  switch (xml.documentElement.nodeName) {
-    case 'rss':
-      return map(xml.documentElement.getElementsByTagName('item'), item => ({
-        link: tag(item, 'link'),
-        title: tag(item, 'title'),
-        timestamp: new Date(tag(item, 'pubDate')),
-      }));
-    case 'feed':
-      return map(xml.documentElement.getElementsByTagName('entry'), item => ({
-        link: map(item.getElementsByTagName('link'), link => {
-          const rel = link.getAttribute('rel');
-          if (!rel || rel === 'alternate') {
-            return link.getAttribute('href');
-          }
-        })[0],
-        title: tag(item, 'title'),
-        timestamp: new Date(tag(item, 'updated')),
-      }));
-  }
-}
-
-async function syncFeed(feed) {
-  const entries = await fetchFeed(feed.url);
-  const mergedEntries = feed.entries
-    .concat(
-      entries.filter(e => feed.entries.findIndex(x => x.link === e.link) < 0),
-    )
-    .slice(0, MAX_NEWS_PER_FEED);
-  return {url: feed.url, entries: mergedEntries};
-}
-
-const listeners = [];
+let listeners = [];
 const useFeeds = () => {
   const refresh = () => listeners.forEach(ln => ln(feeds));
   // Refresh all feeds
   const sync = async () => {
-    feeds = await Promise.all(feeds.map(f => syncFeed(f)));
-    saveFeeds();
+    await feeds.sync();
+    feeds.save();
     refresh();
   };
   // Add new feed
-  const addFeed = async url => {
-    if (!feeds.some(f => f.url === url)) {
-      feeds.push({url, entries: []});
-    }
-    saveFeeds();
+  const addFeed = url => {
+    feeds.add(url);
+    feeds.save();
     sync();
-    refresh();
   };
   // Remove feed
   const removeFeed = url => {
-    feeds = feeds.filter(f => f.url !== url);
-    saveFeeds();
+    feeds.remove(url);
+    feeds.save();
     refresh();
   };
   // Get merged, sorted and filtered news items
-  const filterNews = (url) => {
-    let n = []
-      .concat(...feeds.filter(f => !url || f.url == url).map(f => f.entries))
-      .sort((a, b) => {
-        return b.timestamp - a.timestamp;
-      });
-    return n;
-  };
+  const filterNews = url => feeds.items(url);
   const ln = useState()[1];
   useEffect(() => {
     listeners.push(ln);
     return () => (listeners = listeners.filter(listener => listener !== ln));
   }, []);
-  return {feeds, sync, filterNews, addFeed, removeFeed};
+  return {feeds: feeds.feeds, sync, filterNews, addFeed, removeFeed};
 };
 
 const NewsList = ({shown, urlFilter}) => {
   const {filterNews} = useFeeds();
-  const [query, setQuery] = useState('');
   const simplifyLink = link => {
     const parts = link.replace(/^.*:\/\/(www\.)?/, '').split('/');
     return parts[0];
