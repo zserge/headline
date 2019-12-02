@@ -4,12 +4,16 @@ import {Feeds} from './rss.js';
 const feeds = new Feeds();
 
 let listeners = [];
+let isLoading = false;
 const useFeeds = () => {
   const refresh = () => listeners.forEach(ln => ln(feeds));
   // Refresh all feeds
   const sync = async () => {
+    isLoading = true;
+    requestAnimationFrame(refresh);
     await feeds.sync();
     feeds.save();
+    isLoading = false;
     refresh();
   };
   // Add new feed
@@ -31,7 +35,7 @@ const useFeeds = () => {
     listeners.push(ln);
     return () => (listeners = listeners.filter(listener => listener !== ln));
   }, []);
-  return {feeds: feeds.feeds, sync, filterNews, addFeed, removeFeed};
+  return {feeds: feeds.feeds, loading: isLoading, sync, filterNews, addFeed, removeFeed};
 };
 
 const NewsList = ({shown, urlFilter}) => {
@@ -139,7 +143,7 @@ const MenuButton = ({onclick, className}) => {
 };
 
 const App = () => {
-  const {sync} = useFeeds();
+  const {sync, loading} = useFeeds();
   const [sidebarShown, setSidebarShown] = useState(false);
   const [urlFilter, setURLFilter] = useState(window.location.hash.substring(1));
   const toggleSidebar = () => setSidebarShown(!sidebarShown);
@@ -156,6 +160,9 @@ const App = () => {
   });
   return x`
     <div className="app">
+      <div className=${'progress' + (loading ? '' : ' hidden')}>
+        <div className="indeterminate" />
+      </div>
       <nav>
         <${MenuButton}
           className=${urlFilter ? 'back' : sidebarShown ? 'close' : 'burger'}
