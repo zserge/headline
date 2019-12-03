@@ -3,6 +3,8 @@ import {Feeds} from './rss.js';
 
 const feeds = new Feeds();
 
+console.log('app loaded');
+
 let listeners = [];
 let isLoading = false;
 const useFeeds = () => {
@@ -151,8 +153,11 @@ const App = () => {
     setURLFilter(feedURL);
     setSidebarShown(false);
   };
+  console.log('app rendering');
   useEffect(() => {
+    console.log('before hash changed');
     window.location.hash = '#' + urlFilter;
+    console.log('after hash changed');
     document.title = `Headline - ${urlFilter || 'minimalist news reader'}`
   }, [urlFilter]);
   useEffect(async () => {
