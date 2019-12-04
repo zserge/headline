@@ -72,10 +72,7 @@ export class Feeds {
   }
 }
 
-export async function fetchFeed(url, proxy = DEFAULT_CORS_PROXY) {
-  const text = await fetch(proxy(url)).then(res =>
-    res.text(),
-  );
+export function parseFeed(text) {
   const xml = new DOMParser().parseFromString(text, 'text/xml');
   const map = (c, f) => Array.prototype.slice.call(c, 0).map(f);
   const tag = (item, name) =>
@@ -100,6 +97,13 @@ export async function fetchFeed(url, proxy = DEFAULT_CORS_PROXY) {
       }));
   }
   return [];
+}
+
+export async function fetchFeed(url, proxy = DEFAULT_CORS_PROXY) {
+  const text = await fetch(proxy(url)).then(res =>
+    res.text(),
+  );
+  return parseFeed(text);
 }
 
 export async function syncFeed(feed) {
