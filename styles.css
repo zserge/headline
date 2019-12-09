@@ -88,7 +88,7 @@ input:focus { border-bottom: 2px solid var(--text-color); }
 }
 
 /* News screen */
-.news { padding-top: 48px; }
+.news { padding-top: 48px; max-width: 600px; margin: 0 auto; }
 .news .day-break { font-size: 1.25rem; font-weight: bold; margin: 2rem 0 1rem 0; color: var(--header-color); }
 .news p:nth-child(1) .day-break { margin: 1rem 0; }
 .news.hidden { height: 0; overflow: hidden; }
