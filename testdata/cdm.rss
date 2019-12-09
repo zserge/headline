@@ -1,0 +1,1403 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+>
+
+<channel>
+	<title>CDM Create Digital Music</title>
+	<atom:link href="https://cdm.link/feed/" rel="self" type="application/rss+xml" />
+	<link>https://cdm.link</link>
+	<description>Create digital music, motion, and more.</description>
+	<lastBuildDate>Tue, 03 Dec 2019 21:37:29 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.2.2</generator>
+
+<image>
+	<url>https://cdm.link/app/uploads/2015/12/cdmlogo-60x60.png</url>
+	<title>CDM Create Digital Music</title>
+	<link>https://cdm.link</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">132315372</site>	<item>
+		<title>Amazon&#8217;s AWS DeepComposer is peak not-knowing-what-AI-is-for</title>
+		<link>https://cdm.link/2019/12/amazon-aws-deepcomposer/</link>
+				<comments>https://cdm.link/2019/12/amazon-aws-deepcomposer/#respond</comments>
+				<pubDate>Tue, 03 Dec 2019 19:58:32 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[DIY + Unusual]]></category>
+		<category><![CDATA[Music tech]]></category>
+		<category><![CDATA[Tech]]></category>
+		<category><![CDATA[Web]]></category>
+		<category><![CDATA[AI]]></category>
+		<category><![CDATA[cloud]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[DeepComposer]]></category>
+		<category><![CDATA[generative]]></category>
+		<category><![CDATA[machine-learning]]></category>
+		<category><![CDATA[MIDI]]></category>
+		<category><![CDATA[programming]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95399</guid>
+				<description><![CDATA[<p>AI can be cool. AI can be strange. AI can be promising, or frightening. Here's AI at totally uncool and not frightening at all - bundled with a crappy MIDI keyboard, for ... some ... reason.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/amazon-aws-deepcomposer/">Amazon&#8217;s AWS DeepComposer is peak not-knowing-what-AI-is-for</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>AI can be cool. AI can be strange. AI can be promising, or frightening. <em>Here&#8217;s AI at totally uncool and not frightening at all &#8211; bundled with a crappy MIDI keyboard, for &#8230; some &#8230; reason.</em></p>
+
+
+
+<p>Okay, so TL:DR &#8211; Amazon published some kinda me-too algorithms for music generation that were what we&#8217;ve seen for years from Google, Sony, Microsoft, and hundreds of data scientists, bundled a crap MIDI keyboard for $99, and it&#8217;s the future! AI! I mean, it definitely doesn&#8217;t just sound like a 90s General MIDI keyboard with some bad MIDI patterns.&#8221; &#8220;The machine has the power of literally all of music composition ever. Now anyone can make musiER:Jfds;kjsfj  l; jks </p>
+
+
+
+<p>Oops, sorry, I might have briefly started banging my head against my computer keyboard. I&#8217;m back.</p>
+
+
+
+<p>This is worth talking about because machine learning <em>does </em>have potential &#8211; and this neither represents that potential nor accurately represents what machine learning even is. </p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/12/amazon-keyboard-1-1024x473.jpg" alt="" class="wp-image-95405" srcset="https://cdm.link/app/uploads/2019/12/amazon-keyboard-1-1024x473.jpg 1024w, https://cdm.link/app/uploads/2019/12/amazon-keyboard-1-768x354.jpg 768w, https://cdm.link/app/uploads/2019/12/amazon-keyboard-1-300x138.jpg 300w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption>Game changer.</figcaption></figure>
+
+
+
+<p>If at this point you&#8217;re unsure what AI is, how you should feel about it, or even if you should care &#8211; don&#8217;t worry, you&#8217;re seriously not alone. &#8220;AI&#8221; is now largely shorthand for &#8220;machine learning.&#8221; And that, in turn, now most often refers to a very specific set of techniques currently in vogue that can analyze data and generate predictions by deriving patterns from that data, and not by using rules. That&#8217;s a big deal in music, because traditionally both computer models and even paper models of theory have used rules more than they have a probability. You can think of AI in music as related to a dice role &#8211; a very, very well-informed, data-driven, weighted dice role &#8211; and less like a theory manual or a robotic composer or whatever people have in mind. </p>
+
+
+
+<p><em>Wait a minute &#8211; that doesn&#8217;t sound like AI at all. </em>Ah, yes. About that.</p>
+
+
+
+<p>So, what I&#8217;ve just described counts as AI to data scientists, even though it isn&#8217;t really related very much to AI in science fiction and popular understanding. The problem is, clarifying that distinction is hard, whereas exploiting that misunderstanding is lucrative. Misrepresenting it makes the tech sound more advanced than arguably it really is, which could be useful if you&#8217;re in the business of selling that tech. <em>Ruh-roh.</em></p>
+
+
+
+<p>With that in mind, what Amazon just did is either very dangerous or &#8211; weirdly, actually, very useful, because it&#8217;s such total, obvious bulls*** that it hopefully makes clear to even laypeople that what they claim they&#8217;re doing isn&#8217;t what they&#8217;re demonstrating. So we get post-curtain-reveal Oz &#8211; here, in the form of Amazon AI chief Dr. Matt Wood, pulling off a bad clone of Steve Jobs (even black-and-denim, of course).</p>
+
+
+
+<p>Dr. Matt Wood does really have a doctorate in bioinformatics, says LinkedIn. He knows his stuff. That makes this even more maddening.</p>
+
+
+
+<p>Let&#8217;s imagine his original research, which was predicting protein structures. You know what most of us wouldn&#8217;t do? Presumably, we  wouldn&#8217;t stand in front of a packed auditorium and pretend to understand protein structures, if we aren&#8217;t a microbiologist. And we certainly wouldn&#8217;t go on to claim predicting protein structures meant we could create life, and also, we&#8217;re God now. </p>
+
+
+
+<p>But that is essentially what this is, with music &#8211; and it is exceedingly weird, from the moment Amazon&#8217;s VP of AI is introduced by&#8230; I want to say a voiceover by a cowboy? </p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Announcing AWS DeepComposer with Jonathan Coulton!" width="500" height="281" src="https://www.youtube.com/embed/XH2EbK9dQlg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>Summary of his talk: AI can navigate moon rovers and fix teeth. So therefore, it should replace composers &#8211; right? (I can do long division in my head. Ergo, next I will try time travel.) We need a product, so give us a hundred bucks, and we&#8217;ll give you a developer kit that has a MIDI keyboard and that&#8217;s the future of music. We&#8217;ll also claim this is an industry first, because we bundled a MIDI keyboard.</p>
+
+
+
+<p>At 7 minutes, 57 seconds, Dr. Wood murders Beethoven&#8217;s ghost, followed by at 8:30 by sort of bad machine learning example augmented with GarageBand visuals and some floating particles that I guess are the neural net &#8220;thinking&#8221;?</p>
+
+
+
+<p>Then you get Jonathan Coulton (why, JoCo, why?) attempting to sing over something that sounds like a stuck-MIDI-note Band-in-a-Box that just crashed.</p>
+
+
+
+<p>Even by AI tech demo standards, it&#8217;s this:</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Glenn Gould Shreds" width="500" height="375" src="https://www.youtube.com/embed/A9Fr1MlnpSk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>Deeper question: I&#8217;m not totally certain what has earned us in music the expectation from the rest of society that, not only is what we do already not worth paying for, but <em>everyone</em> should be able to do it, without expending any effort. I don&#8217;t have this expectation of neuroscience or basketball, for instance. </p>
+
+
+
+<p>But this isn&#8217;t even about that. This doesn&#8217;t even hold up to student AI examples from three years ago.  </p>
+
+
+
+<p>It&#8217;s &#8220;the world&#8217;s first&#8221; because they give you a MIDI keyboard. But great news &#8211; we can beat them. The AWS DeepComposer isn&#8217;t shipping yet, so you can actually be the world&#8217;s first right now &#8211; just grab a USB cable, a MIDI keyboard, connect to one of a half-dozen tools that do the same thing, and you&#8217;re done. I&#8217;ll give you an extra five minutes to map the MIDI keys. </p>
+
+
+
+<p>Or just skip the AI, plug in a MIDI keyboard, and let your cat walk over it.</p>
+
+
+
+<p>Translating the specs then:</p>
+
+
+
+<ol><li>A s***ty MIDI keyboard with some buttons on it, and no &#8220;AI.&#8221;</li><li>Some machine learning software, with pre-trained generative models for &#8220;rock, pop, jazz, and classical.&#8221; (aka, and saying this as a white person with a musicology background, &#8220;white, white, black-but-white people version, really old white.&#8221;)</li><li>&#8220;Share your creations by publishing your tracks to SoundCloud in just a few clicks from the AWS DeepComposer console.&#8221;*</li></ol>
+
+
+
+<p>Technically *1 has been available in some form since the mid-80s and *3 is true of any music software connected to the Internet, but &#8230; *2, AI! <em>(Please, please say I&#8217;m wrong and there&#8217;s custom silicon in there for training. Something. Anything to make this make any sense at all.)</em></p>
+
+
+
+<p>I would love to hear I&#8217;m wrong and there&#8217;s some specialized machine learning silicon embedded in the keyboard but&#8230; uh, guessing that&#8217;s a no. </p>
+
+
+
+<p>Watch the trainwreck now, soon to join the annals of &#8220;terrible ideas in tech&#8221; history with Microsoft Bob and Google Glass:</p>
+
+
+
+<p><a href="https://aws.amazon.com/deepcomposer/">https://aws.amazon.com/deepcomposer/</a></p>
+
+
+
+<p>By the way, don&#8217;t forget that AWS is being <a style="" href="https://www.spin.com/2019/11/amazon-music-boycott-intersect-festival/">actively targeted right now by the music community with a boycott</a>. Maybe they were hoping for a <em>Springtime for Hitler</em>-style turn-around, like if this is bad enough, we&#8217;d love them again? Dunno.</p>
+
+
+
+<p>Anyway, if you do want to try this &#8220;AI&#8221; stuff out &#8211; and it can really be interesting &#8211; here is a far more comprehensive and musically interesting set of tools from rival Google:</p>
+
+
+
+<p><a href="https://magenta.tensorflow.org"><strong>https://magenta.tensorflow.org</strong></a></p>
+
+
+
+<p>Now back to our regularly scheduled programming of anything but this.</p>
+
+
+
+<p><em>AI: I am the button.</em></p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Deep Hurting" width="500" height="375" src="https://www.youtube.com/embed/FqnUdGD8mxo?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>Deja vu all over again. (At least Microsoft Songsmith you can laugh at. I mean, through the screams.)</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Microsoft Songsmith Commercial" width="500" height="281" src="https://www.youtube.com/embed/3oGFogwcx-E?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>Just remember, what humans have that no AI can replicate is <em>agency</em>. So they take terrible tools like Songsmith, and generate ingenious ideas like &#8211; using them to make musical sonifications of the stock market crash. (Thanks, Johannes.)</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Johannes Kreidler - Charts Music - Songsmith fed with Stock Charts" width="500" height="375" src="https://www.youtube.com/embed/2-BZfFakpzc?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/amazon-aws-deepcomposer/">Amazon&#8217;s AWS DeepComposer is peak not-knowing-what-AI-is-for</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/12/amazon-aws-deepcomposer/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95399</post-id>	</item>
+		<item>
+		<title>Free: get some groovy black-and-white pattern animations for VJ apps</title>
+		<link>https://cdm.link/2019/12/free-isf-animations/</link>
+				<comments>https://cdm.link/2019/12/free-isf-animations/#respond</comments>
+				<pubDate>Tue, 03 Dec 2019 14:23:38 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Motion]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[free as in freedom]]></category>
+		<category><![CDATA[ISF]]></category>
+		<category><![CDATA[motion]]></category>
+		<category><![CDATA[Plug-ins]]></category>
+		<category><![CDATA[vdmx]]></category>
+		<category><![CDATA[VJ]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95394</guid>
+				<description><![CDATA[<p>Want to set the mood at your next jam? Learning VJ tools and experimenting with live visuals? Going deeper with shader coding? These free black-and-white animations will get you started.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/free-isf-animations/">Free: get some groovy black-and-white pattern animations for VJ apps</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Want to set the mood at your next jam? Learning VJ tools and experimenting with live visuals? Going deeper with shader coding? These free black-and-white animations will get you started.</p>
+
+
+
+<p><strong><a href="https://gumroad.com/l/IPMaH">Monochrome &#8211; ISF VJ plugins (OSX/Win)</a></strong></p>
+
+
+
+<p>ShaderToy, which I also wrote about yesterday, is a free community site for exchanging shader code. That GLSL code requires some wrapper around it to use in visual tools. Enter the cross-platform ISF (Interactive Shader Format), which makes portability a bit easier in VJ apps like VDMX and MadMapper.</p>
+
+
+
+<p>This selection began its life as some of the nicer examples on Shadertoy, then got ported for easier use.</p>
+
+
+
+<p>There&#8217;s even a converter so you can try the same thing:</p>
+
+
+
+<p><a href="https://magicmusicvisuals.com/utils/shadertoy_to_isf.php">https://magicmusicvisuals.com/utils/shadertoy_to_isf.php</a></p>
+
+
+
+<p>There&#8217;s just one catch &#8211; the Shadertoy code isn&#8217;t cleared for commercial use. And Creative Commons&#8217; definition of &#8220;commercial&#8221; is so broad, almost any use where you&#8217;re earning money probably qualifies. Still, that leaves unpaid (cough) VJ gigs as well as gatherings and jam sessions and experimentation.</p>
+
+
+
+<p>Or better yet, once you&#8217;ve exercised these tools a bit, you can have a look at the actual code in ISF format or on Shadertoy in GLSL (the GPU standard), and help learn how to write your own original creations. You probably don&#8217;t want to show up at the paid gig with effects everyone else is using, anyway. </p>
+
+
+
+<p>In the meantime &#8211; let&#8217;s party in black and white. </p>
+
+
+
+<p>In case you missed it, the Shadertoy Cybertruck I wrote about yesterday got posted in minutes, thanks to David from Vidvox:</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-cdm-create-digital-music"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="SLii2HdOV8"><a href="https://cdm.link/2019/12/cybertruck-shadertoy-3d/">Elon Musk&#8217;s Cybertruck is already rendered in Shadertoy 3D code</a></blockquote><iframe title="&#8220;Elon Musk&#8217;s Cybertruck is already rendered in Shadertoy 3D code&#8221; &#8212; CDM Create Digital Music" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://cdm.link/2019/12/cybertruck-shadertoy-3d/embed/#?secret=SLii2HdOV8" data-secret="SLii2HdOV8" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/free-isf-animations/">Free: get some groovy black-and-white pattern animations for VJ apps</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/12/free-isf-animations/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95394</post-id>	</item>
+		<item>
+		<title>A fresh electronic sound for the Netherlands, and urgent work to fight racism</title>
+		<link>https://cdm.link/2019/12/electronic-sound-netherlands-fights-racism/</link>
+				<comments>https://cdm.link/2019/12/electronic-sound-netherlands-fights-racism/#respond</comments>
+				<pubDate>Mon, 02 Dec 2019 18:33:38 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Music]]></category>
+		<category><![CDATA[Stories]]></category>
+		<category><![CDATA[activism]]></category>
+		<category><![CDATA[Dance with Pride]]></category>
+		<category><![CDATA[DutchAfro]]></category>
+		<category><![CDATA[music]]></category>
+		<category><![CDATA[policy]]></category>
+		<category><![CDATA[techno]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95367</guid>
+				<description><![CDATA[<p>For this project, electronic music isn't just a sound, but a rallying cry. And you can answer that call from all around the world.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/electronic-sound-netherlands-fights-racism/">A fresh electronic sound for the Netherlands, and urgent work to fight racism</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>For this project, electronic music isn&#8217;t just a sound, but a rallying cry. And you can answer that call from all around the world.</p>
+
+
+
+<p>Organizers in the Netherlands are building on years of work in immigration advocacy and support on behalf of queer communities to deepen the connection between dance music and change. The latest efforts promise to bring together a host of key players and issues in a way that could be a model for other communities.</p>
+
+
+
+<p>Racial discrimination can make people feel like outsiders in their own home, and can stand in the way of displaced people trying to make a new home. This time of year in the Netherlands and Belgium, that reality is as stark as ever, in a country that still celebrates Christmas with blackface and racial caricatures. (See <a href="https://www.aljazeera.com/indepth/features/zwarte-piet-black-pete-dutch-racism-full-display-181127153936872.html">reporting on Zwarte Piet from just last week</a>, if you&#8217;re not already familiar with the phenomenon.)</p>
+
+
+
+<p>Here&#8217;s where music comes in &#8211; it&#8217;s an expressive response, an organizing tool, a way of bringing people in to learning more and interacting on the issues, and can even support people working to create solutions on the ground. Music can have a role even without being explicitly containing a political text &#8211; the musical album around this effort is just a fantastic compilation.</p>
+
+
+
+<p>And that seems to open the door not only to directly support our friends and colleagues in Amsterdam here, but also to see a model for music making a tangible difference. Okay, so before moving on, let&#8217;s get a soundtrack:</p>
+
+
+
+<iframe style="border: 0; width: 700px; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=886906098/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless=""><a href="http://musicandactivism.bandcamp.com/album/place-the-netherlands">place : the netherlands by place</a></iframe>
+
+
+
+<p>This story starts with that compilation &#8211; <em>place: the netherlands</em> is the latest in a series from New York&#8217;s Air Texture label, pairing musical compilations with local social causes. The Dutch edition is the work of Axmed Maxamed, self-described &#8220;queer diasporic Somali activist, organizer, and music nerd,&#8221; and DJ and radio host Jasmin Hoek (&#8220;Jasmín&#8221;), host of shows on Utrecht&#8217;s Stranded FM and Red Light Radio in Amsterdam.</p>
+
+
+
+<p>The music already tells some story, but where this goes further is that the music is becoming a jumping-off point to activism. That means tackling twin issues &#8211; dealing with the worst aspects of Dutch immigration for its most vulnerable entrants, right as the country ramps up a tradition that mocks people for their skin color.</p>
+
+
+
+<p>Axmed and Jasmin talk to CDM about what that means.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/12/placecrew-1024x1024.jpg" alt="" class="wp-image-95374" srcset="https://cdm.link/app/uploads/2019/12/placecrew-1024x1024.jpg 1024w, https://cdm.link/app/uploads/2019/12/placecrew-768x768.jpeg 768w, https://cdm.link/app/uploads/2019/12/placecrew-150x150.jpg 150w, https://cdm.link/app/uploads/2019/12/placecrew-300x300.jpg 300w, https://cdm.link/app/uploads/2019/12/placecrew-60x60.jpg 60w, https://cdm.link/app/uploads/2019/12/placecrew-230x230.jpg 230w, https://cdm.link/app/uploads/2019/12/placecrew-200x200.jpg 200w, https://cdm.link/app/uploads/2019/12/placecrew.jpeg 1600w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption> Axmed, Teddy, Jasmin &#8211; photo by Teddy Lyon, center, co-founder of  Open Closet LGBT Netherlands. </figcaption></figure>
+
+
+
+<p><strong>CDM: Since this is a club music response &#8211; apart from the compilation and this activism, is there interaction now between the club scene and some inbound refugees? Is there a way that there could be more space in the club environment for that interaction? </strong></p>
+
+
+
+<p>Axmed/Jasmin: It’s important not to only welcome refugees, but go the extra mile to make sure they feel comfortable being in the space and to have people available at the club who they can approach if necessary. In addition to that, it’s important to make spaces available for refugees or people from other marginalized communities to host their own events.&nbsp;</p>
+
+
+
+<p><strong>Zwarte Piet is a literal face of racism in the NL, and maybe one that&#8217;s tough for outsiders to come to terms with, too. What would you want people from the international community to know? What can we do to respond? </strong></p>
+
+
+
+<p>Axmed: The Netherlands and Belgium are inherently racist countries, and during this period &#8211; which goes on for about two months &#8211; it really comes to the surface. It is important to amplify the voices of people who are fighting this racist anti-black tradition called Sinterklaas. Ask your white Dutch and Belgian friends what they are doing to speak up against this racist tradition, especially those that have a platform, whether they be a DJ, label, venue, promoter, etc. Even in a city like Amsterdam, there are still a lot of stores decorated with racist imagery, so it is on white people living in the Netherlands who say that they care about change, to talk to shop owners. White people in the Netherlands and Belgium chose to make this into racist tradition in 1850, so it is now their responsibility to get rid of it. As a Black person, I do not want to be confronted with it anymore.&nbsp;</p>
+
+
+
+<p><strong>Reforming how immigration works could build better and fairer societies; refugees occupy this especially difficult situation where they&#8217;re unable to work because of how the law is set up. Is there a way for us in creative industries to find some solutions there and work together? </strong>Definitely, reach out to initiatives such as Open Closet [ <a href="https://web.facebook.com/2017radio.nl/">Open Closet LGBT Netherlands</a>] that are for and by newcomers and set something up together with them, such as workshops, parties, dinners, and so on. Offer structural support and involvement within the work you’re doing, not something that’s just one-off.&nbsp;</p>
+
+
+
+<p><em>Ed.: This is obviously a deeper issue than we can cover here, as the situations vary country to country and have different organizations for responding, but &#8211; now with this out there, I hope we&#8217;ll hear from some of those specifics from our international audience.</em></p>
+
+
+
+<figure class="wp-block-embed-soundcloud wp-block-embed is-type-rich is-provider-soundcloud wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="DutchAfro" width="500" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?visual=true&#038;url=https%3A%2F%2Fapi.soundcloud.com%2Fusers%2F631941819&#038;show_artwork=true&#038;maxwidth=500&#038;maxheight=750&#038;dnt=1"></iframe>
+</div><figcaption>Check DutchAfro&#8217;s music &#8211; she&#8217;s making amazing noises from deep in the Dutch underground. You heard her here first.</figcaption></figure>
+
+
+
+<h3>What&#8217;s next; what you can do</h3>
+
+
+
+<p>The easiest thing for readers of this site to do is to go buy the compilation, which supports active work on helping LGBTQIA+ refugees navigate a hostile immigration system &#8211; and gets you some great music, too:</p>
+
+
+
+<p><a href="https://musicandactivism.bandcamp.com/album/place-the-netherlands?">https://musicandactivism.bandcamp.com/album/place-the-netherlands?</a></p>
+
+
+
+<p>For the minority of readers in the Netherlands, there&#8217;s a launch party running daytime to nighttime on December 21. (Hey, maybe you lucked out and even have a transfer at Schiphol then.)</p>
+
+
+
+<p><a href="https://web.facebook.com/events/1885211238290392/">https://web.facebook.com/events/1885211238290392/</a></p>
+
+
+
+<p>That event is itself a compelling model. Of course, local contributing artists play (Accuraat, Blusher, Cuboid Kiss, Dim Garden, DJ Bone, DutchAfro, Jarlentji, Loradeniz, Global Mind Surveillance, Pasiphae, Raj, Ranie Ribeiro, Rural Juror, and Zohar). But there&#8217;s also discourse, film, and food &#8211; a chance for interested music lovers to better understand the issues and get involved. (In addition to the organizers of <em>place</em>, the event involves community organization The Hang-Out 070, and films from the International Queer &amp; Migrant Film Festival.) </p>
+
+
+
+<p>You can attend virtually and lend more support by buying a ticket:</p>
+
+
+
+<p><a href="https://thegreyspace.stager.nl/web/tickets/380668">https://thegreyspace.stager.nl/web/tickets/380668</a></p>
+
+
+
+<p>For any criticism of club culture simply criticizing from the sidelines in a filter bubble/echo chamber, here are people getting out and doing something concrete, making a difference in the lives of refugees.</p>
+
+
+
+<h3>What these challenges can mean: essential reading</h3>
+
+
+
+<p>Axmed is a great example of how someone can be both a figure in the music scene and in activism, simultaneously. That energy he shares in bringing people together in nightlife he has channeled into rallying people behind making an impact on the larger community. A refugee of the Somali civil war at a young age, he says he&#8217;s now connecting with LGBTQIA+ refugees as he works in that community as they go through the asylum procedure.</p>
+
+
+
+<p>As with so many people working on immigration worldwide, though, his stories about the system can be infuriating and heartbreaking. As he tells Glamcult:</p>
+
+
+
+<blockquote class="wp-block-quote"><p>In my work as an interpreter and translator, I have first-hand knowledge of how refugees in general are treated in the Netherlands, which is mostly from a starting point of not believing refugees. And in addition to that, LGBTQIA+ refugees have a specific burden of proof—together with having to prove that they are from their home country, they also have to prove their sexual and/or gender identity to the interviewer from the IND (Immigration Office). This process has been criticized as being too invasive and lacking important sensitivities needed to ask such personal and sometimes traumatizing questions.&nbsp; </p></blockquote>
+
+
+
+<p>Yeah, you read that right &#8211; for anyone who has dealt with immigration, imagine having to prove who you are sexually or what your gender is. (Heck, it&#8217;s unpleasant enough doing that <em>outside</em> an immigration process.) More on this topic:</p>
+
+
+
+<p><strong><a href="https://theconversation.com/so-much-for-dutch-tolerance-life-as-an-lgbt-asylum-seeker-in-the-netherlands-80332">So much for Dutch tolerance: life as an LGBT asylum seeker in the&nbsp;Netherlands</a></strong></p>
+
+
+
+<p>By connecting with Open Closet, the music scene here supports volunteers dealing with that, but also a great deal more. As Sherwyn from Open Closet LGBT Netherlands told <a href="https://www.glamcult.com/articles/this-sonic-compilation-raises-funds-for-queer-refugees/">Glamcult</a>:</p>
+
+
+
+<blockquote class="wp-block-quote"><p>Open Closet not only ensures that incoming LGBTQIA+ asylum seekers are properly registered, but also provides help with food, support towards the procedures required, counseling and a family where everybody is welcome. They provide a place to come together and cover for traveling costs if needed. By organising meetings regularly, they create a sense of community and belonging for queer asylum seekers in the Netherlands. Open Closet also ensures that asylum seekers are properly informed of their rights and options. </p></blockquote>
+
+
+
+<p>This isn&#8217;t just another compilation to raise awareness &#8211; by connecting to an in-person event, Axmed and Jasmin are also bringing more people in to engage with the organization itself.</p>
+
+
+
+<p>But clubland does network people. In the same Glamcult piece, there&#8217;s also a checklist for how clubs (and clubgoers) could better include refugees in our community. You should <a href="https://www.glamcult.com/articles/this-sonic-compilation-raises-funds-for-queer-refugees/?fbclid=IwAR27udKwBo9ueWeueE7-a0uwm1cc4OGZslBQfDRUsPnxnkK1uWy3nUMF7nY">read the whole piece</a>, but here&#8217;s a summary of what Axmed and Jasmin advise, for quick reference (to paste on your wall or whatever you like):</p>
+
+
+
+<ol><li>Hire and empower the people affected to make decisions about dealing with unsafe spaces and exclusion.</li><li>Have an awareness team people can go to directly.</li><li>Make gathering spaces outside of clubs, too.</li></ol>
+
+
+
+<p>See the full story:</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-glamcult"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="9CiLgTbzHP"><a href="https://www.glamcult.com/articles/this-sonic-compilation-raises-funds-for-queer-refugees/">This sonic compilation raises funds for queer refugees</a></blockquote><iframe title="&#8220;This sonic compilation raises funds for queer refugees&#8221; &#8212; Glamcult" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.glamcult.com/articles/this-sonic-compilation-raises-funds-for-queer-refugees/embed/#?secret=9CiLgTbzHP" data-secret="9CiLgTbzHP" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>Music is an art built around listening. So we can use that power to listen to queer activists and &#8211; well, electronic music is all about amplification, so we can make that sound louder. For a place to start, Axmed keeps a running list of links of great reading:</p>
+
+
+
+<p><a rel="noreferrer noopener" href="https://linktr.ee/axmed" target="_blank"><strong>linktr.ee/axmed</strong></a></p>
+
+
+
+<p>By the way, to look beyond the Netherlands &#8211; artists like Meklit are bringing together activism and music practice, both on immigration and even water issues (with some data sonification thrown in so &#8211; some of your CDM reader bingo cards just got filled). Meklit has also worked with the excellent Bay Area activist group <a href="https://www.womensaudiomission.org">Women&#8217;s Audio Mission</a>.</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-she-shreds-magazine"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="Men0zyxvSC"><a href="https://sheshredsmag.com/meklit/">&#8220;It’s Impossible to Destroy&#8221;: Meklit On Afrofuturism, Star Technology, and Immigration Activism</a></blockquote><iframe title="&#8220;&#8220;It’s Impossible to Destroy&#8221;: Meklit On Afrofuturism, Star Technology, and Immigration Activism&#8221; &#8212; She Shreds Magazine" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://sheshredsmag.com/meklit/embed/#?secret=Men0zyxvSC" data-secret="Men0zyxvSC" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>And just in the past few days, artists have pulled music from Amazon to protest that company&#8217;s work with discriminatory US immigration practices. </p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-rolling-stone"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="Ok1fViLPN4"><a href="https://www.rollingstone.com/music/music-news/no-music-for-ice-amazon-boycott-903074/">Hundreds of Musicians Call for Amazon Boycott Over ICE Contracts</a></blockquote><iframe title="&#8220;Hundreds of Musicians Call for Amazon Boycott Over ICE Contracts&#8221; &#8212; Rolling Stone" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.rollingstone.com/music/music-news/no-music-for-ice-amazon-boycott-903074/embed/#?secret=Ok1fViLPN4" data-secret="Ok1fViLPN4" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>Local efforts in your area? Questions? We would love to hear them. </p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/electronic-sound-netherlands-fights-racism/">A fresh electronic sound for the Netherlands, and urgent work to fight racism</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/12/electronic-sound-netherlands-fights-racism/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95367</post-id>	</item>
+		<item>
+		<title>Elon Musk&#8217;s Cybertruck is already rendered in Shadertoy 3D code</title>
+		<link>https://cdm.link/2019/12/cybertruck-shadertoy-3d/</link>
+				<comments>https://cdm.link/2019/12/cybertruck-shadertoy-3d/#respond</comments>
+				<pubDate>Mon, 02 Dec 2019 16:46:40 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Motion]]></category>
+		<category><![CDATA[Stories]]></category>
+		<category><![CDATA[3D-graphics]]></category>
+		<category><![CDATA[Cybertruck]]></category>
+		<category><![CDATA[free]]></category>
+		<category><![CDATA[motion]]></category>
+		<category><![CDATA[shadertoy]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95360</guid>
+				<description><![CDATA[<p>The Tesla Cybertruck unveiled last week already looks like some low-polygon-count 3D model. So of course it's already some (free) shader code.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/cybertruck-shadertoy-3d/">Elon Musk&#8217;s Cybertruck is already rendered in Shadertoy 3D code</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>The Tesla Cybertruck unveiled last week already looks like some low-polygon-count 3D model. So of course it&#8217;s already some (free) shader code.</p>
+
+
+
+<p>For those of you not in the know on the visual side, Shadertoy is a marvelous repository of community-shared shader code. Shaders are snippets of program language built specifically for the graphics subsystem on your computer. Nowadays, that&#8217;s of interest not only to gamers and 3D artists, but live visual performance, too &#8211; tools like Isadora have built-in support for Shadertoy specifically. You can even run inside Ableton Live, via Max for Live.</p>
+
+
+
+<p>This particular Shadertoy gives you the requisite disco lighting <em>and</em> that suddenly-iconic, weird geometric form of a truck. (Thank designer <a href="https://www.businessinsider.de/cybertruck-is-a-breakthrough-for-tesla-designer-franz-von-holzhausen-2019-11/">Franz von Holzhausen</a>, apparently.)</p>
+
+
+
+<p><strong>Mute your sound</strong> before you have a look at this link, though; there&#8217;s a blasting cyber-tune that plays automatically.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/12/cybertruckwithcode-1024x368.jpg" alt="" class="wp-image-95365" srcset="https://cdm.link/app/uploads/2019/12/cybertruckwithcode-1024x368.jpg 1024w, https://cdm.link/app/uploads/2019/12/cybertruckwithcode-768x276.jpg 768w, https://cdm.link/app/uploads/2019/12/cybertruckwithcode-300x108.jpg 300w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p><a href="https://www.shadertoy.com/view/wdGXzK">https://www.shadertoy.com/view/wdGXzK</a></p>
+
+
+
+<p>Previous refresher:</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-cdm-create-digital-music"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="eRVcrYxYya"><a href="https://cdm.link/2018/04/how-to-try-gpu-accelerated-live-visuals-in-a-few-steps-for-free/">How to try GPU-accelerated live visuals in a few steps, for free</a></blockquote><iframe title="&#8220;How to try GPU-accelerated live visuals in a few steps, for free&#8221; &#8212; CDM Create Digital Music" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://cdm.link/2018/04/how-to-try-gpu-accelerated-live-visuals-in-a-few-steps-for-free/embed/#?secret=eRVcrYxYya" data-secret="eRVcrYxYya" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>Now go make the music video of your dreams, obviously.</p>
+
+
+
+<p><strong>Updated &#8211; David Lublin from Vidvox has ported this to ISF</strong> (Interactive Shader Format), which makes it compatible with VJ apps, too &#8211; out of the box:</p>
+
+
+
+<p><a href="https://www.interactiveshaderformat.com/sketches/5173"><strong>https://www.interactiveshaderformat.com/sketches/5173</strong></a></p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/12/cybertruck-shadertoy-3d/">Elon Musk&#8217;s Cybertruck is already rendered in Shadertoy 3D code</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/12/cybertruck-shadertoy-3d/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95360</post-id>	</item>
+		<item>
+		<title>Today only, get Waves&#8217; Bezerk Distortion plug-in for free</title>
+		<link>https://cdm.link/2019/11/free-waves-distortion/</link>
+				<comments>https://cdm.link/2019/11/free-waves-distortion/#respond</comments>
+				<pubDate>Fri, 29 Nov 2019 17:42:54 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Stories]]></category>
+		<category><![CDATA[black-friday]]></category>
+		<category><![CDATA[Mac]]></category>
+		<category><![CDATA[stompbox]]></category>
+		<category><![CDATA[tube]]></category>
+		<category><![CDATA[virtual-analog]]></category>
+		<category><![CDATA[Waves Audio]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95344</guid>
+				<description><![CDATA[<p>Waves Audio are giving away a unique multi-functional distortion plug-in, normally $99. I'm even jumping on this - it's a Black Friday deal even for those celebrating Buy Nothing Day.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/free-waves-distortion/">Today only, get Waves&#8217; Bezerk Distortion plug-in for free</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Waves Audio are giving away a unique multi-functional distortion plug-in, normally $99. I&#8217;m even jumping on this &#8211; it&#8217;s a Black Friday deal even for those celebrating Buy Nothing Day.</p>
+
+
+
+<p>Some of us never really can get <em>too much </em>distortion, and this one looks excellent. There are ten distortion shapes, feedback, pitch, dynamics, and built-in options for sidechain and Mid/Side modes. And then there&#8217;s a randomizer/chaos button, cleverly labeled &#8220;Go Bezerk!&#8221;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><a href="https://www.waves.com/lpn/black-friday-2019/free-plugin"><img src="https://cdm.link/app/uploads/2019/11/berzerk-distortion.jpg" alt="" class="wp-image-95345" srcset="https://cdm.link/app/uploads/2019/11/berzerk-distortion.jpg 480w, https://cdm.link/app/uploads/2019/11/berzerk-distortion-233x300.jpg 233w" sizes="(max-width: 480px) 100vw, 480px" /></a><figcaption><a href="https://www.waves.com/lpn/black-friday-2019/free-plugin">Go Bezerk</a>!</figcaption></figure></div>
+
+
+
+<p>This is really a bunch of distortion modules crammed into one &#8211; Waves says they modeled everything from amps to stompboxes to vintage tubes and analog circuits, to create custom waveshapes for their favorite distortion curves. All of this is then built around those distortion curves &#8211; even that &#8220;Bezerk&#8221; button.</p>
+
+
+
+<p>There are a ton of precise controls to explore here, including feedback with self-oscillation and other goodies (including pitch/speed controls). Think for instance custom EQ, a dedicated Dynamics section, and even a gate/expander. The M/S processing lets you apply different degrees of distortion to mid and side portions of your signal.</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Crazy Drum Distortion with the Waves Berzerk Plugin" width="500" height="281" src="https://www.youtube.com/embed/8IHDZx1BhlU?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>You just enter your email address and that nets you the download. I just did it myself. More details:</p>
+
+
+
+<p><a href="https://www.waves.com/lpn/black-friday-2019/free-plugin">https://www.waves.com/lpn/black-friday-2019/free-plugin</a></p>
+
+
+
+<p>Free today only (Black Friday, November 29). </p>
+
+
+
+<p>Why are we celebrating Black Friday? Well, for Steel y Dan, obviously.</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="STEELY DAN &quot;Black Friday&quot;   1975  HQ" width="500" height="375" src="https://www.youtube.com/embed/h3Pw4t_Falo?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>Feel free to send me the industrial techno / noise music you make with this plug-in. I guess I know what my plan is for the evening.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/free-waves-distortion/">Today only, get Waves&#8217; Bezerk Distortion plug-in for free</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/11/free-waves-distortion/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95344</post-id>	</item>
+		<item>
+		<title>Stock up on underground electronic music and techno for a Bandcamp Black Friday</title>
+		<link>https://cdm.link/2019/11/black-friday-bandcamp-2019/</link>
+				<comments>https://cdm.link/2019/11/black-friday-bandcamp-2019/#respond</comments>
+				<pubDate>Fri, 29 Nov 2019 13:33:41 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Music]]></category>
+		<category><![CDATA[bandcamp]]></category>
+		<category><![CDATA[benefits]]></category>
+		<category><![CDATA[discounts]]></category>
+		<category><![CDATA[techno]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95333</guid>
+				<description><![CDATA[<p>Black Friday may conjure images of people stampeding at a Wal-Mart - but it's also turned into a boon for independent labels on Bandcamp. Use these codes to boost your collection and support artists.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/black-friday-bandcamp-2019/">Stock up on underground electronic music and techno for a Bandcamp Black Friday</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Black Friday may conjure images of people stampeding at a Wal-Mart &#8211; but it&#8217;s also turned into a boon for independent labels on Bandcamp. Use these codes to boost your collection and support artists.</p>
+
+
+
+<p>This started as part of this year&#8217;s <a href="https://cdm.link/2019/11/turkey-tracker-2019/">Black Friday sale round-up</a>, but it&#8217;s growing, so let&#8217;s keep a running tally.</p>
+
+
+
+<p>So far we have a ton of great underground techno labels &#8211; left-field and different-but-danceable goodness. But I&#8217;d like to add some more experimental additions, if you&#8217;ve got them.</p>
+
+
+
+<p>I can meanwhile endorse all these labels; they&#8217;re putting out terrific stuff.</p>
+
+
+
+<p><a href="https://oslated.bandcamp.com">Oslated</a><br>Seoul, South Korea<br>70% off:  blackfriday </p>
+
+
+
+<p><a href="https://totalblack.bandcamp.com">Total Black</a><br>Berlin, Germany <br>70% off:  blackfriday </p>
+
+
+
+<p><a href="https://semanticarecords.bandcamp.com">Semantica Records<br></a>Madrid, Spain<br>30% off:  blackfriday2019&nbsp; </p>
+
+
+
+<p><a href="https://florianmeindl.bandcamp.com">Florian Meindl</a><br>Berlin, Germany<br>Full discography for 9EUR (instant discount)</p>
+
+
+
+<p><a href="https://mord.bandcamp.com">Mord</a><br>Rotterdam, The Netherlands <br>15% off: blackfriday </p>
+
+
+
+<p><a href="https://manhighrecordingsbln.bandcamp.com">MANHIGH Recordings</a> [Henning Baer&#8217;s label]<br>Berlin, Germany<br>50% off: blackfriday19 </p>
+
+
+
+<p><a href="https://omenrecordings.bandcamp.com">OMEN Recordings<br></a>Los Angeles, California<br>50% off: OMENTHX50 </p>
+
+
+
+<p><a href="https://archivio01.bandcamp.com">Archivio 01</a><br>Italy <br>50% off: BLACKFRIDAY </p>
+
+
+
+<p><a href="https://voitax.bandcamp.com">Voitax</a><br>Berlin, Germany <br>35% off: voibf2019 </p>
+
+
+
+<p><a href="https://newrhythmic-records.bandcamp.com">Newrhythmic records<br></a>León, Spain<br>30% :blackfriday2019 </p>
+
+
+
+<p><a href="https://wunderblock.bandcamp.com">Wunderblock Records<br></a>Moscow, Russia<br>50% off:  blackfriday </p>
+
+
+
+<p><a href="https://establishmentrecords.bandcamp.com">Establishment</a><br>Berlin, Germany<br>70 off: wearblack</p>
+
+
+
+<p><a href="https://opaltapes.com">Opal Tapes<br></a>Newcastle Upon Tyne, UK<br>20% off: OFF</p>
+
+
+
+<p><a href="https://thelabrecordsro.bandcamp.com/?fbclid=IwAR1SxEdgeeVU3RbQO-RF-YBhLuAFVImnbPHL_Mpr39P8Esu8U5X7ot50J_A">The Lab Records<br></a>Bucharest, Romania <br>80% off: BLACKMONTH</p>
+
+
+
+<p><strong>Updated &#8211; still more deals!</strong></p>
+
+
+
+<p><em>(updated! Wata Igarashi? Lauren Flax?&#8230;)<br></em><a href="https://thebunkerny.bandcamp.com">The Bunker New York<br></a>New York, NY USA<br>40% off: bonkers40</p>
+
+
+
+<p><a href="https://truncate.bandcamp.com/">Truncate</a><br>Los Angeles, CA USA<br>50% off full discography</p>
+
+
+
+<p><a href="https://localsoundnetwork.bandcamp.com">Local Sound Network<br></a>Japan<br>15% off: lsnblackfriday2019 </p>
+
+
+
+<p><a href="https://ninnav1.bandcamp.com/">Ninna V <br></a>Porto, Portgual<br>25% off everything, including merch:  ninna_v </p>
+
+
+
+<p>Plus, not Black Friday sales, but worth mentioning:</p>
+
+
+
+<p>Amsterdam&#8217;s wonderful <a href="https://www.indiegogo.com/projects/help-moving-furniture-records-continue?fbclid=IwAR1ggNwld_h1mwnq4ls1f3UPwurpTj-8WDn8p3Oq8zZgbVbkMhLXFr_p9uw#/">Moving Furniture Records has a crowdfunding sale</a> &#8211; which also happens to be a great way to get some lovely physical stuff. (That&#8217;s the one non-Bandcamp link here, but they&#8217;re also a Bandcamp label!)</p>
+
+
+
+<p><a href="https://musicandactivism.bandcamp.com">place : the netherlands</a> is an absolutely killer compilation, benefiting  Open Closet LGBT Netherlands and their work on behalf of queer asylum seekers.</p>
+
+
+
+<p>Ovum has released a <a href="https://joshwink.bandcamp.com/album/ovum-303">25-year anniversary compilation</a> with 25 essential tracks. Pay whatever you like, and you benefit &#8221; Philly Pops &#8211; an EITC-Certified Program that enhances music education for approximately 2,500 students in the School District of Philadelphia by embedding Philly POPS Teaching Artists in schools to coach and mentor students.&#8221;:</p>
+
+
+
+<p>There&#8217;s also a two-part compilation for people who lost their vision during the recent riots in Chile &#8211; hope to follow up more on this soon:</p>
+
+
+
+<p><a href="https://chilenoestaenguerra.bandcamp.com/album/chile-no-est-en-guerra-v-1https://chilenoestaenguerra.bandcamp.com/album/chile-no-est-en-guerra-v-2">https://chilenoestaenguerra.bandcamp.com/album/chile-no-est-en-guerra-v-1https://chilenoestaenguerra.bandcamp.com/album/chile-no-est-en-guerra-v-2</a></p>
+
+
+
+<p><em>Thanks to Chris Kronfeld on the </em><a href="https://www.facebook.com/groups/482555795119377/permalink/3244406692267593/"><em>Bandcamp Techno Facebook group</em></a><em> for a lot of these tips!</em></p>
+
+
+
+<p>Feature image (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>) <a href="https://www.flickr.com/photos/andrewasmith/">Andrew Smith</a>.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/black-friday-bandcamp-2019/">Stock up on underground electronic music and techno for a Bandcamp Black Friday</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/11/black-friday-bandcamp-2019/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95333</post-id>	</item>
+		<item>
+		<title>Here are the best Black Friday deals for electronic musicians, visualists</title>
+		<link>https://cdm.link/2019/11/turkey-tracker-2019/</link>
+				<comments>https://cdm.link/2019/11/turkey-tracker-2019/#respond</comments>
+				<pubDate>Thu, 28 Nov 2019 18:08:21 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Apps]]></category>
+		<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Motion]]></category>
+		<category><![CDATA[Music tech]]></category>
+		<category><![CDATA[Stories]]></category>
+		<category><![CDATA[apps]]></category>
+		<category><![CDATA[Arturia]]></category>
+		<category><![CDATA[discounts]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[moog-music]]></category>
+		<category><![CDATA[Plug-ins]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95300</guid>
+				<description><![CDATA[<p>Black Friday, Cyber Monday, Black Week &#8211; with so many to choose from, here are our favorite tech deals for music makers. Got a deal? Found a deal you want to share with other folks? Offering a deal yourself (as a developer, manufacturer, record label, whatever)? Tell us about it here: CDM Turkey Tracker submissions [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/turkey-tracker-2019/">Here are the best Black Friday deals for electronic musicians, visualists</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Black Friday, Cyber Monday, Black Week &#8211; with so many to choose from, here are our favorite tech deals for music makers.</p>
+
+
+
+<h3>Got a deal?</h3>
+
+
+
+<p>Found a deal you want to share with other folks? Offering a deal yourself (as a developer, manufacturer, record label, whatever)? Tell us about it here:</p>
+
+
+
+<p><a href="https://forms.gle/k2rePRNERVssgrha7">CDM Turkey Tracker submissions</a></p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/web-geode-top-1024x802.jpg" alt="" class="wp-image-95355" srcset="https://cdm.link/app/uploads/2019/11/web-geode-top-1024x802.jpg 1024w, https://cdm.link/app/uploads/2019/11/web-geode-top-768x602.jpg 768w, https://cdm.link/app/uploads/2019/11/web-geode-top-300x235.jpg 300w, https://cdm.link/app/uploads/2019/11/web-geode-top.jpg 1200w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h3><strong>Our offers</strong></h3>
+
+
+
+<p>Well, first from us &#8211; deals on the synth hardware and record label side projects of CDM!</p>
+
+
+
+<p><a href="https://meeblip.com/products/meeblip-geode-synthesizer">MeeBlip geode synthesizers</a> are $129 plus <strong>free shipping, anywhere</strong>. Through Monday.</p>
+
+
+
+<p><a style="" href="https://meeblip.com/collections/our-products/products/meeblip-thru5-midi-splitter-kit"><strong>Me<s>eBlip thru5 kits are $9.99</s></strong></a><s> (50% off!) &#8211; while supplies last. We expect to sell out before the deal ends end of day Monday.</s> Yep, they sold out! So &#8211; </p>
+
+
+
+<p><a href="https://meeblip.com/products/meeblip-cubit-go">MeeBlip cubit go USB MIDI interfaces</a> now also have free shipping through Monday. Enter code GOFREE.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/establishmentalbums.jpg" alt="" class="wp-image-95303" srcset="https://cdm.link/app/uploads/2019/11/establishmentalbums.jpg 779w, https://cdm.link/app/uploads/2019/11/establishmentalbums-768x599.jpg 768w, https://cdm.link/app/uploads/2019/11/establishmentalbums-300x234.jpg 300w" sizes="(max-width: 779px) 100vw, 779px" /></figure>
+
+
+
+<p><a href="https://establishmentrecords.bandcamp.com">Establishment Records on Bandcamp</a>. All albums in our catalog are now <strong>70% off</strong> through Monday evening. Plus look forward to new stuff from our spin-off record label in 2020 &#8211; some exciting plans in the works now. Enter code <strong>wearblack</strong>.</p>
+
+
+
+<h3>Software</h3>
+
+
+
+<p>Everything at Reason Studios is on sale for what they call &#8220;Rack Friday,&#8221; with discounts on Reason (now with AU support on Mac!) and lots of Rack Extensions &#8211; up to 90% off. <a href="https://www.reasonstudios.com/shop/deals/">https://www.reasonstudios.com/shop/deals/</a> &#8211; through December 2.</p>
+
+
+
+<p>Ableton have <a href="https://www.ableton.com/en/shop/">25% off Live 10, upgrades, and packs</a>, meaning if you put off upgrading, now is the sign.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/arturia-1024x556.jpg" alt="" class="wp-image-95325" srcset="https://cdm.link/app/uploads/2019/11/arturia-1024x556.jpg 1024w, https://cdm.link/app/uploads/2019/11/arturia-768x417.jpg 768w, https://cdm.link/app/uploads/2019/11/arturia-300x163.jpg 300w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Arturia&#8217;s V Collection 7, full of basically every software recreation of classic electronic instruments you could imagine, is down to 299 $/EUR, along with other upcoming Arturia deals to watch. Also, even something like this sounds cooler in French. Behold: <em>Obtiens la V Collection pour une prix exclusif Jusqu&#8217;au 5 décembre 2019. Ne rate pas cette occasion. Obtiens-la pour 299$/EUR.</em> Ah, we sounds so crass in English, by comparison. Touché . <a href="https://www.arturia.com/black-friday-19">https://www.arturia.com/black-friday-19</a></p>
+
+
+
+<p><a href="https://www.izotope.com/en/shop/bf-bundle.html">iZotope has discounts</a> on software plus their Spire Studio hardware. Probably best of these is the $49 bundle of <a href="https://www.izotope.com/en/products/elements-suite.html">Elements Suite, DDLY, Mobius Filter, and Trash 2.</a> Everything is on sale, though. Also great &#8211; the Music Production site (with Ozone 9 Advanced, Neutron 3 Advanced, etc.) for $399 and the bargain-basement-priced, awesome-sounding, light-on-CPU PhoenixVerb for $39. Through 12/6. </p>
+
+
+
+<p>Output&#8217;s instruments <a href="https://output.com/products#instruments">have an extra 25% off</a> &#8211; meaning the bundle of everything is now $/EUR 599.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/Parallax_2000px_2048x-1024x545.jpg" alt="" class="wp-image-95321" srcset="https://cdm.link/app/uploads/2019/11/Parallax_2000px_2048x-1024x545.jpg 1024w, https://cdm.link/app/uploads/2019/11/Parallax_2000px_2048x-768x409.jpg 768w, https://cdm.link/app/uploads/2019/11/Parallax_2000px_2048x-300x160.jpg 300w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>puremagnetik&#8217;s unique collections of sounds and instruments are 50% through November 30, including some <a href="https://puremagnetik.com/collections/spark-packs">wonderful plugin instruments</a>. Enter code BLACKFRIDAY19. Get a little granular after Thanksgiving dinner.</p>
+
+
+
+<p>Eventide&#8217;s Anthology XI &#8211; the equivalent of a studio full of Eventide gear &#8211; is a full 75% off, for $499. That compares well to getting it via subscription, and it&#8217;s an outstanding deal. There&#8217;s also the excellent Elevate suite for 50% off.  See the <a href="https://store.eventideaudio.com/pages/elevate-anthology">holiday sale page</a>. Full disclosure: I <em>live</em> off the Anthology. The Eventide folder if it lived in the real world would have had its name worn off by now.</p>
+
+
+
+<p>Time + Space have a <a href="https://www.timespace.com/pages/offers">rotating set of deals</a> from a whole host of vendors. It may even be worth checking some of these deals versus the original developers.</p>
+
+
+
+<p>On the same lines, <a href="https://pluginboutique.com">pluginboutique.com</a> have a bunch of deals on various vendors, and some of these discounts are exclusive, so comparison-shop if you&#8217;re stocking up. 50% off Softube or a stunning 80% off Soundtoys looks brilliant. On the Softube side, you can&#8217;t go wrong with the company&#8217;s amp simulations, for instance, and Modular add-ons are discounted, too. For Soundtoys, LittlePlate and EchoBoy Jr. are secret sauce for me, so I would absolutely endorse those two as they&#8217;re indispensible (or full EchoBoy for a little more). </p>
+
+
+
+<p>Waves are letting you stock up with code <a rel="noreferrer noopener" href="http://links.waves-audio.com/a/750/click/8408686/742297667/_4353b5dac70d69672c0ed508c13d5beea4029cba/a8f2d50403ac5692d3b23ca5fb297cc4a30a973c" target="_blank"><strong>BF50</strong>&nbsp;at checkout</a>, plus free plug-ins to choose when you spend more than $50.</p>
+
+
+
+<p>Harrison&#8217;s new AVA plug-ins are 4-for-the-price-of-1, at $89 for the lot. See the <a href="https://harrisonconsoles.com/site/ava-plugins.html?mc_cid=79c2be607c&amp;mc_eid=[UNIQID]">AVA product page</a>. These plug-ins I don&#8217;t know yet, but Harrison&#8217;s stuff typically sounds great.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/waverazor-feature-img-1-large-1-1024x683.png" alt="" class="wp-image-95315" srcset="https://cdm.link/app/uploads/2019/11/waverazor-feature-img-1-large-1-1024x683.png 1024w, https://cdm.link/app/uploads/2019/11/waverazor-feature-img-1-large-1-768x512.png 768w, https://cdm.link/app/uploads/2019/11/waverazor-feature-img-1-large-1-300x200.png 300w, https://cdm.link/app/uploads/2019/11/waverazor-feature-img-1-large-1.png 1148w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Tracktion&#8217;s software is up to 65% off. That includes their DAWs, but also things like the MOK Waverazor and SpaceCraft instruments. Tons of inspiring stuff &#8211;  code <strong>MIX2019</strong> &#8211; through end of day December 4. <a href="https://www.tracktion.com">https://www.tracktion.com</a></p>
+
+
+
+<p>Cableguys do great stuff and they have their only sale of the year as this &#8211; &#8220;Until Cyber Monday, 2nd&nbsp;December 2019, the ShaperBox 2 Bundle of five powerful Cableguys effects&nbsp;– TimeShaper 2, VolumeShaper 6, FilterShaper Core 2, PanShaper 3, and&nbsp;WidthShaper 2 – is only €79 / $89. That&#8217;s a 50% saving compared to&nbsp;buying all five Shapers individually (€155 / $180).&#8221; <a rel="noreferrer noopener" href="https://www.cableguys.com/shaperbox.html" target="_blank">https://www.cableguys.com/shaperbox.html</a></p>
+
+
+
+<p>Kilohearts has deep discounts on their stuff through December 9 &#8211; <a href="https://kilohearts.com">https://kilohearts.com</a>.</p>
+
+
+
+<p>Metric Halo&#8217;s indispensible software, including SpectraFoo and the like, is on a sale up to 70%. <a href="https://www.mhsecure.com/mhdirect/home.php?cat=26">https://www.mhsecure.com/mhdirect/home.php?cat=26</a> They&#8217;ve also got early access pricing on their hardware.</p>
+
+
+
+<p><strong>[Updated!] </strong>All the official VCV plug-ins for VCV Rack are now 25-33% off through Dec 4. Rack itself is free, so this is a great buy &#8211; especially as tools like the <a href="https://vcvrack.com/Console.html">Console</a> (a mixer/router) and <a href="https://vcvrack.com/Scalar.html">Scalar</a> (quantizer with tuning support) I find really essential.  <a href="https://vcvrack.com">https://vcvrack.com</a></p>
+
+
+
+<p><strong>[Updated!] </strong>The excellent K-Devices with all their unique modulation and sequencing and sound tools are a full 50% off. No codes, through November 29 only &#8211; so properly Black Friday (if starting a bit early, as it&#8217;s still Thursday). <a href="https://k-devices.com/products/">k-devices.com/products/</a></p>
+
+
+
+<p><strong>[Updated!] </strong>Spitfire Audio have 25% off of individual products and 40% off Hans Zimmer Strings, making this one of the best times to buy from this excellent sample house. <a href="https://www.spitfireaudio.com/shop/a-z/"></a><a href="https://www.spitfireaudio.com/shop/a-z/">https://www.spitfireaudio.com/shop/a-z/</a> </p>
+
+
+
+<p><strong>[Updated!] </strong>Riemann Kollektion have a <a href="https://riemannkollektion.com/collections/hot-at-the-moment/products/riemann-26gb-13701-x-24bit-wav-techno-loops-oneshots">massive 26GB (!) pack</a> of 24-bit samples and loops and one-shots for techno producers, now 199EUR (instead of the usual 1300EUR!) </p>
+
+
+
+<h3>Mobile apps</h3>
+
+
+
+<p> <a href="https://cp3.io">cykle is a really cool step sequencer</a> for iOS; it&#8217;s now 40%. </p>
+
+
+
+<figure class="wp-block-embed-vimeo aligncenter wp-block-embed is-type-video is-provider-vimeo"><div class="wp-block-embed__wrapper">
+<iframe title="cykle acid" src="https://player.vimeo.com/video/361416795?dnt=1&amp;app_id=122963" width="347" height="750" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>All of the superb Bram Bos iOS apps are on sale for $3.99 (or local equivalent), for some excellent synths, drum machines, MIDI tools, and more. See his <a href="https://apps.apple.com/us/developer/bram-bos/id325340444">developer page on the App Store</a>.</p>
+
+
+
+<p>The Atom piano roll (looper/sequencer, AUv3) is <a href="https://apps.apple.com/us/app/atom-piano-roll/id1455200044#?platform=ipad">on sale for 50% off</a> for iOS. It&#8217;s maybe your best bet for AUv3-compatible sequencing at the moment. </p>
+
+
+
+<p>Some of our favorite synths/effects, Elastic Drums and Elastic FX, are 40% off until the end of the week. Check <a href="https://mominstruments.com"></a><a href="https://mominstruments.com">https://mominstruments.com</a>.</p>
+
+
+
+<p>Imaginando&#8217;s controller apps are the ones I&#8217;ve been using most lately on iOS, and they&#8217;re <a href="https://www.imaginando.pt/shop">right now all 40% off</a>. Through December 2.</p>
+
+
+
+<p><strong>[Updated!] </strong>KORG have their annual sale on both desktop software and mobile apps, including their popular Gadget for iOS and in-app purchases (like all those Gadget devices). 50% off now &#8211; see <a href="https://www.korg.com/us/news/2019/112202/">details explained at KORG USA</a>.</p>
+
+
+
+<p>.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/Fusion_VCO_1-1024x673.jpg" alt="" class="wp-image-95311" srcset="https://cdm.link/app/uploads/2019/11/Fusion_VCO_1-1024x673.jpg 1024w, https://cdm.link/app/uploads/2019/11/Fusion_VCO_1-768x505.jpg 768w, https://cdm.link/app/uploads/2019/11/Fusion_VCO_1-300x197.jpg 300w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h3>Hardware</h3>
+
+
+
+<p>Erica Synths&#8217; have 20% some of our favorite modules &#8211; the Fusion Series.  <a href="https://www.ericasynths.lv/shop/eurorack-modules/by-series/fusion-series/"></a><a href="https://www.ericasynths.lv/shop/eurorack-modules/by-series/fusion-series/">https://www.ericasynths.lv/shop/eurorack-modules/by-series/fusion-series/</a>  Through Saturday.</p>
+
+
+
+<p>Also over in Riga, there&#8217;s the wonderful, independently-operated Gamechanger Audio. Their exceptionally unique Plus and Plasma pedals are 20% off, which is about as good a way to spend money as I can imagine. Check out their shop &#8211; <a href="https://www.gamechangeraudio.com/shop"></a><a href="https://www.gamechangeraudio.com/shop">https://www.gamechangeraudio.com/shop</a> &#8211; through December 2. It&#8217;s a pretty big deal to do this as an independent maker, too &#8211; they admit they&#8217;re working 14-hour shifts to get the gear out &#8211; so do reward them!</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/drumbrute-image-1024x536.png" alt="" class="wp-image-95317" srcset="https://cdm.link/app/uploads/2019/11/drumbrute-image-1024x536.png 1024w, https://cdm.link/app/uploads/2019/11/drumbrute-image-768x402.png 768w, https://cdm.link/app/uploads/2019/11/drumbrute-image-300x157.png 300w, https://cdm.link/app/uploads/2019/11/drumbrute-image.png 1192w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p><a href="https://www.arturia.com/support/black-friday-19-brute">Arturia hardware is on sale</a>, so head into your local store (or order from them). That&#8217;s up to 50% off MiniBrute (and its rackable 2S sibling) and the unique DrumBrute.  DrumBrute for 349 $/EUR is pretty astonishing and maybe reason to overlook even those remakes everyone else might be grabbing.</p>
+
+
+
+<p>ROLI is running an insane discount of up to 50% off a lot of their Seaboard and Blocks hardware plus plug-ins. <a href="https://roli.com/black-friday-deals">https://roli.com/black-friday-deals</a></p>
+
+
+
+<p>Sweetwater has $<a href="https://www.sweetwater.com/store/detail/SiXSSL--solid-state-logic-six-desktop-mixer">300 off that Solid State Logic SiX</a> we&#8217;ve all been coveting. It&#8217;s still the most expensive compact mixer you can buy, but &#8230; well, it&#8217;s a little more tempting, and come on, it&#8217;s still a chance to own your own little SSL.</p>
+
+
+
+<p>Sweetwater also has a bunch of Universal Audio bundles and deals on their site. But maybe best is &#8211; </p>
+
+
+
+<p><a href="https://www.sweetwater.com/store/detail/Mother32--moog-mother-32-semi-modular-eurorack-analog-synthesizer-and-step-sequencer">Moog Mother for $100 off</a>.</p>
+
+
+
+<p>Perfect Circuit also has a <a href="https://www.perfectcircuit.com/sale">bunch of hardware for up to 40% off</a>. That includes Moog <a href="https://www.perfectcircuit.com/moog-drummer-from-another-mother-dfam.html">DFAM for $100 off</a>.</p>
+
+
+
+<p><strong>[Updated!] </strong>Ready for a new PC? pcaudiolabs has Black Friday code&nbsp;BLKFRI2019&nbsp;at checkout on PCAudioLabs.com to get $150 off Rok Box PCs, plus free Warranty, and OS Drive upgrades (plus a service and <a href="https://obedia.com/obedia-black-friday-2019-deal/?fbclid=IwAR1EYyzpymCkNcEXbhw18y6uuSx6XoF2COf3RYaWZKqXbRlI7rlKbuVIucE">training deal too</a>):</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-pcaudiolabs"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="l0klY1okfF"><a href="https://pcaudiolabs.com/pcaudiolabs-black-friday-deals/">PCAudioLabs Black Friday Deals</a></blockquote><iframe title="&#8220;PCAudioLabs Black Friday Deals&#8221; &#8212; PCAudioLabs" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://pcaudiolabs.com/pcaudiolabs-black-friday-deals/embed/#?secret=l0klY1okfF" data-secret="l0klY1okfF" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<h3>Visualist tools</h3>
+
+
+
+<p>Learning TouchDesigner? Stanislav Glazov has his superb tutorials on sale.  30 % Discount for all TouchDesigner Courses till 3rd of December. Use promocode 3DOFF at&nbsp;<a rel="noreferrer noopener" href="https://l.facebook.com/l.php?u=https%3A%2F%2Flichtpfad.selz.com%2F%3Ffbclid%3DIwAR2Pc9_I-9KVSMKv72aqy7P_sAW0Rw66VUAwBACmnuIt-mrkAmK9yGj94k4&amp;h=AT2s6WC7gQVjQuIXNJnY-xp341B5ioO6sfFgMW5uoyDeDjpIQYO3A5XPQuAA1bC9W6bw90pdQBTXFH61elIKTZysOrm5-VAqF5bFZHl7aaj4UxUcqvn4mwVgQUSzx-LGedUfAX5AV69GMASPncsOzRMHUUoT" target="_blank">https://lichtpfad.selz.com/</a> </p>
+
+
+
+<p>garageCube are again celebrating &#8220;Mad Week&#8221; with 20% off software and 10% off hardware. Head to <a href="https://www.garagecube.com/product/">https://www.garagecube.com/product/</a> through December 2. This includes upgrade discounts, so it&#8217;s worth checking even if you&#8217;re already a customer.</p>
+
+
+
+<p><strong>[Updated!] </strong>ArKaos has up to 50% off their software (like GrandVJ) and hardware (like Kling-Force LED controller), plus as with the other visual makers here &#8211; upgrades are covered, too. <a href="https://www.arkaos.com/online-shop">https://www.arkaos.com/online-shop</a></p>
+
+
+
+<p><strong>[Updated!] </strong><a href="https://www.msn.com/en-us/news/world/china-confirms-fourth-plague-case/ar-BBXrKpI">Vidvox has $100 off everything</a> &#8211; including educational discounts (meaning VDMX5 is $99). And there&#8217;s also a &#8220;starving artist&#8221; discount. Definitely some of the best Mac visual software; all details at their site. Through Monday.</p>
+
+
+
+<h2>Music labels</h2>
+
+
+
+<iframe style="border: 0; width: 350px; height: 720px;" src="https://bandcamp.com/EmbeddedPlayer/album=349534870/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless=""><a href="http://oslated.bandcamp.com/album/tutto-tutto-osl009">Tutto Tutto [OSL009] by Elle</a></iframe>
+
+
+
+<p>Big <a href="https://semanticarecords.bandcamp.com">Semantica Records</a> fan, and they&#8217;re 30% off with code blackfriday2019 on Bandcamp.</p>
+
+
+
+<p>Florian Meindl as I said is doing some of the finest quality techno production out there, and now you can get <em>all</em> his tracks for 9EUR (really). Just go to an album page like this one &#8211; <a href="https://florianmeindl.bandcamp.com/album/nonlinear-times-remixes-black-asteroid-jeroen-search">https://florianmeindl.bandcamp.com/album/nonlinear-times-remixes-black-asteroid-jeroen-search</a> &#8211; and you&#8217;ll see the option.</p>
+
+
+
+<p><a href="https://totalblack.bandcamp.com">Total Black records</a> in Berlin <em>obviously</em> needs a Black Friday discount; they&#8217;re 70% off. Use code blackfriday.</p>
+
+
+
+<p>Beautiful Seoul-based <a href="https://oslated.bandcamp.com">Oslated Records</a> is 70% off, with code blackfriday.</p>
+
+
+
+<p>I know a lot of indie labels must be doing Bandcamp sales, so do <a href="https://docs.google.com/forms/d/e/1FAIpQLSe25umxpinXljQjyTdb1vig7QJaNLqolx9mmHPw6Yotf322KA/viewform">get in touch</a>. </p>
+
+
+
+<p>That covers Bandcamp, but see also <a href="https://beatport.com">Beatport</a> for some deals &#8211; code CYBERSALE nets you as much as 50%, and you can use it twice before it expires on December 3.</p>
+
+
+
+<p><strong>Updated &#8211; there&#8217;s too much Bandcamp goodness! Here&#8217;s a separate guide</strong>:</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-cdm-create-digital-music"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="rTHcryj15C"><a href="https://cdm.link/2019/11/black-friday-bandcamp-2019/">Stock up on underground electronic music and techno for a Bandcamp Black Friday</a></blockquote><iframe title="&#8220;Stock up on underground electronic music and techno for a Bandcamp Black Friday&#8221; &#8212; CDM Create Digital Music" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://cdm.link/2019/11/black-friday-bandcamp-2019/embed/#?secret=rTHcryj15C" data-secret="rTHcryj15C" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p><strong>Feature photo </strong>(the shopping cart) (<a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC-BY-SA-ND</a>) <a href="https://www.flickr.com/photos/threehundreddotsperinch/">Wim Bollen</a>.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/turkey-tracker-2019/">Here are the best Black Friday deals for electronic musicians, visualists</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/11/turkey-tracker-2019/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95300</post-id>	</item>
+		<item>
+		<title>&#8220;Yes I Did&#8221; is a witch-y anthem, and more genre-bending, feel-good Sky Deep creations</title>
+		<link>https://cdm.link/2019/11/sky-deep-creations/</link>
+				<comments>https://cdm.link/2019/11/sky-deep-creations/#respond</comments>
+				<pubDate>Thu, 28 Nov 2019 13:50:07 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Music]]></category>
+		<category><![CDATA[Stories]]></category>
+		<category><![CDATA[analog]]></category>
+		<category><![CDATA[music videos]]></category>
+		<category><![CDATA[Oberheim]]></category>
+		<category><![CDATA[politics]]></category>
+		<category><![CDATA[roller skating]]></category>
+		<category><![CDATA[usa]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95292</guid>
+				<description><![CDATA[<p>With a background ranging from soul to porn and roots spanning from LA and NYC to Berlin, Sky Deep delivers something unique and brilliantly affirming. Sky Deep is a DJ/producer, but also &#8211; well, a lot of other things. She&#8217;s an award-winning indie/queer porn film producer. She curates a festival. She tours with the amazing [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/sky-deep-creations/">&#8220;Yes I Did&#8221; is a witch-y anthem, and more genre-bending, feel-good Sky Deep creations</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>With a background ranging from soul to porn and roots spanning from LA and NYC to Berlin, Sky Deep delivers something unique and brilliantly affirming.</p>
+
+
+
+<p>Sky Deep is a DJ/producer, but also &#8211; well, a lot of other things. She&#8217;s an award-winning indie/queer porn film producer. She curates a festival. She tours with the amazing Peaches and dances in that insanely high-energy stage show &#8211; which you can catch in some fleeting bit, somehow <a href="https://www.facebook.com/SkyDeepOfficial/videos/577444039670870/?__xts__[0]=68.ARBzWrVlr1nzw163PRXGUKBcgzuXPDH_EUmJPtXJ9VBMUfRQO2XIejsHWbji6VRlVAs6UVL4Q1n_hnbRhOqXhZZX_-FThLa-c0qzngoUEziRxg7mmaMX7a__RHA-Jzb9tibYoGSAMfHLE4UlwEkssZYzrHkoPtMAxwQf7I2F2dshl7pH8c0Gcs8rlu0CWoYn5wZpwS2fo-xWd2gvfB30U9FAv88-LUb_kbA2I_r9RYvonJ4Nnxph6JE6iB33jwV6_dx5jleL884lMoTmSwJZW1DhMR0U3gMRLwX8ozWeZvzFarcOs5agvCj0WPJjYaMmlJWjnlKGNPPQ1aKZzudgAidioqbXYrAJtWcMQg&amp;__tn__=-R">avoiding Facebook&#8217;s draconian censorship</a>. She&#8217;s a vocalist, a guitarist, an MC, she makes music that is quirky and honest and fresh and not stuck in genre-perfectionism. </p>
+
+
+
+<p>And she can hit an earworm head-on, in overlooked gems like her latest &#8220;Yes I Did,&#8221; which gets an accompanying happy-queer, witchy-good video. (This seems worth showing just so that it&#8217;s clear that Berlin is not populated only by emo people hanging out in car parks clad in black, as certain techno promo photos might have you believe &#8211; as though Germany were perpetually black-and-white, like the beginning of <em>Wizard of Oz</em>. I mean, some days feel like that, for sure, but not so much as to <em>completely</em> obliterate the spectrum of visual light. One hopes.)</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Sky Deep - Yes I Did [Official Music Video]" width="500" height="281" src="https://www.youtube.com/embed/076xV9BIwU0?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>If that hasn&#8217;t already grabbed you, check the <a href="https://open.spotify.com/album/6quvmyHElF6U4GwTqCxJS7">Electrosexual remix on the EP release from June</a>, which seems absolutely mix-friendly.</p>
+
+
+
+<p>For more catch-y, positive, oddball pop, check &#8220;Swerve&#8221; and its fun video of roller skating:</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Sky Deep - Swerve (Official Video)" width="500" height="281" src="https://www.youtube.com/embed/yjuSzMIk_30?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>What I enjoy as much as the song and video is the story of how she got out of a creative rut through synth gear and roller-skating:</p>
+
+
+
+<blockquote class="wp-block-quote"><p> Right before I made ‘Swerve’, I was in the middle of a creative block and in the process of changing my whole music production workflow. I was rebuilding whilst seeking inner inspiration. Luckily for me, I’ve got some really loving and generous friends in music.One in particular, let me borrow her SE-02 while she went on tour. I spent a couple of weeks learning the new machine and created kicks, snares, hi-hats and basslines for my sound library. Later, I borrowed another friend’s OB-6 to finish the rest of the track. I was inspired by good times and I remembered back in the day roller skating to the basslines of 90’s Californian hip-hop. That’s what inspired me to connect further with my dear family friend and roller skate enthusiast on the artwork, music video and Swerve T-shirts. </p></blockquote>
+
+
+
+<p>Those are two very excellent synths &#8211; the Sequential (Dave Smith/Tom Oberheim) <a href="https://www.sequential.com/product/ob-6/">OB-6 poly</a> and the Roland Boutique / Studio Electronics <a href="https://www.studioelectronics.com/products/synths/se-02/">analog SE-02</a>.</p>
+
+
+
+<p>More on that story in the premiere post from earlier this year:</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-fmagazine"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="B7mMs7BKfp"><a href="https://www.famemagazine.co.uk/fm-premiere-sky-deeps-swerve-video/">FM Premiere | Sky Deep’s ‘Swerve’ Video</a></blockquote><iframe title="&#8220;FM Premiere | Sky Deep’s ‘Swerve’ Video&#8221; &#8212; FMagazine" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.famemagazine.co.uk/fm-premiere-sky-deeps-swerve-video/embed/#?secret=B7mMs7BKfp" data-secret="B7mMs7BKfp" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>But beyond that, it&#8217;s great that she used sense memory and something personal and emotional, and &#8230; you know, what&#8217;s better than roller skating for freeing up that physical feeling in music?</p>
+
+
+
+<p> Here&#8217;s a great mix demonstrating just how eclectic her tastes can run:</p>
+
+
+
+<figure class="wp-block-embed-mixcloud wp-block-embed is-type-rich is-provider-mixcloud wp-embed-aspect-21-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Autopoiesis Radio # 20 || Sky Deep" width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?feed=https%3A%2F%2Fwww.mixcloud.com%2FAutopoiesis%2Fautopoiesis-radio-20-ii-sky-deep%2F&amp;hide_cover=1" frameborder="0"></iframe>
+</div></figure>
+
+
+
+<p>It&#8217;s worth checking Sky&#8217;s other cultural inter-connections, too. She&#8217;s been part of a renewed interest in once-forgotten gay black composer Julius Eastman, including joining a performance ensemble reviving his work:</p>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-proofed-a-boydell-amp-brewer-blog"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="FW7ftsiDb7"><a href="https://boydellandbrewer.com/blog/music/the-re-discovery-of-julius-eastmans-compositions/">The re-discovery of Julius Eastman’s compositions</a></blockquote><iframe title="&#8220;The re-discovery of Julius Eastman’s compositions&#8221; &#8212; Proofed, a Boydell &amp; Brewer Blog" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://boydellandbrewer.com/blog/music/the-re-discovery-of-julius-eastmans-compositions/embed/#?secret=FW7ftsiDb7" data-secret="FW7ftsiDb7" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>And even as laws and social media moires in our own home country the USA threaten to gag free expression, Sky is part of a sex-positive filmmaking movement here in Berlin. Even mighty <em>VICE</em> are taking notice:</p>
+
+
+
+<p><a href="https://www.vice.com/en_us/article/evyn8e/berlins-porn-scene-is-open-experimental-and-endlessly-fun?fbclid=IwAR0g1F0s5BWeEb_Tx3mJoJQMwNjXbEhvcOvh9GenHdNN8fLaWG50UOzRYOY">Berlin’s Porn Scene Is Open, Experimental, and Endlessly Fun</a> [VICE]</p>
+
+
+
+<p>And in 2017 she was part of a well-worth-reading panel for <em>Mixmag</em> on combating discrimination and harassment in clubland:</p>
+
+
+
+<p><a href="https://mixmag.net/feature/15-industry-figures-tell-us-how-to-combat-sexism-and-harassment-in-dance-music?fbclid=IwAR0p079bQ10upmXYrx-2gAFwavkCSxK0bhQ9N5wVShVc7ny2msnyJ6TKz9I">INDUSTRY FIGURES TELL US HOW TO COMBAT SEXISM AND HARASSMENT IN DANCE MUSIC</a></p>
+
+
+
+<p>Check her official site for more:</p>
+
+
+
+<p><a href="https://www.skydeepofficial.com/"><strong>https://www.skydeepofficial.com/</strong></a></p>
+
+
+
+<p>Feature photo: Alexa Vachon.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/sky-deep-creations/">&#8220;Yes I Did&#8221; is a witch-y anthem, and more genre-bending, feel-good Sky Deep creations</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/11/sky-deep-creations/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95292</post-id>	</item>
+		<item>
+		<title>Unlock sound tricks in Ableton Live 10&#8217;s effects: new tips</title>
+		<link>https://cdm.link/2019/11/live-10-effects-tricks/</link>
+				<comments>https://cdm.link/2019/11/live-10-effects-tricks/#respond</comments>
+				<pubDate>Wed, 27 Nov 2019 18:35:12 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[Music tech]]></category>
+		<category><![CDATA[Software]]></category>
+		<category><![CDATA[Tech]]></category>
+		<category><![CDATA[how-to]]></category>
+		<category><![CDATA[Live 10.1]]></category>
+		<category><![CDATA[live-suite]]></category>
+		<category><![CDATA[tips]]></category>
+		<category><![CDATA[tips and tricks]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95286</guid>
+				<description><![CDATA[<p>There are some powerful sound creation possibilities lurking beneath Live's built-in devices. Finding inspiration from Live effects is the topic of my second collaboration with Riemann Kollektion.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/live-10-effects-tricks/">Unlock sound tricks in Ableton Live 10&#8217;s effects: new tips</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>There are some powerful sound creation possibilities lurking beneath Live&#8217;s built-in devices. Finding inspiration from Live effects is the topic of my second collaboration with Riemann Kollektion.</p>
+
+
+
+<p>In the first part of this tutorial series, I told you how to finish tracks faster using some of the latest shortcuts in Ableton Live 10.1. This time, I&#8217;ve down a round-up of some of tricks and tips with Echo, Delay, Convolution, and other devices:</p>
+
+
+
+<p><a href="https://riemannkollektion.com/blogs/techno-producer-knowledge-hub/tutorial-hidden-sound-inspiration-in-live-10s-effects"><strong>Tutorial: Hidden Sound Inspiration in Ableton Live 10&#8217;s Effects</strong></a></p>
+
+
+
+<p>Riemann also has a Black Friday sale on already &#8211; 50% off their excellent <a href="https://riemannkollektion.com/collections/frontpage">original sample packs</a> with code <a rel="noreferrer noopener" href="https://riemannkollektion.com/?utm_source=email&amp;utm_medium=email&amp;utm_campaign=email" target="_blank">BLACK-50</a>. If even that&#8217;s too rich for your blood, there&#8217;s the <a href="https://riemannkollektion.com/collections/free-sample-packs/products/riemann-techno-starter-sample-pack-for-ableton-and-fl-studio">Techno Starter Kit for free</a>.</p>
+
+
+
+<p>You might want to brush up a little on your effects before diving in. For instance, the Delay:</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Learn Live 10: Delay" width="500" height="281" src="https://www.youtube.com/embed/Ss5yOq8nQK4?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>And freezing is useful for using my Convolution Reverb hack:</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Learn Live 10: Freezing" width="500" height="281" src="https://www.youtube.com/embed/a-0gOTm6Qdk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>For a refresher on that convolution reverb and loading custom impulses, ADSR has an extended video tutorial (though I am enjoying having my own text list handy, as a kind of oblique strategies for production&#8230;):</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Convolution beyond Reverb - Max for Live Convolution Pro" width="500" height="281" src="https://www.youtube.com/embed/PcaPRNTK38Q?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>The skin in the screenshots, by the way: <a href="https://www.deviantart.com/anthonymilano/art/SKIN-Dark-2-for-Ableton-Live-10-735023504">Dark 2</a>.</p>
+
+
+
+<p>Got more / anything I missed? Shout at me in comments.</p>
+
+
+
+<p><a href="https://riemannkollektion.com"><strong>https://riemannkollektion.com</strong></a></p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/live-10-effects-tricks/">Unlock sound tricks in Ableton Live 10&#8217;s effects: new tips</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/11/live-10-effects-tricks/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95286</post-id>	</item>
+		<item>
+		<title>Australia is using sound to monitor its wildlife and ecosystem</title>
+		<link>https://cdm.link/2019/11/australia-ecosystem-monitoring/</link>
+				<comments>https://cdm.link/2019/11/australia-ecosystem-monitoring/#respond</comments>
+				<pubDate>Tue, 26 Nov 2019 15:14:13 +0000</pubDate>
+		<dc:creator><![CDATA[Peter Kirn]]></dc:creator>
+				<category><![CDATA[DIY + Unusual]]></category>
+		<category><![CDATA[Music]]></category>
+		<category><![CDATA[Stories]]></category>
+		<category><![CDATA[Tech]]></category>
+		<category><![CDATA[animals]]></category>
+		<category><![CDATA[Eearth]]></category>
+		<category><![CDATA[environment]]></category>
+		<category><![CDATA[environmental]]></category>
+		<category><![CDATA[nature]]></category>
+		<category><![CDATA[wildlife]]></category>
+
+		<guid isPermaLink="false">https://cdm.link/?p=95277</guid>
+				<description><![CDATA[<p>Listen to the Earth - no, literally. Australia has a world's-first project to map the voice of its wildlife, which will make a "galaxy of sounds" that can be heard like the ecosystem's heartbeat.</p>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/australia-ecosystem-monitoring/">Australia is using sound to monitor its wildlife and ecosystem</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Listen to the Earth &#8211; no, literally. Australia has a world&#8217;s-first project to map the voice of its wildlife, which will make a &#8220;galaxy of sounds&#8221; that can be heard like the ecosystem&#8217;s heartbeat.</p>
+
+
+
+<p>The galaxy metaphor isn&#8217;t just poetic. Scientists already observe the cosmos through radio signal, optical imaging, and other techniques. A network of hundreds of solar-powered audio recorders will do the same across Australia.</p>
+
+
+
+<p>Those sensors themselves will be familiar to electronic composers and field recordists. They use microphones and standard SD cards, but operate entirely on solar power &#8211; a necessity for remote locations. The recordings are continuous, and spread through the vast country, across some one hundred sites and 400 sensors covering &#8220;desert, grassland, shrublands and temperate, subtropical and tropical forests.&#8221;</p>
+
+
+
+<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="&#039;Galaxy of sounds&#039; to be recorded for acoustic observatory of Australian wildlife | ABC News" width="500" height="281" src="https://www.youtube.com/embed/p4aO-SlF_d8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>From a scientific standpoint, this is already a big deal, because it can look at geography and time comprehensively, instead of in little pieces that can rob recordings of context and meaning. That means seasonal change, or even changes over the five year mission, will appear in the recordings.</p>
+
+
+
+<p>It&#8217;s also significant that the project, and the vast amounts of sound data it produces, will be available to the public. That hints at both educational opportunities and crowd-sourced analysis &#8211; especially since citizen Australians may be on the ground spread through these hundred locations. The whole project will keep its data online and accessible. It&#8217;s a welcome change in talking about big data, from government surveillance and corporate control to actually harnessing that power to provide access to the public and better awareness of the ecosystem on which we depend.</p>
+
+
+
+<p>Audio recording is less intrusive and far more comprehensive (in time and space) than conventional methods. And there are real, practical possibilities, as ABC News in Australia reports from Queensland:</p>
+
+
+
+<blockquote class="wp-block-quote"><p>[Biology Professor Lin Schwarzkopf, James Cook University] had also mapped the noise of the aggressive Indian myna birds and the rare black-throated finch, which environmentalists warned was a species under threat from the Adani coal mine in central Queensland.</p></blockquote>
+
+
+
+<blockquote class="wp-block-quote"><p>&#8220;It&#8217;s useful because we can then look at things like species decline so we can understand when they are disappearing, like the black-throated finch. Over time we can listen for their calls and see if they are still there,&#8221; she said.</p></blockquote>
+
+
+
+<p><a href="https://www.abc.net.au/news/2019-11-26/sound-observatory-google-map-of-animal-sounds/11718422">Acoustic observatory will record &#8216;galaxy of sounds&#8217; to help scientists monitor Australian wildlife?</a> [ABC News]</p>
+
+
+
+<p>In the case of the Australian project, there are various partners including universities, parks and government, owners, indigenous partners, and advocacy groups and NGOs. </p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/identifyingbirds-1024x706.png" alt="" class="wp-image-95281" srcset="https://cdm.link/app/uploads/2019/11/identifyingbirds-1024x706.png 1024w, https://cdm.link/app/uploads/2019/11/identifyingbirds-768x530.png 768w, https://cdm.link/app/uploads/2019/11/identifyingbirds-300x207.png 300w, https://cdm.link/app/uploads/2019/11/identifyingbirds.png 1095w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption>Non-scientist Australians can get in on making observations, too, as in this interface. Check the project blog for <a href="https://acousticobservatory.org/2019/11/25/searching-for-powerful-owls-and-other-night-birds/">more on how this works</a>.</figcaption></figure>
+
+
+
+<p>This strikes me as an opportunity for composers and musicians to partner with scientists, too. Whereas music once made primitive mimicry of bird songs, now it seems musicians possess a technological and creative/cultural skillset to both capture more data and express its significance to the broader public and society. So let&#8217;s get on it, shall we? (Hey, Europe for instance is a lot smaller and more manageable, for example&#8230;)</p>
+
+
+
+<p>More on the <strong><a href="https://acousticobservatory.org">Australian Acoustic Observatory</a></strong>&#8230;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://cdm.link/app/uploads/2019/11/recorder.jpg" alt="" class="wp-image-95282" srcset="https://cdm.link/app/uploads/2019/11/recorder.jpg 700w, https://cdm.link/app/uploads/2019/11/recorder-150x150.jpg 150w, https://cdm.link/app/uploads/2019/11/recorder-300x300.jpg 300w, https://cdm.link/app/uploads/2019/11/recorder-60x60.jpg 60w, https://cdm.link/app/uploads/2019/11/recorder-230x230.jpg 230w, https://cdm.link/app/uploads/2019/11/recorder-200x200.jpg 200w" sizes="(max-width: 700px) 100vw, 700px" /><figcaption>The acoustic recorders are made by an Australian company &#8211; <a href="https://frontierlabs.com.au/bioacoustics.html"><a href="https://frontierlabs.com.au/bioacoustics.html">https://frontierlabs.com.au/bioacoustics.html</a></a></figcaption></figure>
+<p>The post <a rel="nofollow" href="https://cdm.link/2019/11/australia-ecosystem-monitoring/">Australia is using sound to monitor its wildlife and ecosystem</a> appeared first on <a rel="nofollow" href="https://cdm.link">CDM Create Digital Music</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://cdm.link/2019/11/australia-ecosystem-monitoring/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">95277</post-id>	</item>
+	</channel>
+</rss>

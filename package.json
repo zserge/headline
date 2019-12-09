@@ -5,7 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "eslint app.js rss.js rss_test.js && node --experimental-modules rss_test.js"
+    "test": "eslint app.js rss.js rss_test.js && node --experimental-modules rss_test.js",
+    "ml": "node --experimental-modules ml.js"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,101 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hacker News: Front Page</title><link>https://news.ycombinator.com/</link><description>Hacker News RSS</description><docs>https://hnrss.org/</docs><generator>go-hnrss v1.0-10-g4f1b850</generator><lastBuildDate>Wed, 04 Dec 2019 10:40:40 +0000</lastBuildDate><atom:link href="https://hnrss.org/frontpage" rel="self" type="application/rss+xml"></atom:link><item><title><![CDATA[AGI Has Been Delayed – Rodney Brooks]]></title><description><![CDATA[
+<p>Article URL: <a href="http://rodneybrooks.com/agi-has-been-delayed/">http://rodneybrooks.com/agi-has-been-delayed/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21700555">https://news.ycombinator.com/item?id=21700555</a></p>
+<p>Points: 34</p>
+<p># Comments: 35</p>
+]]></description><pubDate>Wed, 04 Dec 2019 08:31:25 +0000</pubDate><link>http://rodneybrooks.com/agi-has-been-delayed/</link><dc:creator>chubot</dc:creator><comments>https://news.ycombinator.com/item?id=21700555</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21700555</guid></item><item><title><![CDATA[C-for-all: Extending C with modern safety and productivity features]]></title><description><![CDATA[
+<p>Article URL: <a href="https://cforall.uwaterloo.ca/">https://cforall.uwaterloo.ca/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21700197">https://news.ycombinator.com/item?id=21700197</a></p>
+<p>Points: 95</p>
+<p># Comments: 53</p>
+]]></description><pubDate>Wed, 04 Dec 2019 07:03:25 +0000</pubDate><link>https://cforall.uwaterloo.ca/</link><dc:creator>albertoCaroM</dc:creator><comments>https://news.ycombinator.com/item?id=21700197</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21700197</guid></item><item><title><![CDATA[Sinkholed]]></title><description><![CDATA[
+<p>Article URL: <a href="https://susam.in/blog/sinkholed/">https://susam.in/blog/sinkholed/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21700139">https://news.ycombinator.com/item?id=21700139</a></p>
+<p>Points: 102</p>
+<p># Comments: 28</p>
+]]></description><pubDate>Wed, 04 Dec 2019 06:45:06 +0000</pubDate><link>https://susam.in/blog/sinkholed/</link><dc:creator>swiftsecurity</dc:creator><comments>https://news.ycombinator.com/item?id=21700139</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21700139</guid></item><item><title><![CDATA[Merck cyberattack’s $1.3B question: Was it an act of war?]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.inquirer.com/wires/bloomberg/merck-cyberattack-20191203.html">https://www.inquirer.com/wires/bloomberg/merck-cyberattack-20191203.html</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21699796">https://news.ycombinator.com/item?id=21699796</a></p>
+<p>Points: 50</p>
+<p># Comments: 31</p>
+]]></description><pubDate>Wed, 04 Dec 2019 05:17:06 +0000</pubDate><link>https://www.inquirer.com/wires/bloomberg/merck-cyberattack-20191203.html</link><dc:creator>robdimarco</dc:creator><comments>https://news.ycombinator.com/item?id=21699796</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21699796</guid></item><item><title><![CDATA[Say it's 1962, you're lucky enough to be a programmer working with an IBM 7090]]></title><description><![CDATA[
+<p>Article URL: <a href="https://twitter.com/Foone/status/1201956309941116928">https://twitter.com/Foone/status/1201956309941116928</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21699687">https://news.ycombinator.com/item?id=21699687</a></p>
+<p>Points: 90</p>
+<p># Comments: 23</p>
+]]></description><pubDate>Wed, 04 Dec 2019 04:51:46 +0000</pubDate><link>https://twitter.com/Foone/status/1201956309941116928</link><dc:creator>ohjeez</dc:creator><comments>https://news.ycombinator.com/item?id=21699687</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21699687</guid></item><item><title><![CDATA[The iPhone 11 Pro’s Location Data Puzzler]]></title><description><![CDATA[
+<p>Article URL: <a href="https://krebsonsecurity.com/2019/12/the-iphone-11-pros-location-data-puzzler/">https://krebsonsecurity.com/2019/12/the-iphone-11-pros-location-data-puzzler/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21699576">https://news.ycombinator.com/item?id=21699576</a></p>
+<p>Points: 78</p>
+<p># Comments: 18</p>
+]]></description><pubDate>Wed, 04 Dec 2019 04:27:02 +0000</pubDate><link>https://krebsonsecurity.com/2019/12/the-iphone-11-pros-location-data-puzzler/</link><dc:creator>feross</dc:creator><comments>https://news.ycombinator.com/item?id=21699576</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21699576</guid></item><item><title><![CDATA[Craigslist releases new mobile app for iOS and Android]]></title><description><![CDATA[
+<p>Article URL: <a href="https://apps.apple.com/us/app/craigslist/id1336642410">https://apps.apple.com/us/app/craigslist/id1336642410</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21699290">https://news.ycombinator.com/item?id=21699290</a></p>
+<p>Points: 111</p>
+<p># Comments: 52</p>
+]]></description><pubDate>Wed, 04 Dec 2019 03:16:08 +0000</pubDate><link>https://apps.apple.com/us/app/craigslist/id1336642410</link><dc:creator>pkamb</dc:creator><comments>https://news.ycombinator.com/item?id=21699290</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21699290</guid></item><item><title><![CDATA[In Turkey, Keeping a Language of Whistles Alive]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.nytimes.com/2019/05/30/arts/in-turkey-keeping-alive-a-language-of-whistles.html">https://www.nytimes.com/2019/05/30/arts/in-turkey-keeping-alive-a-language-of-whistles.html</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21699065">https://news.ycombinator.com/item?id=21699065</a></p>
+<p>Points: 36</p>
+<p># Comments: 2</p>
+]]></description><pubDate>Wed, 04 Dec 2019 02:19:17 +0000</pubDate><link>https://www.nytimes.com/2019/05/30/arts/in-turkey-keeping-alive-a-language-of-whistles.html</link><dc:creator>sinak</dc:creator><comments>https://news.ycombinator.com/item?id=21699065</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21699065</guid></item><item><title><![CDATA[Wikipedia Has Cancer (2017)]]></title><description><![CDATA[
+<p>Article URL: <a href="https://en.wikipedia.org/wiki/User:Guy_Macon/Wikipedia_has_Cancer">https://en.wikipedia.org/wiki/User:Guy_Macon/Wikipedia_has_Cancer</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21699011">https://news.ycombinator.com/item?id=21699011</a></p>
+<p>Points: 323</p>
+<p># Comments: 157</p>
+]]></description><pubDate>Wed, 04 Dec 2019 02:08:59 +0000</pubDate><link>https://en.wikipedia.org/wiki/User:Guy_Macon/Wikipedia_has_Cancer</link><dc:creator>wlkr</dc:creator><comments>https://news.ycombinator.com/item?id=21699011</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21699011</guid></item><item><title><![CDATA[AWS Introducing Provisioned Concurrency for Lambda Functions]]></title><description><![CDATA[
+<p>Article URL: <a href="https://aws.amazon.com/blogs/aws/new-provisioned-concurrency-for-lambda-functions/">https://aws.amazon.com/blogs/aws/new-provisioned-concurrency-for-lambda-functions/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21698995">https://news.ycombinator.com/item?id=21698995</a></p>
+<p>Points: 92</p>
+<p># Comments: 21</p>
+]]></description><pubDate>Wed, 04 Dec 2019 02:05:20 +0000</pubDate><link>https://aws.amazon.com/blogs/aws/new-provisioned-concurrency-for-lambda-functions/</link><dc:creator>marvinpinto</dc:creator><comments>https://news.ycombinator.com/item?id=21698995</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21698995</guid></item><item><title><![CDATA[Weasel: A Stealthy DNS Beacon]]></title><description><![CDATA[
+<p>Article URL: <a href="https://github.com/facebookincubator/WEASEL">https://github.com/facebookincubator/WEASEL</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21698720">https://news.ycombinator.com/item?id=21698720</a></p>
+<p>Points: 96</p>
+<p># Comments: 20</p>
+]]></description><pubDate>Wed, 04 Dec 2019 01:16:36 +0000</pubDate><link>https://github.com/facebookincubator/WEASEL</link><dc:creator>pjf</dc:creator><comments>https://news.ycombinator.com/item?id=21698720</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21698720</guid></item><item><title><![CDATA[The most copied StackOverflow snippet of all time is flawed]]></title><description><![CDATA[
+<p>Article URL: <a href="https://programming.guide/worlds-most-copied-so-snippet.html">https://programming.guide/worlds-most-copied-so-snippet.html</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21698619">https://news.ycombinator.com/item?id=21698619</a></p>
+<p>Points: 31</p>
+<p># Comments: 5</p>
+]]></description><pubDate>Wed, 04 Dec 2019 00:59:16 +0000</pubDate><link>https://programming.guide/worlds-most-copied-so-snippet.html</link><dc:creator>chris_wot</dc:creator><comments>https://news.ycombinator.com/item?id=21698619</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21698619</guid></item><item><title><![CDATA[How fashion startups get accepted into tech accelerators]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.voguebusiness.com/technology/fashion-startups-tech-accelerators-y-combinator-dream-assembly">https://www.voguebusiness.com/technology/fashion-startups-tech-accelerators-y-combinator-dream-assembly</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21697706">https://news.ycombinator.com/item?id=21697706</a></p>
+<p>Points: 30</p>
+<p># Comments: 3</p>
+]]></description><pubDate>Tue, 03 Dec 2019 22:48:26 +0000</pubDate><link>https://www.voguebusiness.com/technology/fashion-startups-tech-accelerators-y-combinator-dream-assembly</link><dc:creator>pshaw</dc:creator><comments>https://news.ycombinator.com/item?id=21697706</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21697706</guid></item><item><title><![CDATA[The Digital 'Engines of Innovation' and Jevons' Delicious Paradox (2018)]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.realclearenergy.org/articles/2018/12/11/energy_and_the_information_infrastructure_part_3_the_digital_engines_of_innovation_jevons_delicious_paradox_110368.html">https://www.realclearenergy.org/articles/2018/12/11/energy_and_the_information_infrastructure_part_3_the_digital_engines_of_innovation_jevons_delicious_paradox_110368.html</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21697503">https://news.ycombinator.com/item?id=21697503</a></p>
+<p>Points: 8</p>
+<p># Comments: 0</p>
+]]></description><pubDate>Tue, 03 Dec 2019 22:24:08 +0000</pubDate><link>https://www.realclearenergy.org/articles/2018/12/11/energy_and_the_information_infrastructure_part_3_the_digital_engines_of_innovation_jevons_delicious_paradox_110368.html</link><dc:creator>dwighttk</dc:creator><comments>https://news.ycombinator.com/item?id=21697503</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21697503</guid></item><item><title><![CDATA[Messy handwriting reveals mystery translator: Queen Elizabeth I]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.theguardian.com/books/2019/nov/29/handwriting-identifies-elizabeth-i-tacitus-translation">https://www.theguardian.com/books/2019/nov/29/handwriting-identifies-elizabeth-i-tacitus-translation</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21697456">https://news.ycombinator.com/item?id=21697456</a></p>
+<p>Points: 23</p>
+<p># Comments: 3</p>
+]]></description><pubDate>Tue, 03 Dec 2019 22:20:04 +0000</pubDate><link>https://www.theguardian.com/books/2019/nov/29/handwriting-identifies-elizabeth-i-tacitus-translation</link><dc:creator>the-enemy</dc:creator><comments>https://news.ycombinator.com/item?id=21697456</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21697456</guid></item><item><title><![CDATA[Sacred scripture lives and evolves, is never fixed]]></title><description><![CDATA[
+<p>Article URL: <a href="https://lithub.com/sacred-scripture-lives-and-evolves-is-never-fixed/">https://lithub.com/sacred-scripture-lives-and-evolves-is-never-fixed/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21697449">https://news.ycombinator.com/item?id=21697449</a></p>
+<p>Points: 15</p>
+<p># Comments: 0</p>
+]]></description><pubDate>Tue, 03 Dec 2019 22:19:15 +0000</pubDate><link>https://lithub.com/sacred-scripture-lives-and-evolves-is-never-fixed/</link><dc:creator>collapse</dc:creator><comments>https://news.ycombinator.com/item?id=21697449</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21697449</guid></item><item><title><![CDATA[Why do holes horrify me?]]></title><description><![CDATA[
+<p>Article URL: <a href="https://mosaicscience.com/story/trypophobia-why-clusters-holes-horrify-fear-disgust/">https://mosaicscience.com/story/trypophobia-why-clusters-holes-horrify-fear-disgust/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21697385">https://news.ycombinator.com/item?id=21697385</a></p>
+<p>Points: 58</p>
+<p># Comments: 70</p>
+]]></description><pubDate>Tue, 03 Dec 2019 22:13:25 +0000</pubDate><link>https://mosaicscience.com/story/trypophobia-why-clusters-holes-horrify-fear-disgust/</link><dc:creator>bingden</dc:creator><comments>https://news.ycombinator.com/item?id=21697385</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21697385</guid></item><item><title><![CDATA[Sundar will be the CEO of both Google and Alphabet]]></title><description><![CDATA[
+<p>Article URL: <a href="https://blog.google/inside-google/alphabet/letter-from-larry-and-sergey">https://blog.google/inside-google/alphabet/letter-from-larry-and-sergey</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21696954">https://news.ycombinator.com/item?id=21696954</a></p>
+<p>Points: 988</p>
+<p># Comments: 469</p>
+]]></description><pubDate>Tue, 03 Dec 2019 21:33:10 +0000</pubDate><link>https://blog.google/inside-google/alphabet/letter-from-larry-and-sergey</link><dc:creator>minimaxir</dc:creator><comments>https://news.ycombinator.com/item?id=21696954</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21696954</guid></item><item><title><![CDATA[Metaflow, Netflix's Python framework for data science, is now open source]]></title><description><![CDATA[
+<p>Article URL: <a href="https://metaflow.org">https://metaflow.org</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21696779">https://news.ycombinator.com/item?id=21696779</a></p>
+<p>Points: 349</p>
+<p># Comments: 82</p>
+]]></description><pubDate>Tue, 03 Dec 2019 21:14:18 +0000</pubDate><link>https://metaflow.org</link><dc:creator>vtuulos</dc:creator><comments>https://news.ycombinator.com/item?id=21696779</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21696779</guid></item><item><title><![CDATA[The Factorization of RSA-240]]></title><description><![CDATA[
+<p>Article URL: <a href="https://listserv.nodak.edu/cgi-bin/wa.exe?A2=NMBRTHRY;fd743373.1912&FT=M&P=T&H=&S=">https://listserv.nodak.edu/cgi-bin/wa.exe?A2=NMBRTHRY;fd743373.1912&FT=M&P=T&H=&S=</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=21696438">https://news.ycombinator.com/item?id=21696438</a></p>
+<p>Points: 121</p>
+<p># Comments: 33</p>
+]]></description><pubDate>Tue, 03 Dec 2019 20:37:24 +0000</pubDate><link>https://listserv.nodak.edu/cgi-bin/wa.exe?A2=NMBRTHRY;fd743373.1912&amp;FT=M&amp;P=T&amp;H=&amp;S=</link><dc:creator>hsnewman</dc:creator><comments>https://news.ycombinator.com/item?id=21696438</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=21696438</guid></item></channel></rss>

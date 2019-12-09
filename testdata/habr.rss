@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"  >
+  <channel>
+    <title>Все публикации подряд</title>
+    <link>https://habr.com/ru/all/all/</link>
+    <description><![CDATA[Все публикации подряд на Хабре]]></description>
+    <language>ru</language>
+    <managingEditor>editor@habr.com</managingEditor>
+    <generator>habr.com</generator>
+    <pubDate>Wed, 04 Dec 2019 10:46:11 GMT</pubDate>
+    <lastBuildDate></lastBuildDate>
+      <image>
+        <link>https://habr.com/ru/</link>
+        <url>https://habr.com/images/logo.png</url>
+        <title>Хабр</title>
+      </image>
+
+              <item>
+      <title><![CDATA[Трюки для обработки метрик в Kapacitor]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478702/</guid>
+      <link>https://habr.com/ru/post/478702/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478702</link>
+      <description><![CDATA[Скорее всего, сегодня уже ни у кого не возникает вопрос, зачем нужно собирать метрики сервисов. Следующий логичный шаг – настроить алертинг на собираемые метрики, который будет оповещать о любых отклонениях в данных в удобные вам каналы (почту, Slack, Telegram). В сервисе онлайн-бронирования отелей <a href="https://www.habr.com/?utm_source=habr&amp;utm_medium=pr&amp;utm_campaign=Ermolaev_dec19&amp;utm_content=article">Ostrovok.ru</a> все метрики наших сервисов льются в InfluxDB и отображаются в Grafana, там же настроен базовый алертинг. Для задач типа «нужно посчитать что-то и сравнить с этим» мы используем Kapacitor.<br>
+<br>
+<img src="https://habrastorage.org/webt/oe/cl/5h/oecl5hgip8nkmeau21l2qaem8ek.png"><br>
+<br>
+Kapacitor – часть TICK-стека, который умеет обрабатывать метрики из InfluxDB. Он может соединить несколько измерений между собой (join), из полученных данных вычислить что-то полезное, записать результат обратно в InfluxDB, отправить алерт в Slack/Telegram/почту.<br>
+<br>
+Весь стек имеет крутую и подробную <a href="https://docs.influxdata.com/kapacitor/v1.5">документацию</a>, но всегда найдутся полезные штуки, которые в явном виде в мануалах не указаны. В этой статье я решил собрать ряд таких полезных неочевидных советов (основный синтаксис TICKscipt описан <a href="https://docs.influxdata.com/kapacitor/v1.5/tick/syntax/">здесь</a>) и показать, как их можно применять, на примере решения одной из наших задачек.<br>
+<br>
+Поехали!<br> <a href="https://habr.com/ru/post/478702/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478702#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 10:45:13 GMT</pubDate>
+      <dc:creator>nsnoow</dc:creator>
+      <category><![CDATA[Блог компании Ostrovok.ru]]></category><category><![CDATA[Системное администрирование]]></category><category><![CDATA[IT-инфраструктура]]></category><category><![CDATA[Серверное администрирование]]></category><category><![CDATA[DevOps]]></category>
+      <category><![CDATA[grafana]]></category><category><![CDATA[influxdb]]></category><category><![CDATA[tick]]></category><category><![CDATA[kapacitor]]></category><category><![CDATA[monitoring]]></category><category><![CDATA[devops]]></category>
+    </item>
+
+
+
+
+
+
+
+  
+
+
+
+    <item>
+      <title><![CDATA[[Перевод] Как Java 8 поддерживается в Android]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478692/</guid>
+      <link>https://habr.com/ru/post/478692/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478692</link>
+      <description><![CDATA[Привет, Хабр! Предлагаю вашему вниманию перевод замечательной статьи из цикла статей <a href="https://twitter.com/JakeWharton?lang=en">небезызвестного Джейка Вортона</a> о том, как происходит поддержка Андроидом Java 8. <br>
+<br>
+<img src="https://habrastorage.org/webt/ho/ap/qe/hoapqe-nhkwts3ekeettjbuiao8.png"><br>
+<br>
+<font color="#0000ff"><a href="https://jakewharton.com/androids-java-8-support/">Оригинал статьи лежит тут</a></font><br> <a href="https://habr.com/ru/post/478692/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478692#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 10:22:00 GMT</pubDate>
+      <dc:creator>lounah</dc:creator>
+      <category><![CDATA[Блог компании Tinkoff.ru]]></category><category><![CDATA[Разработка под Android]]></category>
+      <category>java 8</category><category>android</category><category>desugaring</category><category>перевод</category><category>Jake Wharton</category>
+    </item>
+
+
+
+      <item>
+      <title><![CDATA[Школа магии PHP]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478618/</guid>
+      <link>https://habr.com/ru/post/478618/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478618</link>
+      <description><![CDATA[Что такое магия в PHP? Обычно под этим подразумевают методы вроде <code>_construct()</code> или <code>__get()</code>. Магические методы в PHP — это лазейки, которые помогают разработчикам выполнять удивительные вещи. В сети полно инструкций по их использованию, с которыми вы наверняка знакомы. Но что если мы скажем, что вы даже не видели настоящую магию? Ведь, чем больше вам кажется, что вы знаете все, тем больше магии ускользает от вас.<br>
+<br>
+<img src="https://habrastorage.org/webt/kd/xp/vm/kdxpvmeklgs6av1hp8ldzbnq4vc.jpeg"><br>
+<br>
+Давайте отбросим установленные рамки правил ООП и сделаем невозможное возможным в школе магии PHP. Главный и первый волшебный преподаватель школы — <b>Александр Лисаченко</b> (<a href="https://habr.com/ru/users/nighttiger/" class="user_link">NightTiger</a>). Он научит магическому мышлению и, возможно, вы полюбите магические методы, нестандартные способы доступа к свойствам, изменение контекстов, аспектно-ориентированное программирование и потоковые фильтры.<br>
+<br>
+<div class="oembed"><div><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/1W3UR7v3sAo?rel=0&amp;showinfo=1&amp;hl=en-US" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen scrolling="no"></iframe></div></div></div> <a href="https://habr.com/ru/post/478618/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478618#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 10:16:54 GMT</pubDate>
+      <dc:creator>olegbunin</dc:creator>
+      <category><![CDATA[Блог компании Конференции Олега Бунина (Онтико)]]></category><category><![CDATA[Разработка веб-сайтов]]></category><category><![CDATA[PHP]]></category><category><![CDATA[Программирование]]></category><category><![CDATA[ООП]]></category>
+      <category><![CDATA[phprussia]]></category><category><![CDATA[магия]]></category><category><![CDATA[php]]></category><category><![CDATA[ооп]]></category><category><![CDATA[аспектно-ориентированное]]></category><category><![CDATA[магия php]]></category><category><![CDATA[магические выражения]]></category>
+    </item>
+
+
+
+
+
+
+
+  
+
+
+
+    <item>
+      <title><![CDATA[[Перевод] Продуманные запросы: стратегии кэширования в век PWA]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478326/</guid>
+      <link>https://habr.com/ru/post/478326/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478326</link>
+      <description><![CDATA[Давным-давно мы, в деле кэширования, всецело полагались на браузеры. Разработчики в те дни почти никак не могли на это повлиять. Но потом появились прогрессивные веб-приложения (<a href="https://alistapart.com/article/yes-that-web-project-should-be-a-pwa/">Progressive Web App</a>, PWA), <a href="https://developer.mozilla.org/docs/Web/API/Service_Worker_API">сервис-воркеры</a>, <a href="https://developer.mozilla.org/docs/Web/API/Cache">API Cache</a>. Внезапно случилось так, что в руках программиста оказались широкие полномочия, власть над тем, что попадает в кэш, и над тем, как оно туда попадает. Теперь мы можем кэшировать всё, что хотим… в этом-то и кроется потенциальная проблема.<br>
+<br>
+<a href="https://habr.com/ru/company/ruvds/blog/478326/"><img src="https://habrastorage.org/webt/44/th/2i/44th2idptstxbm0yjtptkzk31pe.jpeg"></a><br>
+<br>
+Медиа-файлы, в особенности — изображения, это то, что в наши дни является основной составной частью <a href="https://httparchive.org/reports/page-weight">размера</a> типичной веб-страницы. Со временем ситуация лишь <a href="https://httparchive.org/reports/page-weight#bytesImg">ухудшается</a>. Для того чтобы повысить производительность страниц, мы пытаемся кэшировать как можно большие объёмы подобных данных. Но стоит ли это делать? В большинстве случаев — не стоит. Даже учитывая то, что в нашем распоряжении теперь есть все эти новомодные технологии, нам, для того, чтобы достичь высокой производительности веб-страниц, всё ещё необходимо придерживаться одного простого правила. Оно заключается в том, что запрашивать с сервера нужно лишь то, что нужно, стремясь при этом к тому, чтобы в ответе на каждый запрос приходило бы как можно <a href="https://alistapart.com/article/the-best-request-is-no-request-revisited">меньше</a> данных.<br>
+<br>
+Мы стремимся к тому, чтобы наши проекты вызывали бы у посетителей лишь положительные ощущения. При этом нам не хотелось бы перегружать сетевые соединения и жёсткие диски пользователей. Это значит, что пришло время дать ход некоторым классическим практическим приёмам, поэкспериментировать со стратегиями кэширования медиаданных и изучить хитрости API Cache, которые скрыты в рукаве у сервис-воркеров.<br> <a href="https://habr.com/ru/post/478326/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478326#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 09:30:01 GMT</pubDate>
+      <dc:creator>ru_vds</dc:creator>
+      <category><![CDATA[Блог компании RUVDS.com]]></category><category><![CDATA[Разработка веб-сайтов]]></category><category><![CDATA[JavaScript]]></category><category><![CDATA[Клиентская оптимизация]]></category>
+      <category>PWA</category><category>кэширование</category><category>JavaScript</category><category>разработка</category>
+    </item>
+
+
+
+  
+
+
+
+    <item>
+      <title><![CDATA[[Перевод] Процедурные дороги в Houdini и Unity]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478516/</guid>
+      <link>https://habr.com/ru/post/478516/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478516</link>
+      <description><![CDATA[<div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/568/18c/687/56818c687d0b46587a12baae541c25aa.jpg" alt="image"></div><br>
+Для моей постапокалиптической игры <a href="http://www.frameshiftgame.com/">Frameshift </a>мне нужно было заполнить очень большой открытый мир разнообразными городами. В нашей команде всего 3 человека, поэтому я, разумеется, воспользовался процедурной мощью Houdini! <br>
+<br>
+Раньше, когда не знал о Houdini, я писал на C# собственные инструменты процедурной генерации мешей для Unity. Добавление новых функций было очень долгим процессом, и когда я однажды услышал, что Houdini предназначен для подобных задач, то сразу перешёл на него. Я поэкспериментировал с разными способами генерации городов и улиц, и в этой статье я вкратце расскажу о методике, которая в конечном итоге была использовала для игры.<br>
+<br>
+Сначала я создал инструмент для генерации сети улиц, которые можно было бы использовать в городе. Моё решение основано на изложенных <a href="https://martindevans.me/game-development/2015/12/11/Procedural-Generation-For-Dummies-Roads/">здесь</a> концепциях, а также на использованной по ссылке статье. Там много говорится о тензорных полях и собственных векторах, и всё написано очень технически, но вкратце это можно объяснить так: для моего случая (генерации дорожной сети на рельефе) мне нужно было сгенерировать контурные линии рельефа, а также линии, перпендикулярные им.<br> <a href="https://habr.com/ru/post/478516/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478516#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 09:01:48 GMT</pubDate>
+      <dc:creator>PatientZero</dc:creator>
+      <category><![CDATA[Работа с 3D-графикой]]></category><category><![CDATA[Разработка игр]]></category><category><![CDATA[Unity]]></category>
+      <category>houdini</category><category>unity3d</category><category>процедурная генерация мешей</category><category>рельеф</category><category>процедурная генерация карт</category>
+    </item>
+
+
+
+      <item>
+      <title><![CDATA[Тестирование AI и стартаперство: интервью с Адамом Карми (Applitools)]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478672/</guid>
+      <link>https://habr.com/ru/post/478672/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478672</link>
+      <description><![CDATA[<p><img src="https://habrastorage.org/webt/na/hu/a6/nahua6mx9kpdhtfal0w6jsrr3w8.jpeg"></p><br>
+<p>Есть популярная фраза «scratch your own itch»: если хочешь создать новый продукт, делай такой, которого тебе самому не хватает. В этом случае лучше всего понимаешь, как сделать его хорошо.</p><br>
+<p>Адам Карми остро ощущал нехватку инструмента для визуального тестирования, который помог бы людям не ломать глаза в поисках поехавшей вёрстки. А в итоге он создал такой инструмент, приспособив для этого AI, и стал одним из сооснователей компании Applitools. Звучит как работа мечты: когда борешься со знакомой тебе болью, то ощущаешь, что меняешь мир к лучшему. Но с какими сложностями сталкивается айтишник, когда от него зависит судьба целой компании?</p><br>
+<p>А поскольку сам инструмент Applitools тоже надо тестировать, Адам узнал многое о тестировании проектов с AI. Уже завтра на <strong>Heisenbug</strong> он расскажет о том, как это делать, и его доклад попадёт в <a href="https://heisenbug-moscow.ru/onlinefree/?utm_source=habr&amp;utm_medium=478672&amp;utm_campaign=heisen19msc">открытую трансляцию</a> — так что все желающие смогут посмотреть его в прямом эфире. А пока что мы расспросили его на обе темы: и о том, каково создавать компанию, и о вещах, связанных с тестированием и AI.</p> <a href="https://habr.com/ru/post/478672/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478672#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 08:49:15 GMT</pubDate>
+      <dc:creator>phillennium</dc:creator>
+      <category><![CDATA[Блог компании JUG Ru Group]]></category><category><![CDATA[Тестирование IT-систем]]></category><category><![CDATA[Тестирование веб-сервисов]]></category><category><![CDATA[Конференции]]></category>
+      <category><![CDATA[AI]]></category><category><![CDATA[тестирование]]></category><category><![CDATA[Adam Carmi]]></category><category><![CDATA[Heisenbug]]></category><category><![CDATA[Applitools]]></category>
+    </item>
+
+
+
+
+
+
+
+      <item>
+      <title><![CDATA[Как мы в ЦИАН укрощали терабайты логов]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478564/</guid>
+      <link>https://habr.com/ru/post/478564/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478564</link>
+      <description><![CDATA[<img src="https://habrastorage.org/getpro/habr/post_images/f5a/f37/994/f5af37994ecad978b8cd3edd3dc7ae0a.png"><br>
+<br>
+Всем привет, меня зовут Александр, я работаю в ЦИАН инженером и занимаюсь системным администрированием и автоматизацией инфраструктурных процессов. В комментариях к одной из прошлых статей нас попросили рассказать, откуда мы берем 4 ТБ логов в день и что с ними делаем. Да, логов у нас много, и для их обработки создан отдельный инфраструктурный кластер, который позволяет нам оперативно решать проблемы. В этой статье я расскажу о том, как мы за год адаптировали его под работу с постоянно растущим потоком данных.<br> <a href="https://habr.com/ru/post/478564/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478564#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 08:37:21 GMT</pubDate>
+      <dc:creator>scor2k</dc:creator>
+      <category><![CDATA[Блог компании ЦИАН]]></category><category><![CDATA[Системное администрирование]]></category><category><![CDATA[IT-инфраструктура]]></category><category><![CDATA[Серверная оптимизация]]></category>
+      <category><![CDATA[elasticsearch]]></category><category><![CDATA[логи]]></category><category><![CDATA[циан]]></category>
+    </item>
+
+
+
+
+
+
+
+  
+
+    <item>
+      <title><![CDATA[[Из песочницы] Почему, а главное, куда люди уходят из IT?]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478680/</guid>
+      <link>https://habr.com/ru/post/478680/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478680</link>
+      <description><![CDATA[Здравствуйте уважаемое хабросообщество. Вчера(<i><s>будучи в не трезвом состоянии</s></i>), прочитав пост от <a href="https://habr.com/ru/users/arslan4ik/">@arslan4ik</a> <a href="https://habr.com/ru/post/478436/">«Почему люди уходят из IT?»</a>, я задумался, ведь действительно хороший вопрос: «Почему..?»<br/>
+<br/>
+Ввиду моего места жительства в солнечном городе Los Angeles, я решил узнать есть ли в моем любимом городе люди по тем или иным причинам ушедшие(<i><s>на темную сторону силы</s></i>) из IT. Нагуглив статистику безработных/потерявших работу/сменивших карьеру(выберите понравившееся) людей, любезно предоставляемой (<i><s>обществом анонимных алкоголиков</s></i>) <a href="https://www.bls.gov">Бюро статистики труда</a>, понял что к нам это мало относится, по этому решил пойти по другому пути и связаться с людьми которые варятся (<i><s>в аду</s></i>) в котле IT. <br/>
+<br/>
+Полистав свой альбом с визитками(да представьте себе у нас такое еще в моде), я быстро нашел контакты г-на Айджимена, Cisco инженера который разрабатывал схему и устанавливал систему умного дома и сигнализации в моей избушке. Оказалось, что текучка в IT, проблема более серьезная чем я себе представлял. Во время беседы, г-н Айджимен предложил познакомить меня с его «гуру», который помог ему открыть ворота в мир IT индустрии, но который по стечению обстоятельств уже не работает в этой сфере. <br/>
+<br/>
+Итак знакомьтесь, <b>RJ</b>, человек отдавший 13 лет IT и его историю развода с любимым делом…<br/>
+ <a href="https://habr.com/ru/post/478680/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478680#habracut">Читать дальше &rarr;</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 08:35:12 GMT</pubDate>
+      <dc:creator>mirusx</dc:creator>
+      <category><![CDATA[Карьера в IT-индустрии]]></category>
+      <category>работа в it</category><category>карьера в it</category><category>карьера ит-специалиста</category>
+    </item>
+
+
+
+
+
+      <item>
+      <title><![CDATA[Как злоумышленники могут читать вашу переписку в Telegram. И как им в этом помешать]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478670/</guid>
+      <link>https://habr.com/ru/post/478670/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478670</link>
+      <description><![CDATA[<div style="text-align:center;"><img src="https://habrastorage.org/webt/1y/xk/yq/1yxkyq5-fgkphtwhgaki4npdpgg.png"></div><br>
+<br>
+В конце 2019 года в отдел расследований киберпреступлений Group-IB обратились несколько российских предпринимателей, которые столкнулись с проблемой несанкционированного доступа неизвестных к их переписке в мессенджере Telegram. Инциденты происходили на устройствах iOS и Android, независимо от того клиентом какого федерального оператора сотовой связи являлся пострадавший.<br>
+<br>
+Атака начиналась с того, что в мессенджер Telegram пользователю приходило сообщение от сервисного канала Telegram (это официальный канал мессенджера с синей галочкой верификации) с кодом подтверждения, который пользователь не запрашивал. После этого на смартфон жертвы падало СМС с кодом активации — и практически сразу же в сервисный канал Telegram приходило уведомление о том, что в аккаунт был произведен вход с нового устройства. <a href="https://habr.com/ru/post/478670/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478670#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 08:03:52 GMT</pubDate>
+      <dc:creator>EditorGIB</dc:creator>
+      <category><![CDATA[Блог компании Group-IB]]></category><category><![CDATA[Информационная безопасность]]></category><category><![CDATA[Исследования и прогнозы в IT]]></category>
+      <category><![CDATA[telegram]]></category><category><![CDATA[iOS]]></category><category><![CDATA[Android]]></category><category><![CDATA[СМС]]></category>
+    </item>
+
+
+
+
+
+
+
+      <item>
+      <title><![CDATA[Как проснуться добреньким? Новый светобудильник «Рассвет Плюс»]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478658/</guid>
+      <link>https://habr.com/ru/post/478658/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478658</link>
+      <description><![CDATA[Светобудильник — в общем неплохая штука. Просыпаться с ним действительно полегче, а начинаешь ненавидеть весь мир значительно позже. В новой же версии есть еще пара фишек, о которых расскажем внутри. <br>
+<br>
+<img src="https://habrastorage.org/webt/1c/3t/lc/1c3tlcbt7t6_dbev9b-m1brekze.jpeg"><br> <a href="https://habr.com/ru/post/478658/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478658#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 08:02:08 GMT</pubDate>
+      <dc:creator>Shevev</dc:creator>
+      <category><![CDATA[Блог компании Medgadgets]]></category>
+      <category><![CDATA[светобудильник]]></category><category><![CDATA[рассвет плюс]]></category><category><![CDATA[рассвет]]></category>
+    </item>
+
+
+
+
+
+
+
+      <item>
+      <title><![CDATA[Кишечная палочка на диете из СО2: новый инструмент в борьбе с глобальным потеплением?]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478492/</guid>
+      <link>https://habr.com/ru/post/478492/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478492</link>
+      <description><![CDATA[<img src="https://habrastorage.org/webt/vl/ic/bt/vlicbtql1eptf_gwa5inbk9m5ec.jpeg"><br>
+<br>
+Любая система, какой бы сложной и многослойной она ни была, имеет свой фундамент — основу, без которой она бы не работала так, как работает. В биосфере нашей планеты также имеются базисные кирпичики, на которых все и держится. Ими являются автотрофы — организмы, способные преобразовывать неорганические соединения в органические. Сегодня мы с вами познакомимся с исследованием, в котором ученые из Израиля создали в лаборатории новый вид бактерий, которые питаются углекислым газом. Какие методы были применены в процессе разработки, как вела себя бактерия, и что данный труд может значить для человечества? Об этом мы узнаем из доклада исследовательской группы. Поехали. <a href="https://habr.com/ru/post/478492/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478492#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 08:00:03 GMT</pubDate>
+      <dc:creator>Dmytro_Kikot</dc:creator>
+      <category><![CDATA[Блог компании ua-hosting.company]]></category><category><![CDATA[Научно-популярное]]></category><category><![CDATA[Биотехнологии]]></category><category><![CDATA[Химия]]></category><category><![CDATA[Экология]]></category>
+      <category><![CDATA[экология]]></category><category><![CDATA[со2]]></category><category><![CDATA[углекислый газ]]></category><category><![CDATA[глобальное потепление]]></category><category><![CDATA[бактерии]]></category><category><![CDATA[кишечная палочка]]></category><category><![CDATA[автотрофы]]></category>
+    </item>
+
+
+
+
+
+
+
+  
+
+    <item>
+      <title><![CDATA[[Из песочницы] USB-звуковая карта на YM3812]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478666/</guid>
+      <link>https://habr.com/ru/post/478666/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478666</link>
+      <description><![CDATA[<p>Я люблю старые компьютерные игры. Люблю старое железо, но не настолько, чтобы коллекционировать его дома. Другое дело – поковырять какой-нибудь старый чип и попробовать самому что-нибудь воспроизвести, совместить старое с новым. В данной статье история о том, как я подключил AVR-микроконтроллер к YM3812, применявшуюся в таких звуковых картах как Adlib, Sound Blaster и Pro AudioSpectrum. Я не создал что-то принципиально новое, просто объединил разные идеи. Возможно кому-то будет интересна моя реализация. А может мой опыт подтолкнет кого-нибудь на создание свого ретро-проекта.</p> <a href="https://habr.com/ru/post/478666/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478666#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 07:18:26 GMT</pubDate>
+      <dc:creator>dead_man</dc:creator>
+      <category><![CDATA[Программирование микроконтроллеров]]></category><category><![CDATA[Старое железо]]></category>
+      <category>opl2</category><category>avr</category><category>v-usb</category>
+    </item>
+
+
+
+
+
+  
+
+
+
+    <item>
+      <title><![CDATA[[Перевод] Отлаживаем развертывание ПО со strace]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478626/</guid>
+      <link>https://habr.com/ru/post/478626/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478626</link>
+      <description><![CDATA[<p><img src="https://habrastorage.org/webt/zi/se/d3/zised39h1shd8invmnqtcvxxdgu.jpeg"></p><br>
+<p>Моя основная работа — это, по большей части, развертывание систем ПО, то есть уйму времени я трачу, пытаясь ответить на такие вот вопросы:</p><br>
+<ul>
+<li>У разработчика это ПО работает, а у меня нет. Почему?</li>
+<li>Вчера это ПО у меня работало, а сегодня нет. Почему?</li>
+</ul><br>
+<p>Это — своего рода отладка, которая немного отличается от обычной отладки ПО. Обычная отладка — это про логику кода, а вот отладка развертывания — это про взаимодействие кода и среды. Даже если корень проблемы — логическая ошибка, тот факт, что на одной машине все работает, а на другой — нет, означает, что дело неким образом в среде.</p><br>
+<p>Поэтому вместо обычных инструментов для отладки вроде <strong>gdb</strong> у меня есть другой набор инструментов для отладки развертывания. И мой любимый инструмент для борьбы с проблемой типа "Почему это ПО у меня не пашет?" называется <strong>strace</strong>.</p> <a href="https://habr.com/ru/post/478626/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478626#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 07:12:29 GMT</pubDate>
+      <dc:creator>nAbdullin</dc:creator>
+      <category><![CDATA[Блог компании Southbridge]]></category><category><![CDATA[Серверное администрирование]]></category><category><![CDATA[Софт]]></category>
+      <category>ops</category><category>tools</category><category>reliability</category><category>servers</category><category>low level</category><category>strace</category>
+    </item>
+
+
+
+      <item>
+      <title><![CDATA[Как работают кодировки текста. Откуда появляются «кракозябры». Принципы кодирования. Обобщение и детальный разбор]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478636/</guid>
+      <link>https://habr.com/ru/post/478636/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478636</link>
+      <description><![CDATA[Данная статья имеет цель собрать воедино и разобрать принципы и механизм работы кодировок текста, подробно этот механизм разобрать и объяснить. Полезна она будет тем, кто только примерно представляет, что такое кодировки текста и как они работают, чем отличаются друг от друга, почему иногда появляются не читаемые символы, какой принцип кодирования имеют разные кодировки. <br>
+<br>
+Чтобы получить детальное понимание этого вопроса придется прочитать и свести воедино не одну статью и потратить довольно значительное время на это. В данном материале же это все собрано воедино и по идее должно сэкономить время и разбор на мой взгляд получился довольно подробный.<br>
+<br>
+О чем будет под катом: принцип работы одно байтовых кодировок (ASCII, Windows-1251 и т.д.), предпосылки появления Unicode, что такое Unicode, Unicode-кодировки UTF-8, UTF-16, их отличия, принципиальные особенности, совместимость и несовместимость разных кодировок, принципы кодирования символов, практический разбор кодирования и декодирования.<br>
+<br>
+Вопрос с кодировками сейчас конечно уже потерял актуальность, но все же знать как они работают сейчас и как работали раньше и при этом не потратить много времени на это думаю лишним не будет.<br> <a href="https://habr.com/ru/post/478636/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478636#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 07:12:28 GMT</pubDate>
+      <dc:creator>fm-00</dc:creator>
+      <category><![CDATA[Программирование]]></category>
+      <category><![CDATA[кодировки]]></category><category><![CDATA[мануал]]></category>
+    </item>
+
+
+
+
+
+
+
+  
+
+
+
+    <item>
+      <title><![CDATA[[Перевод] 50 лет назад в комнате №3420 родился интернет]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478496/</guid>
+      <link>https://habr.com/ru/post/478496/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478496</link>
+      <description><![CDATA[<h3>Это история создания ARPANET, революционного предшественника интернета, рассказанная участниками событий</h3><br>
+<img src="https://habrastorage.org/getpro/habr/post_images/9b3/411/bcd/9b3411bcd896f991f2b1718b1b6973b0.jpg"><br>
+<br>
+Приехав в институт Болтер-Холл при Калифорнийском университете в Лос-Анджелесе (UCLA), я поднялся по лестнице на третий этаж в поисках комнаты №3420. А потом я зашёл в неё. Из коридора она не казалась какой-то особенной.<br>
+<br>
+Но 50 лет назад, 29 октября 1969 года, в ней произошло нечто монументальное. Аспирант Чарли Клайн, сидя за терминалом ITT Teletype, осуществил первую цифровую передачу данных для Билла Дюваля, учёного, сидевшего за другим компьютером, находившимся с Стэнфордском исследовательском институте (сегодня известном, как SRI International), совершенно в другой части Калифорнии. Так началась история <a href="https://habr.com/ru/post/456200/">ARPANET</a>, небольшой сети из академических компьютеров, ставшей предшественницей интернета.<br> <a href="https://habr.com/ru/post/478496/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478496#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 07:00:03 GMT</pubDate>
+      <dc:creator>SLY_G</dc:creator>
+      <category><![CDATA[Сетевые технологии]]></category><category><![CDATA[История IT]]></category>
+      <category>3420</category><category>arpa</category><category>arpanet</category>
+    </item>
+
+
+
+  
+
+
+
+    <item>
+      <title><![CDATA[[Перевод] Вышел Windows Terminal Preview 0.7]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478178/</guid>
+      <link>https://habr.com/ru/post/478178/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478178</link>
+      <description><![CDATA[Представляем новый релиз Windows Terminal preview! Это выпуск v0.7. Как и всегда вы можете скачать Terminal из <a href="https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701">Microsoft Store</a> или со страницы релиза на <a href="https://github.com/microsoft/terminal/releases">GitHub</a>. А вот и новинки:<br>
+<br>
+<h2>Обновления Windows Terminal</h2><br>
+<h3>Панели (panes)</h3><br>
+Теперь вы можете разделить окно терминала на несколько панелей! Это позволяет одновременно открывать несколько командных строк на одной вкладке.<br>
+<br>
+Заметка: В настоящее время вы можете открыть свой профиль по умолчанию только на новой панели. Открытие профиля по вашему выбору — это опция, которую мы планируем включить в будущий выпуск.<br>
+<br>
+<a href="http://devblogs.microsoft.com/commandline/wp-content/uploads/sites/33/2019/11/terminal-panes.gif"><img src="https://habrastorage.org/getpro/habr/post_images/8fd/846/426/8fd8464262f2a92659d4f2acb085a840.gif"></a><br>
+<br>
+Читайте подробнее об остальных новинках под катом. <a href="https://habr.com/ru/post/478178/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478178#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 07:00:02 GMT</pubDate>
+      <dc:creator>sahsAGU</dc:creator>
+      <category><![CDATA[Блог компании Microsoft]]></category><category><![CDATA[Системное администрирование]]></category><category><![CDATA[GitHub]]></category><category><![CDATA[Разработка под Windows]]></category>
+      <category>microsoft</category><category>terminal</category><category>windows terminal</category><category>github</category>
+    </item>
+
+
+
+      <item>
+      <title><![CDATA[Тред Ариадны: как перестать бояться и полюбить JSR-133. Доклад Яндекса]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/477074/</guid>
+      <link>https://habr.com/ru/post/477074/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=477074</link>
+      <description><![CDATA[Многоядерные процессоры — обыденность. Рано или поздно любому программисту-практику придется зайти в лабиринт многопоточного программирования и встретиться с населяющими его «чудовищами». Поговорим о том, с чего начать этот путь и какие инструменты и подходы помогут выйти победителем.<br>
+<br>
+<div class="oembed"><div><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/veYXsOlYb2A?rel=0&amp;showinfo=1&amp;hl=en-US" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen scrolling="no"></iframe></div></div></div><br>
+— Меня зовут Сева Миньков. Я работаю в отделе облачной инфраструктуры поискового департамента. Занимаюсь в основном бэкендом. Пишу на разных языках, но чаще всего это Java и языки, запускаемые на Java Virtual Machine (JVM).<br> <a href="https://habr.com/ru/post/477074/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=477074#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 06:57:46 GMT</pubDate>
+      <dc:creator>minefield</dc:creator>
+      <category><![CDATA[Блог компании Яндекс]]></category><category><![CDATA[Java]]></category><category><![CDATA[Виртуализация]]></category><category><![CDATA[Параллельное программирование]]></category><category><![CDATA[Тестирование веб-сервисов]]></category>
+      <category><![CDATA[многопоточное программирование]]></category><category><![CDATA[java]]></category><category><![CDATA[java concurrency]]></category>
+    </item>
+
+
+
+
+
+
+
+      <item>
+      <title><![CDATA[Инженеры оптимизируют «ловушку» элементарных частиц в CERN]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478660/</guid>
+      <link>https://habr.com/ru/post/478660/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478660</link>
+      <description><![CDATA[Группа молодых ученых НИТУ «МИСиС» разработала прототип принципиально новой «ловушки» элементарных частиц для детектора LHCb в CERN, занимающегося поиском «темной материи». Новое устройство, выполняющее роль абсорбера элементарных частиц, гораздо более устойчиво к высокой радиации, излучаемой работающим детектором. Это позволит увеличить поток элементарных частиц, и в перспективе — получить новые явления при экспериментах с мезонами. Что за «темная материя», и в чем особенность нового абсорбера – в нашей статье.<br>
+<br>
+<a href="https://ibb.co/pzQFPTK"><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/d60/f8c/1f8/d60f8c1f893c3335b3adf29bea85493c.jpg" alt="TUNNEL3-D-V2a-COMPO-smooth-panoramic-montage"></div></a><br> <a href="https://habr.com/ru/post/478660/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478660#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 06:43:35 GMT</pubDate>
+      <dc:creator>mperemitina</dc:creator>
+      <category><![CDATA[Блог компании НИТУ «МИСиС»]]></category><category><![CDATA[Научно-популярное]]></category><category><![CDATA[Физика]]></category>
+      <category><![CDATA[ниту мисис]]></category><category><![CDATA[физика элементарных частиц]]></category>
+    </item>
+
+
+
+
+
+
+
+      <item>
+      <title><![CDATA[Обзор ONYX BOOX Max 3: ридер с максимальным экраном]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/476558/</guid>
+      <link>https://habr.com/ru/post/476558/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=476558</link>
+      <description><![CDATA[<b>Оглавление</b><br>
+<a href="#a0">1. Технические характеристики</a><br>
+<a href="#a1">2. Аппаратное и программное обеспечение</a><br>
+<a href="#a2">3. Чтение книг и документов</a><br>
+<a href="#a3">4. Дополнительные функции</a><br>
+<a href="#a4">5. Автономность</a><br>
+<a href="#a5">6. Итоги и выводы</a><br>
+<br>
+Что самое важное для электронных книг (ридеров) с возможностью производственно-технического применения? Может, мощность процессора, объём памяти, разрешение экрана? Всё перечисленное, конечно, важно; но самое главное — это <b>физический размер экрана</b>: чем он больше, тем лучше!<br>
+<br>
+Это связано с тем, что почти 100% документации разного рода выпускается в формате PDF. А этот формат — «жесткий»; в нём нельзя, например, просто взять и увеличить размер шрифта, не увеличивая заодно и все остальные элементы.<br>
+<br>
+Правда, если PDF содержит текстовый слой (а часто — только сканы изображений), то в некоторых приложениях возможно переформатировать текст (Reflow). Но это не всегда хорошо: документ будет выглядеть уже не так, каким его создал автор.<br>
+<br>
+Соответственно, чтобы страница такого документа с мелким шрифтом была читаемой, сам экран должен быть крупнее!<br>
+<br>
+Иначе документ можно будет читать только по «кусочкам», увеличивая его отдельные области.<br>
+<br>
+После этого вступления разрешите представить героя обзора — электронную книгу ONYX BOOX Max 3 с гигантским экраном в 13.3 дюйма:<br>
+<br>
+<img src="https://habrastorage.org/webt/1x/sc/i6/1xsci6zjb7durjfzqsum3cxq_fw.jpeg" alt="image"><br>
+<i>(изображение с официального сайта производителя)</i><br> <a href="https://habr.com/ru/post/476558/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=476558#habracut">Читать дальше →</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 05:41:41 GMT</pubDate>
+      <dc:creator>IvanPavlov</dc:creator>
+      <category><![CDATA[Блог компании МакЦентр]]></category><category><![CDATA[PDF]]></category><category><![CDATA[Профессиональная литература]]></category><category><![CDATA[Читальный зал]]></category><category><![CDATA[Гаджеты]]></category>
+      <category><![CDATA[onyx boox]]></category><category><![CDATA[onyx boox max 3]]></category><category><![CDATA[ридер]]></category><category><![CDATA[электронная книга]]></category><category><![CDATA[читалка]]></category><category><![CDATA[ebook]]></category><category><![CDATA[eink]]></category><category><![CDATA[e ink carta]]></category><category><![CDATA[большой экран]]></category><category><![CDATA[pdf]]></category><category><![CDATA[djvu]]></category>
+    </item>
+
+
+
+
+
+
+
+      <item>
+      <title><![CDATA[Подсчёт с приблизительным распределением — чаще всего переизобретаемая сортировка]]></title>
+      <guid isPermaLink="true">https://habr.com/ru/post/478654/</guid>
+      <link>https://habr.com/ru/post/478654/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478654</link>
+      <description><![CDATA[<a href="https://habr.com/ru/company/edison/blog/478654/"><img align="left" width="280" height="430" src="https://habrastorage.org/webt/sd/nz/sa/sdnzsaij33eps-i9dygobdrznxe.png"></a><br clear="right">
+Количество более-менее отличающихся друг от друга сортировок гарантированно более сотни. Среди них есть подгруппы алгоритмов, минимально отличающиеся друг от друга, совпадая в какой-то общей главной идее. Фактически в разные годы разными людьми придумываются заново одни и те же сортировки, различающихся в не слишком принципиальных деталях.<br>
+<br>
+Чаще прочих встречается вот такая алгоритмическая идея.<br>
+<br>
+Каждый элемент заносится <i>примерно в то место</i> массива, где он должен находиться. Получается <i>почти упорядоченный</i> массив. К которому или применяется сортировка вставками (она самая эффективная для обработки почти упорядоченных массивов) или локальные неупорядоченные области обрабатываются рекурсивно этим же алгоритмом. <a href="https://habr.com/ru/post/478654/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=478654#habracut">Траффик</a>]]></description>
+      
+      <pubDate>Wed, 04 Dec 2019 05:31:54 GMT</pubDate>
+      <dc:creator>valemak</dc:creator>
+      <category><![CDATA[Блог компании Edison]]></category><category><![CDATA[JavaScript]]></category><category><![CDATA[Java]]></category><category><![CDATA[Совершенный код]]></category><category><![CDATA[Алгоритмы]]></category>
+      <category><![CDATA[edisonsoftware]]></category><category><![CDATA[сортировки]]></category>
+    </item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </channel>
+</rss>

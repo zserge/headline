@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {fetchFeed} from './rss.js';
+import {parseFeed} from './rss.js';
 import fetch from "node-fetch";
 import jsdom from 'jsdom';
 
