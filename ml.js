@@ -3,72 +3,64 @@ import path from 'path';
 import {parseFeed} from './rss.js';
 import jsdom from 'jsdom';
 
+import {Corpus, Similarity} from 'tiny-tfidf';
+
 if (!global.DOMParser) {
   global.DOMParser = new jsdom.JSDOM().window.DOMParser;
 }
 
-const symbols = /[!\"#$%&()*+-./:;<=>?@[\]^_`{|}~\n]/g;
-const stopwords = ["i", "me", "my", "myself", "we", "our", "ours", "ourselves",
-"you", "your", "yours", "yourself", "yourselves", "he", "him", "his",
-"himself", "she", "her", "hers", "herself", "it", "its", "itself", "they",
-"them", "their", "theirs", "themselves", "what", "which", "who", "whom",
-"this", "that", "these", "those", "am", "is", "are", "was", "were", "be",
-"been", "being", "have", "has", "had", "having", "do", "does", "did", "doing",
-"a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while",
-"of", "at", "by", "for", "with", "about", "against", "between", "into",
-"through", "during", "before", "after", "above", "below", "to", "from", "up",
-"down", "in", "out", "on", "off", "over", "under", "again", "further", "then",
-"once", "here", "there", "when", "where", "why", "how", "all", "any", "both",
-"each", "few", "more", "most", "other", "some", "such", "no", "nor", "not",
-"only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will",
-"just", "don", "should", "now"];
+// prettier-ignore
+const stopwords = [
+  'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself', 'it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now',
+];
 
-const words = s => s.toLowerCase()
-  .replace(symbols, ' ').replace(/'/g, '')
-  .split(/\s+/)
-  .filter(w => stopwords.indexOf(w) === -1)
-  .filter(w => w.length > 1);
+const words = s =>
+  s
+    .toLowerCase()
+    .replace(/[!\"#$%&()*+-./:;<=>?@[\]^_`{|}~\n]/g, ' ')
+    .replace(/'/g, '')
+    .replace(/[0-9]/g, '')
+    .split(/\s+/)
+    .filter(w => stopwords.indexOf(w) === -1)
+    .filter(w => w.length > 1);
 
-const stemmer = (function () {
+const stemmer = (function() {
   var step2list = {
-    'ational': 'ate',
-    'tional': 'tion',
-    'enci': 'ence',
-    'anci': 'ance',
-    'izer': 'ize',
-    'bli': 'ble',
-    'alli': 'al',
-    'entli': 'ent',
-    'eli': 'e',
-    'ousli': 'ous',
-    'ization': 'ize',
-    'ation': 'ate',
-    'ator': 'ate',
-    'alism': 'al',
-    'iveness': 'ive',
-    'fulness': 'ful',
-    'ousness': 'ous',
-    'aliti': 'al',
-    'iviti': 'ive',
-    'biliti': 'ble',
-    'logi': 'log'
-  },
-
-    step3list = {
-      'icate': 'ic',
-      'ative': '',
-      'alize': 'al',
-      'iciti': 'ic',
-      'ical': 'ic',
-      'ful': '',
-      'ness': ''
+      ational: 'ate',
+      tional: 'tion',
+      enci: 'ence',
+      anci: 'ance',
+      izer: 'ize',
+      bli: 'ble',
+      alli: 'al',
+      entli: 'ent',
+      eli: 'e',
+      ousli: 'ous',
+      ization: 'ize',
+      ation: 'ate',
+      ator: 'ate',
+      alism: 'al',
+      iveness: 'ive',
+      fulness: 'ful',
+      ousness: 'ous',
+      aliti: 'al',
+      iviti: 'ive',
+      biliti: 'ble',
+      logi: 'log',
     },
-
+    step3list = {
+      icate: 'ic',
+      ative: '',
+      alize: 'al',
+      iciti: 'ic',
+      ical: 'ic',
+      ful: '',
+      ness: '',
+    },
     c = '[^aeiou]', // consonant
     v = '[aeiouy]', // vowel
     C = c + '[^aeiouy]*', // consonant sequence
     V = v + '[aeiou]*', // vowel sequence
-
     mgr0 = '^(' + C + ')?' + V + C, // [C]VC... is m>0
     meq1 = '^(' + C + ')?' + V + C + '(' + V + ')?$', // [C]VC[V] is m=1
     mgr1 = '^(' + C + ')?' + V + C + V + C, // [C]VCVC... is m>1
@@ -102,16 +94,11 @@ const stemmer = (function () {
 
   var porterStemmer = function porterStemmer(token) {
     var w = token.toString();
-    var stem,
-      suffix,
-      firstch,
-      re,
-      re2,
-      re3,
-      re4,
-      fp;
+    var stem, suffix, firstch, re, re2, re3, re4, fp;
 
-    if (w.length < 3) { return w; }
+    if (w.length < 3) {
+      return w;
+    }
 
     firstch = w.substr(0, 1);
     if (firstch === 'y') {
@@ -226,7 +213,7 @@ const stemmer = (function () {
       re = re_mgr1;
       re2 = re_meq1;
       re3 = re3_5;
-      if (re.test(stem) || (re2.test(stem) && !(re3.test(stem)))) {
+      if (re.test(stem) || (re2.test(stem) && !re3.test(stem))) {
         w = stem;
       }
     }
@@ -251,12 +238,68 @@ const stemmer = (function () {
 })();
 
 const files = readdirSync('testdata');
-const news = files.map(f => {
-  const text = readFileSync(path.join('testdata',  f)).toString();
-  return parseFeed(text);
-}).reduce((a, n) => {
-  a = a.concat(n);
-  return a
-}, []).map(n => words(n.title).map(w => stemmer(w)));
+//const news = files.map(f => {
+//const text = readFileSync(path.join('testdata',  f)).toString();
+//return parseFeed(text);
+//}).reduce((a, n) => {
+//a = a.concat(n);
+//return a
+//}, []).map(n => words(n.title).map(w => stemmer(w)));
 
-console.log(news);
+//const counts = {};
+//news.forEach(n => n.forEach(w => {
+//counts[w] = (counts[w]||0) + 1;
+//}));
+
+//news.forEach(n => {
+//const localCounts = {};
+//const tfidf = {};
+//n.forEach(w => {
+//localCounts[w] = (localCounts[w] || 0) + 1;
+//});
+//n.forEach(w => {
+//const tf = localCounts[w] / n.length;
+//const N = Object.keys(counts).length;
+//const idf = Math.log(N / counts[w]);
+//console.log(w, tf * idf);
+//tfidf[w] = tf * idf;
+//});
+//console.log(n, tfidf)
+//});
+
+(function() {
+  const news = files
+    .map(f => {
+      const text = readFileSync(path.join('testdata', f)).toString();
+      return parseFeed(text);
+    })
+    .reduce((a, n) => {
+      a = a.concat(n);
+      return a;
+    }, [])
+    .map(n => n.title);
+
+  const ids = [];
+  news.forEach((n, i) => (ids[i] = `doc${i}`));
+  const corpus = new Corpus(ids, news);
+  const i = (Math.random() * ids.length) | 0;
+  const d = corpus.getDocument(`doc${i}`);
+  const a = corpus.getDocumentVector(`doc${i}`);
+
+  let sim, simidx;
+  for (let j = 0; j < ids.length; j++) {
+    if (j == i) {
+      continue;
+    }
+    const b = corpus.getDocumentVector(`doc${j}`);
+    const sim2 = Similarity.cosineSimilarity(a, b);
+    if (sim === undefined || (sim2 !== 0 && sim < sim2)) {
+      sim = sim2;
+      simidx = j;
+    }
+  }
+  console.log(d._text);
+  console.log(corpus.getDocument(`doc${simidx}`)._text);
+})();
+
+//console.log(counts);
