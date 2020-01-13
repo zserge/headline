@@ -112,6 +112,9 @@ export async function syncFeed(feed) {
     .concat(
       entries.filter(e => feed.entries.findIndex(x => (x.link === e.link || x.title === e.title)) < 0),
     )
+    .sort((a, b) => {
+      return b.timestamp - a.timestamp;
+    })
     .slice(0, MAX_NEWS_PER_FEED);
   return {url: feed.url, entries: mergedEntries};
 }
