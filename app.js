@@ -1,178 +1,225 @@
-import {render, x, useEffect, useState} from './o.mjs';
-import {Feeds} from './rss.js';
+const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
 
-const feeds = new Feeds();
+const DEFAULT_FEEDS = [
+  'https://news.google.com/rss',
+  'https://www.reddit.com/r/programming.rss',
+  'https://www.reddit.com/r/golang.rss',
+  'https://www.reddit.com/r/todayilearned.rss',
+];
 
-let listeners = [];
-let isLoading = false;
-const useFeeds = () => {
-  const refresh = () => listeners.forEach(ln => ln(feeds));
-  // Refresh all feeds
-  const sync = async () => {
-    isLoading = true;
-    requestAnimationFrame(refresh);
-    await feeds.sync();
-    feeds.save();
-    isLoading = false;
-    refresh();
-  };
-  // Add new feed
-  const addFeed = url => {
-    feeds.add(url);
-    feeds.save();
-    sync();
-  };
-  // Remove feed
-  const removeFeed = url => {
-    feeds.remove(url);
-    feeds.save();
-    refresh();
-  };
-  // Get merged, sorted and filtered news items
-  const filterNews = url => feeds.items(url);
-  const ln = useState()[1];
-  useEffect(() => {
-    listeners.push(ln);
-    return () => (listeners = listeners.filter(listener => listener !== ln));
-  }, []);
-  return {feeds: feeds.feeds, loading: isLoading, sync, filterNews, addFeed, removeFeed};
-};
+const MAX_NEWS_PER_FEED = 500;
+const MAX_NEWS_ON_PAGE = 1000;
 
-const NewsList = ({shown, urlFilter}) => {
-  const {filterNews} = useFeeds();
-  const simplifyLink = link => {
-    const parts = link.replace(/^.*:\/\/(www\.)?/, '').split('/');
-    return parts[0];
-  };
-  return x`
-    <div className=${'screen news' + (shown ? '' : ' hidden')}>
-      ${filterNews(urlFilter).reduce((list, n) => {
-        let day = (list.length ? list[list.length - 1].timestamp.toDateString() : '');
-        if (n.timestamp.toDateString() !== day) {
-          list.push({timestamp: n.timestamp});
-        }
-        list.push(n);
-        return list;
-      }, []).map(
-        n => x`
-          <p>
-            ${
-              (!n.link)
-                ? x`<h3 className="day-break">${n.timestamp.toLocaleDateString(undefined, {
-                  month: 'long', day: '2-digit',
-                })}</h3>`
-                : x`<a href=${n.link}>
-                    <span className="title">${n.title}</span>
-                    ${' '}
-                    <em className="link">(${simplifyLink(n.link)})</em>
-                  </a>`
-            }
-          </p>
-        `,
-      )}
-    </div>
-  `;
-};
+const loading = document.querySelector('#loading');
+const menu = document.querySelector('#menu');
+const title = document.querySelector('#title');
+const settings = document.querySelector('#settings');
+const keywords = document.querySelector('#settings textarea');
+const news = document.querySelector('#news');
+const newsFeeds = document.querySelector('#feeds');
 
-const Menu = ({shown, setURLFilter}) => {
-  const {feeds, addFeed, removeFeed} = useFeeds();
-  const [feedName, setFeedName] = useState('');
-  const simplifyLink = link => {
-    const s = link.replace(/^.*:\/\/(www\.)?/, '');
-    const maxLength = 32;
-    if (s.length < maxLength) {
-      return s;
-    } else {
-      return s.substring(0, maxLength / 2) + '…' + s.substring(s.length - maxLength/2);
+const feedItem = document.querySelector('#settings-feed-item');
+const newsItem = document.querySelector('#news-item');
+
+// State = {lastSeen: Date, feeds: Array<Feed>}
+// Feed = {url: String, Entries: Array<Entry>}
+// Entry = {title: String, link: String, timestamp: Date}
+const state = (() => {
+  try {
+    // Restore from local storage
+    let state = JSON.parse(localStorage.getItem('state-v1'));
+    // Parse timestamps from JSON
+    state.feeds.forEach(feed => {
+      feed.entries.forEach(e => {
+        e.timestamp = new Date(e.timestamp);
+      });
+    });
+    return state;
+  } catch (e) {
+    // Try importing settings from the URL
+    try {
+      const settings = JSON.parse(atob(window.location.hash.substring(1)));
+      return {
+        feeds: settings.feeds.map(url => ({url, entries: []})),
+        keywords: settings.keywords,
+      };
+    } catch (e) {
+      // If anything goes wrong - use default values
+      return {
+        feeds: DEFAULT_FEEDS.map(url => ({url, entries: []})),
+        keywords: '',
+      };
     }
-  };
-  const submitForm = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (feedName) {
-      addFeed(feedName);
-      setFeedName('');
-    }
-  };
-  return x`
-    <div className=${'screen menu' + (shown ? '' : ' hidden')}>
-      <ul>
-        <h3>Your feeds:</h3>
-        ${feeds.map(
-          f => x`
-          <li>
-            <a onclick=${() => setURLFilter(f.url)}><span className="title">${simplifyLink(f.url)}</span></a>
-            <a className="svg-icon svg-icon-right svg-baseline" onclick=${() => {
-              if (confirm(`Remove ${f.url}?`)) {
-                removeFeed(f.url);
-              }
-            }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-            </a>
-          </li>
-        `,
-      )}
-      <br/>
-        <li>
-          <form style="width: 100%;" onsubmit=${submitForm}>
-            <input type="text" placeholder="RSS feed" value=${feedName} oninput=${e => setFeedName(e.target.value)} />
-            <a className="svg-icon svg-icon-right svg-baseline" onclick=${submitForm}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-            </a>
-          </form>
-        </li>
-      </ul>
-    </div>
-  `;
-};
+  }
+})();
 
-const MenuButton = ({onclick, className}) => {
-  return x`
-    <div
-      className=${'svg-icon menu-icon ' + className}
-      onclick=${onclick}
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        fill="none" stroke="var(--text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M-6,12 L0,6 L24,6 L12,18" />
-        <path d="M-6,12 L0,18 L24,18 L12,6" />
-        <path d="M3,12 L21,12" />
-      </svg>
-    </div>
-  `;
-};
-
-const App = () => {
-  const {sync, loading} = useFeeds();
-  const [sidebarShown, setSidebarShown] = useState(false);
-  const [urlFilter, setURLFilter] = useState(window.location.hash.substring(1));
-  const toggleSidebar = () => setSidebarShown(!sidebarShown);
-  const chooseOneFeed = (feedURL) => {
-    setURLFilter(feedURL);
-    setSidebarShown(false);
+function save() {
+  localStorage.setItem('state-v1', JSON.stringify(state));
+  const settings = {
+    feeds: state.feeds.map(f => f.url),
+    keywords: state.keywords,
   };
-  useEffect(() => {
-    window.location.hash = '#' + urlFilter;
-    document.title = `Headline - ${urlFilter || 'minimalist news reader'}`
-  }, [urlFilter]);
-  useEffect(async () => {
-    await sync();
+  window.location.hash = btoa(JSON.stringify(settings));
+}
+
+let urlFilter = '';
+
+// parseFeed converts RSS or Atom text into a list of feed entries
+function parseFeed(text) {
+  const xml = new DOMParser().parseFromString(text, 'text/xml');
+  const map = (c, f) => Array.prototype.slice.call(c, 0).map(f);
+  const tag = (item, name) =>
+    (item.getElementsByTagName(name)[0] || {}).textContent;
+  switch (xml.documentElement.nodeName) {
+    case 'rss':
+      return map(xml.documentElement.getElementsByTagName('item'), item => ({
+        link: tag(item, 'link'),
+        title: tag(item, 'title'),
+        timestamp: new Date(tag(item, 'pubDate')),
+      }));
+    case 'feed':
+      return map(xml.documentElement.getElementsByTagName('entry'), item => ({
+        link: map(item.getElementsByTagName('link'), link => {
+          const rel = link.getAttribute('rel');
+          if (!rel || rel === 'alternate') {
+            return link.getAttribute('href');
+          }
+        })[0],
+        title: tag(item, 'title'),
+        timestamp: new Date(tag(item, 'updated')),
+      }));
+  }
+  return [];
+}
+
+const simplifyLink = link => link.replace(/^.*:\/\/(www\.)?/, '');
+
+function renderSettings() {
+  keywords.value = state.keywords;
+  newsFeeds.innerHTML = '';
+  state.feeds.forEach(f => {
+    const el = document.importNode(feedItem.content, true).querySelector('li');
+    el.querySelector('span').innerText = simplifyLink(f.url);
+    el.querySelector('a').onclick = () => {
+      urlFilter = f.url;
+      menu.classList.remove('close');
+      menu.classList.add('back');
+      settings.classList.remove('shown');
+      title.innerText = simplifyLink(f.url);
+      render(urlFilter);
+    };
+    el.querySelectorAll('a')[1].onclick = () => {
+      if (confirm(`Remove ${f.url}?`)) {
+        state.feeds = state.feeds.filter(x => x.url !== f.url);
+        save();
+        window.location.reload();
+      }
+    };
+    newsFeeds.appendChild(el);
   });
-  return x`
-    <div className="app">
-      <div className=${'progress' + (loading ? '' : ' hidden')}>
-        <div className="indeterminate" />
-      </div>
-      <nav>
-        <${MenuButton}
-          className=${urlFilter ? 'back' : sidebarShown ? 'close' : 'burger'}
-          onclick=${urlFilter ? () => chooseOneFeed('') : toggleSidebar}
-        />
-      </nav>
-      <${Menu} shown=${sidebarShown} setURLFilter=${chooseOneFeed} />
-      <${NewsList} shown=${!sidebarShown} urlFilter=${urlFilter} />
-    </div>
-  `;
-};
+}
 
-window.onload = () => render(x`<${App} />`, document.body);
+function render(urlFilter = '') {
+  const marks = state.keywords.split(',').map(k => k.trim()).filter(k => k.length).map(k => {
+    let mode = '';
+    if (k[0] == "/" && k[k.length - 1] == '/') {
+      k = k.substring(1, k.length - 1);
+    } else {
+      k = '\\b' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b';
+      mode = (k.toLowerCase() == k ? 'i' : '');
+    }
+    return new RegExp(k, mode);
+  });
+  const highlight = s => marks.some(m => m.exec(s));
+  const newsList = [].concat(...state.feeds.filter(f => !urlFilter || f.url == urlFilter).map(f => f.entries))
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .slice(0, MAX_NEWS_ON_PAGE);
+
+  news.innerHTML = '';
+  newsList.forEach((n, i) => {
+    // Get or create a new item
+    let el = news.childNodes[i];
+    if (!el) {
+      el = document.importNode(newsItem.content, true).querySelector('li');
+      news.appendChild(el);
+    }
+
+    // If the day has changed between the two adjacent items - show new date delimiter
+    const day = i ? newsList[i - 1].timestamp.toDateString() : '';
+    if (n.timestamp.toDateString() !== day) {
+      el.querySelector('h3').innerText =
+        n.timestamp.toLocaleDateString(undefined, { month: 'long', day: '2-digit' });
+    } else {
+      el.querySelector('h3').innerText = '';
+    }
+
+    el.querySelector('a').href = n.link;
+    el.querySelector('span').innerHTML = n.title;
+    if (highlight(n.title)) {
+      el.querySelector('span').classList.add('marked');
+    } else {
+      el.querySelector('span').classList.remove('marked');
+    }
+    el.querySelector('em').innerText = `(${simplifyLink(n.link).split('/')[0]})`;
+  });
+}
+
+function onMenuClicked() {
+  if (menu.classList.contains('close')) {
+    title.innerText = '';
+    menu.classList.remove('close');
+    settings.classList.remove('shown');
+  } else if (menu.classList.contains('back')) {
+    title.innerText = '';
+    urlFilter = '';
+    menu.classList.remove('back');
+    render(urlFilter);
+  } else {
+    title.innerText = 'Settings';
+    menu.classList.add('close');
+    settings.classList.add('shown');
+  }
+}
+
+function onDoneClicked() {
+  onMenuClicked();
+  render(urlFilter);
+}
+
+function onAddFeedClicked() {
+  const url = prompt(`Enter feed URL:`);
+  if (url) {
+    if (!state.feeds.some(f => f.url === url)) {
+      state.feeds.push({url, entries: []});
+      save();
+      window.location.reload();
+    }
+  }
+}
+
+function onKeywordsChanged(keywords) {
+  state.keywords = keywords;
+  save();
+}
+
+(async () => {
+  // Render cached news
+  save();
+  renderSettings();
+  render(urlFilter);
+  // Fetch each feed and render the settings screen
+  for (const feed of state.feeds) {
+    const f = parseFeed(await fetch(DEFAULT_CORS_PROXY(feed.url)).then(res => res.text()));
+    feed.entries = feed.entries
+      .concat(
+        f.filter(e => feed.entries.findIndex(x => (x.link === e.link || x.title === e.title)) < 0),
+      )
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .slice(0, MAX_NEWS_PER_FEED);
+    localStorage.setItem('state-v1', JSON.stringify(state));
+  }
+  
+  // Hide loading indicator
+  loading.classList.add('hidden');
+  render(urlFilter);
+})();

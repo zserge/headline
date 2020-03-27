@@ -1,15 +1,64 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Headline</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-		<link rel="manifest" href="site.webmanifest">
-		<link rel="stylesheet" href="styles.css">
-		<script type="module" src="app.js"></script>
-	</head>
-	<body>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="utf8">
+    <title>Headline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Loading indicator -->
+    <div id="loading"><div></div></div>
+
+    <!-- Menu bar -->
+    <nav>
+      <a id="menu" onclick="onMenuClicked()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+           viewBox="0 0 24 24" fill="none" stroke="var(--color-text)"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M-6,12 L0,6 L24,6 L12,18" />
+          <path d="M-6,12 L0,18 L24,18 L12,6" />
+          <path d="M3,12 L21,12" />
+        </svg>
+      </a>
+      <h3 id="title"></h3>
+    </nav>
+
+    <header id="settings">
+      <section>
+      <h3>Your feeds:</h3>
+        <ul id="feeds">
+          <template id="settings-feed-item">
+            <li>
+              <span></span> — <a>view</a> — <a>remove</a>
+            </li>
+          </template>
+        </ul>
+      </section>
+      <section>
+        <a onclick="onAddFeedClicked()">Add new feed…</a>
+      </section>
+      <section>
+        <h3>Highlight by keywords:</h3>
+        <textarea rows="4" cols="49" oninput="onKeywordsChanged(this.value)"></textarea>
+      </section>
+      <section>
+        <button onclick="onDoneClicked()">Done</button>
+      </section>
+    </header>
+
+    <!-- News feed -->
+    <article>
+      <ul id="news">
+        <template id="news-item">
+          <li>
+            <h3></h3>
+            <a><span></span><em></em></a>
+          </li>
+        </template>
+      </ul>
+    </article>
+
+    <script src="app.js"></script>
+  </body>
 </html>
