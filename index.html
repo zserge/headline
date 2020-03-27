@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf8">
     <title>Headline</title>
+    <meta name="description" content="A minimalistic RSS reader.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
 
@@ -52,8 +53,8 @@
         <a onclick="onAddFeedClicked()">Add new feed…</a>
       </section>
       <section>
-        <h3>Highlight by keywords:</h3>
-        <textarea rows="4" cols="49" oninput="onKeywordsChanged(this.value)"></textarea>
+        <label for="keywords"><h3>Highlight by keywords:</h3></label>
+        <textarea id="keywords" rows="4" cols="49" oninput="onKeywordsChanged(this.value)"></textarea>
       </section>
       <section>
         <button onclick="onDoneClicked()">Done</button>
